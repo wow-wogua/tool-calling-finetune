@@ -1,0 +1,82 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 怎么判断一个视频是不是真的爆了"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"判断一个视频是不是真的爆了\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频的健康度指标有哪些"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"视频的健康度指标有哪些\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: B站的流量是怎么分配的"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站的流量是分配的\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频标题有什么撰写技巧"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频标题有撰写技巧\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 找一下最近的科技区热门"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"bilibili\"]}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"找一下最近的科技区热门\", \"top_k\": 5}}"
+    }
+  }
+]

@@ -1,0 +1,3016 @@
+[
+  {
+    "instruction": "知识库里有没有关于黄金3秒的内容",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "黄金3秒",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "抖音娱乐区有啥爆款没",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "娱乐",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "看看这个视频的增长曲线",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "有没有关于黄金3秒的方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "黄金3秒",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "抖音视频数据趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "帮我找B站游戏区最近火的视频",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"游戏\", \"platforms\": [\"bilibili\"]}}"
+  },
+  {
+    "instruction": "B站舞蹈区最近啥最火",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "舞蹈",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "查一下短视频带货",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频带货",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我写一个短视频脚本大纲",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "CTR是什么指标",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "短视频行业前景怎么样",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "分析快手萌宠区最近一周点赞最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "B站汽车热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "汽车",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "现在做短视频还来得及吗",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "查一下账号定位",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "账号定位",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "帮我归纳一下主要观点",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "这个视频的趋势数据帮我看看",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "短视频行业前景怎么样",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么理解直播运营",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "直播运营",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么计算视频的互动率",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频互动率计算方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频的健康度指标有哪些",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频健康度指标",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "爆款公式是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "爆款公式",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我记录一下这个视频的内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "什么是爆款视频",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "看看B站最近有啥好看的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "怎么做才能让视频被更多人看到",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我写一个视频的简介",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频里的人说了什么",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "快手游戏热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "找B站知识区最近火的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "对比快手和抖音游戏区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "kuaishou",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "转写这个视频的台词",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "帮我查一下黄金3秒的规则",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "黄金3秒",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频讲了什么，帮我转写出来",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "视频涨粉速度怎么样",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "检索一下账号定位的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "账号定位",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "什么是短视频的黄金3秒",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "提取视频的讲述内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "怎么理解完播率优化",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "完播率优化",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "检索一下B站推荐算法的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站推荐算法",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "帮我分析一下",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "怎么提高短视频的完播率",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频完播率提升方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么分析竞品账号，有没有框架可以用",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"竞品分析框架\", \"top_k\": 5}}"
+  },
+  {
+    "instruction": "帮我瞅瞅B站生活区最近有啥火的",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"生活\", \"platforms\": [\"bilibili\"]}}"
+  },
+  {
+    "instruction": "帮我对比视频上月和本月数据",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "总结一下刚才的发现",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "检索一下竞品分析的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "竞品分析",
+        "top_k": 10
+      }
+    }
+  },
+  {
+    "instruction": "短视频和直播哪个好",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么用AIDA模型写短视频脚本",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "AIDA模型短视频脚本",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "快手视频热度变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "怎么让视频上热门",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "短视频的定义是什么",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "看看抖音动画区有什么热门内容",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "动画",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频标题有什么撰写技巧",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频标题撰写技巧",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我转写视频的语音内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "搜索B站和抖音娱乐区的热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "娱乐",
+        "platforms": [
+          "bilibili",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "搜索B站科技区本月播放量最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "科技",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "我想看看这个视频的话术",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "B站的推荐算法是什么原理",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站推荐算法原理\", \"top_k\": 5}}"
+  },
+  {
+    "instruction": "有没有品牌合作的报告可以参考",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "品牌合作",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "帮我瞅瞅B站职场区最近有啥火的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "职场",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "怎么搭建内容矩阵，有没有框架可以用",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "爆款公式",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "怎么做短视频SEO，有没有框架可以用",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "互动率提升",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我总结一下刚才的分析结果",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "看看这个视频最近的数据变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "获取视频的语音转文字结果",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "把这个视频转成文字 https://www.bilibili.com/video/BV1yy411c7mE",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "帮我整理视频的文字版",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "把视频里说的话整理成文字",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "对比快手和B站美妆区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "kuaishou",
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "视频播放量变化趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "怎么设计视频封面",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "总结一下",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么提高完播率",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "视频推荐流量变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "你是谁",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "检索知识库中关于用户画像分析的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "用户画像分析",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "怎么分析一个账号的运营策略",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "账号运营策略分析方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频开头怎么做才抓人",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "有没有钩子设计的案例",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "钩子设计",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频带货的最佳实践是什么",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频带货",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我找B站萌宠区的热门合集",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "搜索快手知识区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "B站的流量是怎么分配的",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站流量分配机制",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频行业的前景怎么样",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我整理一下今天的分析要点",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "对比快手和抖音影视区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "影视",
+        "platforms": [
+          "kuaishou",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "怎么写一个吸引人的短视频开头",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频开头写法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频拍摄有什么技巧",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "B站推荐算法有什么好的做法",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站推荐算法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "找快手舞蹈区热门视频TOP5",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "舞蹈",
+        "platforms": [
+          "kuaishou"
+        ],
+        "limit": 5
+      }
+    }
+  },
+  {
+    "instruction": "你觉得做美食视频好还是游戏视频好",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "之前做过哪些行业的视频分析",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "行业视频分析历史",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的播放量趋势怎么样",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"bilibili\"}}"
+  },
+  {
+    "instruction": "这个视频的播放量趋势怎么样",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "视频内容转写",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的流量趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "抖音影视热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "影视",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我总结一下分析结果",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "给我一些创作灵感",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "获取快手热门排行榜前20名",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "kuaishou"
+        ],
+        "limit": 20
+      }
+    }
+  },
+  {
+    "instruction": "找快手最近三天搞笑区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "搞笑",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "检索知识库中关于B站推荐算法的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站推荐算法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我找一下评论区运营的资料",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "评论区运营",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么做短视频才能火",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频完播率趋势怎么样",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "之前有没有分析过美妆区的爆款",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "美妆区爆款分析",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "介绍一下你自己",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "看看快手美妆区有什么热门内容",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "搜索抖音和快手知识区的热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "douyin",
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频的发布时间怎么选",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频发布时间选择",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "对比B站和快手时尚区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "时尚",
+        "platforms": [
+          "bilibili",
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "找B站搞笑区最近火的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "搞笑",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "最近一周数据变化大吗",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "分析抖音汽车区最近一周点赞最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "汽车",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我分析一下视频的趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "搜索B站美妆区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "找快手萌宠区最近火的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "你能帮我做什么",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "有没有抖音流量分配相关的参考",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "抖音流量分配",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频变现是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频变现",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频内容文字化",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "对比快手和抖音知识区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "kuaishou",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "提取视频中的口播文案",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "整理一下分析报告的要点",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "给我几个B站美妆区的选题建议",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "互动率怎么计算",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我写一个短视频脚本大纲",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "体育区爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "体育",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "播放量最近涨了吗",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "找B站最近三天时尚区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "时尚",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我瞅瞅抖音动画区最近有啥火的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "动画",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我分析一下",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "对比B站和快手萌宠区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "bilibili",
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "有没有短视频运营相关的参考",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频运营",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频运营有什么好的做法",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频运营",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "你是做什么的",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "获取快手美妆区前10名视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "kuaishou"
+        ],
+        "limit": 10
+      }
+    }
+  },
+  {
+    "instruction": "帮我做个报告",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么做短视频的竞品分析",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频竞品分析方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "B站情感区最近啥最火",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "情感",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "提取视频里的文案",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "有没有评论区运营的案例",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "评论区运营",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么理解粉丝留存",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "粉丝留存",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "最近数据有什么波动",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "看看视频的自然流量趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "提取这个视频的文案 https://www.douyin.com/video/123456",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "知识库里有没有关于违规避坑的内容",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "违规避坑",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "给我推荐几个B站美妆区的UP主",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么提升视频质量",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "短视频标题怎么写吸引人",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频解说词转写",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "帮我看看这个视频说了啥",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "查一下这个视频的涨粉趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "分析抖音体育区最近一周点赞最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "体育",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的数据健康吗",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "什么是内容矩阵",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "看看数据有没有下滑",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "搜索抖音美食区热门视频TOP20",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"美食\", \"platforms\": [\"douyin\"], \"limit\": 20}}"
+  },
+  {
+    "instruction": "这个视频的互动数据变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "把视频里说的话整理成文字",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+  },
+  {
+    "instruction": "搜索B站汽车区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "汽车",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "快手和抖音的算法有什么区别",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "快手抖音算法区别",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我找快手职场区的热门MV",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "职场",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "完播率是什么意思",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "这个视频的数据有没有异常",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "什么是短视频SEO",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "对比一下这个视频上周和这周的数据",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"bilibili\"}}"
+  },
+  {
+    "instruction": "查一下这个抖音视频的涨粉趋势",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"douyin\"}}"
+  },
+  {
+    "instruction": "帮我转写一下这个视频",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "分析一下这个",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "短视频选题有什么方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频选题方法论",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "搜索抖音数码区本月播放量最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "数码",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "视频数据最近怎么样",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "找快手舞蹈区最近火的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "舞蹈",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "看看BV1yy411c7mE最近的数据",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "有没有美食类视频的分析案例",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "美食类视频分析案例",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我起一个吸引人的标题",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "搜索抖音知识区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频账号怎么涨粉",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频数据有没有周期性波动",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "获取快手热门排行榜前50名",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "kuaishou"
+        ],
+        "limit": 50
+      }
+    }
+  },
+  {
+    "instruction": "抖音上什么内容容易被限流",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "抖音限流规则",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "找抖音情感区热门视频TOP10",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "情感",
+        "platforms": [
+          "douyin"
+        ],
+        "limit": 10
+      }
+    }
+  },
+  {
+    "instruction": "有没有关于直播带货的分析报告",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "直播带货分析报告",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么理解账号定位",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "账号定位",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的文案帮我抄一下",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "帮我看看视频的长期表现",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "怎么判断一个视频是不是真的爆了",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频爆款判断标准",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频是什么时候开始爆的，帮我看看数据走势",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"bilibili\"}}"
+  },
+  {
+    "instruction": "短视频带货是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频带货",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "提取视频脚本文案",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "怎么入行短视频",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我提取视频里的关键话术",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "看看视频的数据走势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "搜索B站职场区本月播放量最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "职场",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我查一下评论区运营的规则",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "评论区运营",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频热度什么时候到顶的",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "什么是用户画像",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "动画区爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "动画",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我看看最近有什么新闻",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我找快手时尚区的热门视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "时尚",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "对比抖音和快手音乐区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "音乐",
+        "platforms": [
+          "douyin",
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "检索一下品牌合作的文档",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "品牌合作",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "你是AI吗",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "获取这个视频的字幕内容 https://www.bilibili.com/video/BV1xx411c7mD",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1xx411c7mD\"}}"
+  },
+  {
+    "instruction": "分析快手情感区的爆款视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "情感",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "有没有关于短视频运营的方法论",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频运营方法论\", \"top_k\": 5}}"
+  },
+  {
+    "instruction": "短视频和直播哪个更有前途",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "根据已有数据，给出运营建议",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "舞蹈热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "舞蹈",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我把视频转成文稿",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1yy411c7mE"
+      }
+    }
+  },
+  {
+    "instruction": "视频里的口播文案帮我整理一下",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "短视频的数据分析框架是什么",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频数据分析框架",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "怎么让视频更容易上热门",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我设计一个视频封面的文案",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "AIDA模型是什么",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "怎么提高完播率",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "对比一下这个视频上周和这周的数据",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "检索一下之前做过的美妆区分析报告",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"美妆区分析报告\", \"top_k\": 3}}"
+  },
+  {
+    "instruction": "根据这些数据给个结论",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频最近的热度变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "有没有标题撰写技巧的案例",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "标题撰写技巧",
+        "top_k": 10
+      }
+    }
+  },
+  {
+    "instruction": "钩子设计是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "钩子设计",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我转写这个视频的口播内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "抖音的推荐算法是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "抖音推荐算法原理",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频是突然爆的还是慢慢涨的",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "分析快手游戏区的爆款视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频平台的审核规则有哪些",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频审核规则",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我查一下视频封面设计的规则",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频封面设计",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "搜索B站知识区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我查一下内容选题策略的规则",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "内容选题策略",
+        "top_k": 10
+      }
+    }
+  },
+  {
+    "instruction": "知识库里有没有关于AIDA框架的内容",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"AIDA框架\", \"top_k\": 5}}"
+  },
+  {
+    "instruction": "现在做什么类型的短视频最火",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "有没有关于短视频脚本结构的方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频脚本结构",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "萌宠区爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "什么时候开始起量的",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "帮我找抖音萌宠区的热门解说",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "萌宠",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "转写视频对话内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1yy411c7mE"
+      }
+    }
+  },
+  {
+    "instruction": "提取视频里的文案，我想看看话术",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+  },
+  {
+    "instruction": "什么是爆款视频",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "转写视频 https://www.bilibili.com/video/BV1xx411c7mD",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "帮我查一下视频的历史数据",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "帮我把视频语音转成文字稿",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "短视频的内容矩阵怎么搭建",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频内容矩阵搭建",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "音乐区爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "音乐",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我找抖音影视区的热门MV",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "影视",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "帮我把视频内容转成文字",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "看看快手最近有啥好看的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "怎么理解短视频SEO",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频SEO",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "获取B站热门排行榜前20名",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"bilibili\"], \"limit\": 20}}"
+  },
+  {
+    "instruction": "获取这个视频的字幕内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "找快手游戏区最近火的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的脚本是什么，帮我转写一下",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+  },
+  {
+    "instruction": "你好",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "获取快手热门排行榜前30名",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "kuaishou"
+        ],
+        "limit": 30
+      }
+    }
+  },
+  {
+    "instruction": "抖音的完播率怎么计算的",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "抖音完播率计算方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "这个视频有没有字幕，帮我获取",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1yy411c7mE"
+      }
+    }
+  },
+  {
+    "instruction": "找快手最近三天游戏区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "黄金3秒是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "黄金3秒",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "分析B站美妆区的爆款视频",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"美妆\", \"platforms\": [\"bilibili\"], \"limit\": 10}}"
+  },
+  {
+    "instruction": "视频开头的钩子怎么设计",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频开头钩子设计",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "短视频SEO有什么好的做法",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频SEO",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的旁白帮我整理一下",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "查一下BV1xx411c7mD的趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "视频互动率趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "douyin"
+      }
+    }
+  },
+  {
+    "instruction": "搜索快手和抖音科技区的热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "科技",
+        "platforms": [
+          "kuaishou",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "给我看看数据",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "根据已有数据，给出运营建议",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "获取视频的完整文案",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1yy411c7mE"
+      }
+    }
+  },
+  {
+    "instruction": "找B站最近三天美妆区的爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "看看B站和抖音的科技区有什么热门内容",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"科技\", \"platforms\": [\"bilibili\", \"douyin\"]}}"
+  },
+  {
+    "instruction": "行业趋势的最佳实践是什么",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "行业趋势",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "今天天气怎么样",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我写一个关于美食的短视频脚本",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "搜索B站科技区热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "科技",
+        "platforms": [
+          "bilibili"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的脚本是什么，帮我转写",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "这个视频是什么时候开始爆的",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "帮我记录视频中的要点",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "搜索快手和抖音美妆区的热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "美妆",
+        "platforms": [
+          "kuaishou",
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频运营有哪些常见的方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频运营方法论",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "看看BV1xx411c7mD最近的数据变化",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"bilibili\"}}"
+  },
+  {
+    "instruction": "看看快手科技区有什么热门内容",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "科技",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "搞笑热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "搞笑",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "你是谁开发的",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "看看评论量的变化",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "短视频的脚本结构怎么设计",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频脚本结构设计",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "B站的推荐机制和抖音有什么不同",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站抖音推荐机制对比",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "抖音游戏区最近啥最火",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "游戏",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "有没有关于平台规则的方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "平台规则",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频封面怎么设计更吸引人",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "视频封面设计技巧",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我瞅瞅快手知识区最近有啥火的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "知识",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "短视频运营需要什么技能",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "视频字幕提取",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "搜索抖音生活区本月播放量最高的视频",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "生活",
+        "platforms": [
+          "douyin"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "这个视频的数据表现如何",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "VIDEO_ID",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "做短视频赚钱吗",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "你好，你是做什么的",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "帮我转写 https://www.bilibili.com/video/BV1xx411c7mD 的内容",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "视频播放量什么时候破的百万",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1yy411c7mE",
+        "platform": "kuaishou"
+      }
+    }
+  },
+  {
+    "instruction": "快手搞笑热门",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "搞笑",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "找抖音搞笑区热门视频TOP10",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "搞笑",
+        "platforms": [
+          "douyin"
+        ],
+        "limit": 10
+      }
+    }
+  },
+  {
+    "instruction": "舞蹈区爆款",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "舞蹈",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "我的视频播放量很低怎么办",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "帮我瞅瞅快手职场区最近有啥火的",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "职场",
+        "platforms": [
+          "kuaishou"
+        ]
+      }
+    }
+  },
+  {
+    "instruction": "你都会什么",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "获取抖音热门排行榜前5名",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "",
+        "platforms": [
+          "douyin"
+        ],
+        "limit": 5
+      }
+    }
+  },
+  {
+    "instruction": "找B站影视区热门视频TOP10",
+    "output": {
+      "tool": "search_videos",
+      "params": {
+        "keyword": "影视",
+        "platforms": [
+          "bilibili"
+        ],
+        "limit": 10
+      }
+    }
+  },
+  {
+    "instruction": "知识库里有没有关于短视频脚本结构的内容",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频脚本结构",
+        "top_k": 3
+      }
+    }
+  },
+  {
+    "instruction": "视频内容转文本",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "https://www.bilibili.com/video/BV1xx411c7mD"
+      }
+    }
+  },
+  {
+    "instruction": "怎么分析竞品账号，有没有框架可以用",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "发布时间选择",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "视频分享数据趋势",
+    "output": {
+      "tool": "get_trend_data",
+      "params": {
+        "video_id": "BV1xx411c7mD",
+        "platform": "bilibili"
+      }
+    }
+  },
+  {
+    "instruction": "怎么做一个爆款视频的选题策划",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "爆款视频选题策划方法",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "口播内容转文字",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "B站的权重机制是怎样的",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "B站权重机制",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "推荐几本书",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "互动率提升是什么原理",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "互动率提升",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "给我几个B站美妆区的选题建议",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"none\", \"params\": {}}"
+  },
+  {
+    "instruction": "视频里说了啥帮我写出来",
+    "output": {
+      "tool": "get_transcript",
+      "params": {
+        "video_url": "VIDEO_URL"
+      }
+    }
+  },
+  {
+    "instruction": "最近有什么好看的电影推荐",
+    "output": {
+      "tool": "none",
+      "params": {}
+    }
+  },
+  {
+    "instruction": "知识库里有没有关于标题撰写技巧的内容",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "标题撰写技巧",
+        "top_k": 5
+      }
+    }
+  },
+  {
+    "instruction": "帮我转写这个视频的口播内容",
+    "input": "可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据\n- rag_search(query, top_k): 从知识库检索参考文档\n- get_transcript(video_url): 获取视频转写\n- get_trend_data(video_id, platform): 获取视频历史趋势数据\n- 无需工具: 如果任务不需要调用任何工具",
+    "output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+  },
+  {
+    "instruction": "有没有关于短视频运营的方法论",
+    "output": {
+      "tool": "rag_search",
+      "params": {
+        "query": "短视频运营",
+        "top_k": 5
+      }
+    }
+  }
+]

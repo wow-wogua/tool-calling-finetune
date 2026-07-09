@@ -1,0 +1,178 @@
+{
+  "timestamp": "2026-07-10T00:09:16.611960",
+  "test_cases": 20,
+  "cases_file": "data\\eval\\hard_holdout_v3.json",
+  "results": {
+    "outputs\\qwen3_dpo_tool_calling_merged_v3": {
+      "model": "outputs\\qwen3_dpo_tool_calling_merged_v3",
+      "adapter": null,
+      "total": 20,
+      "tool_accuracy": 65.0,
+      "full_accuracy": 35.0,
+      "tool_correct": 13,
+      "full_correct": 7,
+      "details": [
+        {
+          "case": 1,
+          "input": "我要查短视频推荐机制资料，不是找热门视频",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 2,
+          "input": "平台流量池规则有没有资料能引用",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 3,
+          "input": "内容审核规则和限流机制先查资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 4,
+          "input": "开头三秒留人方法有没有系统框架",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 5,
+          "input": "短视频钩子设计有哪些可复用方法",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 6,
+          "input": "账号人设定位有没有内部资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 7,
+          "input": "竞品账号拆解有哪些标准维度",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 8,
+          "input": "视频脚本结构方法论能不能查一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 9,
+          "input": "内容数据分析指标框架有没有资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 10,
+          "input": "封面点击率提升资料帮我找一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "search_videos",
+          "tool_correct": false,
+          "fully_correct": false
+        },
+        {
+          "case": 11,
+          "input": "快手科技内容最近火的样本先搜一下",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 12,
+          "input": "抖音知识内容现在什么样，拿热门视频看看",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 13,
+          "input": "B站财经区最近爆款视频先拉几条",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 14,
+          "input": "快手生活赛道最近热视频找一些",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 15,
+          "input": "小红书美妆热门内容拿10条样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "tool_correct": true,
+          "fully_correct": false
+        },
+        {
+          "case": 16,
+          "input": "不用查资料，直接给我三个开头钩子",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 17,
+          "input": "别调用工具，解释一下账号定位是什么",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 18,
+          "input": "根据我给的信息写一段竞品分析结论",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 19,
+          "input": "不要搜模板，直接写一版脚本结构",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "tool_correct": true,
+          "fully_correct": true
+        },
+        {
+          "case": 20,
+          "input": "直接解释一下完播率和互动率",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "tool_correct": true,
+          "fully_correct": true
+        }
+      ]
+    }
+  }
+}

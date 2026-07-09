@@ -1,0 +1,222 @@
+[
+  {
+    "input": "先抓一批B站科技区最近火起来的视频样本",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "科技", "platforms": ["bilibili"]}
+  },
+  {
+    "input": "抖音美食相关的热门内容帮我拉10条",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "美食", "platforms": ["douyin"], "limit": 10}
+  },
+  {
+    "input": "B站全站热门先拿20个做样本",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "", "platforms": ["bilibili"], "limit": 20}
+  },
+  {
+    "input": "快手生活类内容最近有没有爆的，先搜一下",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "生活", "platforms": ["kuaishou"]}
+  },
+  {
+    "input": "对比B站和抖音科技区近期热门，先把数据找出来",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "科技", "platforms": ["bilibili", "douyin"]}
+  },
+  {
+    "input": "想分析B站音乐区，先找几个播放高的视频",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "音乐", "platforms": ["bilibili"]}
+  },
+  {
+    "input": "给我取一下抖音美妆赛道最近的热门视频",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "美妆", "platforms": ["douyin"]}
+  },
+  {
+    "input": "B站知识区热门内容要做复盘，先搜前15个",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "知识", "platforms": ["bilibili"], "limit": 15}
+  },
+  {
+    "input": "有没有B站游戏区最近火的视频，拿几条看看",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "游戏", "platforms": ["bilibili"]}
+  },
+  {
+    "input": "快手科技内容现在什么样，先检索热门样本",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "科技", "platforms": ["kuaishou"]}
+  },
+  {
+    "input": "找一下B站影视解说方向近期热门视频",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "影视", "platforms": ["bilibili"]}
+  },
+  {
+    "input": "抖音和快手美食赛道都搜一下，后面做对比",
+    "expected_tool": "search_videos",
+    "expected_params": {"keyword": "美食", "platforms": ["douyin", "kuaishou"]}
+  },
+  {
+    "input": "我需要平台算法资料，不是视频样本",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "平台算法资料"}
+  },
+  {
+    "input": "B站推荐机制的资料库里有没有总结",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "B站推荐机制"}
+  },
+  {
+    "input": "短视频开头钩子有什么系统方法",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "短视频开头钩子"}
+  },
+  {
+    "input": "查一查完播率优化的框架，我要引用到报告里",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "完播率优化框架"}
+  },
+  {
+    "input": "有没有关于账号定位的内部方法论",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "账号定位方法论"}
+  },
+  {
+    "input": "抖音限流规则这类平台规则先找资料",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "抖音限流规则"}
+  },
+  {
+    "input": "竞品账号应该从哪些维度拆解，有没有参考框架",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "竞品账号拆解框架"}
+  },
+  {
+    "input": "短视频脚本结构有没有成熟模板可以查",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "短视频脚本结构模板"}
+  },
+  {
+    "input": "想找历史报告里关于美妆内容的规律",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "美妆内容历史报告规律"}
+  },
+  {
+    "input": "B站和抖音的流量分发差异，先查方法论资料",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "B站 抖音 流量分发差异"}
+  },
+  {
+    "input": "封面点击率怎么提升，有没有资料可参考",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "封面点击率提升"}
+  },
+  {
+    "input": "短视频数据分析一般看哪些指标",
+    "expected_tool": "rag_search",
+    "expected_params": {"query": "短视频数据分析指标"}
+  },
+  {
+    "input": "这条视频的口播稿帮我扒出来",
+    "expected_tool": "get_transcript",
+    "expected_params": {}
+  },
+  {
+    "input": "把链接里的声音内容转成文字",
+    "expected_tool": "get_transcript",
+    "expected_params": {}
+  },
+  {
+    "input": "我需要这个视频的逐字稿",
+    "expected_tool": "get_transcript",
+    "expected_params": {}
+  },
+  {
+    "input": "这个视频说了什么，先转写一下",
+    "expected_tool": "get_transcript",
+    "expected_params": {}
+  },
+  {
+    "input": "提取一下视频里的核心话术",
+    "expected_tool": "get_transcript",
+    "expected_params": {}
+  },
+  {
+    "input": "看下这个视频最近七天播放有没有继续涨",
+    "expected_tool": "get_trend_data",
+    "expected_params": {}
+  },
+  {
+    "input": "这条内容是不是突然起量，查一下趋势",
+    "expected_tool": "get_trend_data",
+    "expected_params": {}
+  },
+  {
+    "input": "视频互动数据这几天有没有下滑",
+    "expected_tool": "get_trend_data",
+    "expected_params": {}
+  },
+  {
+    "input": "帮我看一下BV号对应视频的历史热度",
+    "expected_tool": "get_trend_data",
+    "expected_params": {}
+  },
+  {
+    "input": "这个视频的评论和点赞走势查一下",
+    "expected_tool": "get_trend_data",
+    "expected_params": {}
+  },
+  {
+    "input": "给我写一个B站科技区选题方案",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "不要搜数据，直接给我几个标题方向",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "根据刚才的结果总结三条运营建议",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "帮我把报告改得更像给老板看的版本",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "短视频脚本帮我写个大纲，不需要查资料",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "先别调用工具，解释一下什么叫完播率",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "我只是想要创意，不用去搜热门视频",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "帮我润色下面这段分析结论",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "如果我是新账号，前三条视频怎么规划",
+    "expected_tool": null,
+    "expected_params": {}
+  },
+  {
+    "input": "用一句话解释爆款视频的共同点",
+    "expected_tool": null,
+    "expected_params": {}
+  }
+]

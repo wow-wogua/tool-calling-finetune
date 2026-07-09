@@ -1,0 +1,122 @@
+[
+  {
+    "instruction": "我想查平台推荐算法资料，不要视频样本",
+    "chosen": {"tool": "rag_search", "params": {"query": "平台推荐算法资料", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "不是要热门视频，我要平台分发规则资料",
+    "chosen": {"tool": "rag_search", "params": {"query": "平台分发规则", "top_k": 5}},
+    "rejected": {"tool": "search_videos", "params": {"keyword": "平台分发规则", "platforms": ["bilibili"], "limit": 10}}
+  },
+  {
+    "instruction": "短视频开场钩子的系统打法有没有资料",
+    "chosen": {"tool": "rag_search", "params": {"query": "短视频开场钩子系统打法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "前三秒钩子有哪些成熟方法，先查资料",
+    "chosen": {"tool": "rag_search", "params": {"query": "前三秒钩子成熟方法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "账号定位的内部方法资料有没有",
+    "chosen": {"tool": "rag_search", "params": {"query": "账号定位内部方法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "品牌账号定位有没有内部方法可参考",
+    "chosen": {"tool": "rag_search", "params": {"query": "品牌账号定位内部方法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "竞品账号拆解维度有没有参考框架",
+    "chosen": {"tool": "rag_search", "params": {"query": "竞品账号拆解维度框架", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "账号竞品拆解有没有成熟分析模板",
+    "chosen": {"tool": "rag_search", "params": {"query": "账号竞品拆解分析模板", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "短视频脚本结构模板有没有资料可查",
+    "chosen": {"tool": "rag_search", "params": {"query": "短视频脚本结构模板", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "脚本结构有没有成熟方法，帮我检索资料",
+    "chosen": {"tool": "rag_search", "params": {"query": "脚本结构成熟方法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "短视频数据分析指标体系一般有哪些",
+    "chosen": {"tool": "rag_search", "params": {"query": "短视频数据分析指标体系", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "内容数据复盘应该看哪些指标，先查框架",
+    "chosen": {"tool": "rag_search", "params": {"query": "内容数据复盘指标框架", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "封面点击率提升的系统方法先查一下",
+    "chosen": {"tool": "rag_search", "params": {"query": "封面点击率提升系统方法", "top_k": 5}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "快手科技赛道最近热门样本先检索一批",
+    "chosen": {"tool": "search_videos", "params": {"keyword": "科技", "platforms": ["kuaishou"], "limit": 10}},
+    "rejected": {"tool": "rag_search", "params": {"query": "快手科技热门样本", "top_k": 5}}
+  },
+  {
+    "instruction": "快手现在科技类内容热度怎么样，先找视频样本",
+    "chosen": {"tool": "search_videos", "params": {"keyword": "科技", "platforms": ["kuaishou"], "limit": 10}},
+    "rejected": {"tool": "rag_search", "params": {"query": "快手科技内容热度", "top_k": 5}}
+  },
+  {
+    "instruction": "检索快手科技内容的热门视频样本",
+    "chosen": {"tool": "search_videos", "params": {"keyword": "科技", "platforms": ["kuaishou"], "limit": 10}},
+    "rejected": {"tool": "rag_search", "params": {"query": "快手科技热门视频样本", "top_k": 5}}
+  },
+  {
+    "instruction": "快手上科技内容最近有什么热视频，拉几条看看",
+    "chosen": {"tool": "search_videos", "params": {"keyword": "科技", "platforms": ["kuaishou"], "limit": 10}},
+    "rejected": {"tool": "none", "params": {}}
+  },
+  {
+    "instruction": "直接解释一下什么叫平台算法，不用查资料",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "平台算法", "top_k": 5}}
+  },
+  {
+    "instruction": "不用搜知识库，给我写几个开头钩子",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "开头钩子", "top_k": 5}}
+  },
+  {
+    "instruction": "直接帮我想账号定位方向，不需要资料",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "账号定位方向", "top_k": 5}}
+  },
+  {
+    "instruction": "根据我给的账号信息写竞品拆解结论",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "竞品拆解结论", "top_k": 5}}
+  },
+  {
+    "instruction": "不要查模板，直接帮我写短视频脚本结构",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "短视频脚本结构", "top_k": 5}}
+  },
+  {
+    "instruction": "解释一下播放量和点赞率分别是什么意思",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "rag_search", "params": {"query": "播放量 点赞率", "top_k": 5}}
+  },
+  {
+    "instruction": "别搜视频样本，先写一个分析大纲",
+    "chosen": {"tool": "none", "params": {}},
+    "rejected": {"tool": "search_videos", "params": {"keyword": "", "platforms": ["bilibili"], "limit": 10}}
+  }
+]

@@ -1,0 +1,48 @@
+### model
+model_name_or_path: C:/Users/0/.cache/modelscope/Qwen/Qwen3-4B
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target: all
+quantization_bit: 4
+
+### dataset
+dataset: tool_calling_train_v2
+template: qwen3_nothink
+cutoff_len: 1024
+max_samples: 500
+preprocessing_num_workers: 1
+dataloader_num_workers: 0
+
+### output
+output_dir: outputs/qwen3_lora_tool_calling_v2
+logging_steps: 10
+save_steps: 50
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 2.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+gradient_checkpointing: true
+resume_from_checkpoint: null
+
+### eval
+eval_dataset: tool_calling_eval_v2
+per_device_eval_batch_size: 4
+eval_strategy: steps
+eval_steps: 50

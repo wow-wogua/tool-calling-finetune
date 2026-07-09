@@ -1,0 +1,770 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 这个视频的趋势数据帮我看看"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"douyin\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 帮我设计一个视频封面的文案"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 这个视频的流量趋势"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 你好"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 给我一些创作灵感"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 有没有关于直播带货的分析报告"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"直播带货分析报告\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 你是谁"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 看看BV1xx411c7mD最近的数据变化"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 获取视频的语音转文字结果"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1xx411c7mD\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 总结一下刚才的发现"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 搞笑热门"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"搞笑\", \"platforms\": [\"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 对比B站和快手时尚区的爆款"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"时尚\", \"platforms\": [\"bilibili\", \"kuaishou\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 提取视频的讲述内容"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 检索一下之前做过的美妆区分析报告"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"美妆区分析报告\", \"top_k\": 3}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频里说了啥帮我写出来"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 怎么做才能让视频被更多人看到"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频行业前景怎么样"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 什么是用户画像"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 有没有评论区运营的案例"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"评论区运营\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 抖音游戏区最近啥最火"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"游戏\", \"platforms\": [\"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 帮我查一下视频封面设计的规则"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"视频封面设计\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频封面怎么设计更吸引人"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"视频封面设计技巧\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频分享数据趋势"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 帮我分析一下"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 查一下账号定位"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"账号定位\", \"top_k\": 3}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 查一下短视频带货"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频带货\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频内容转文本"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1xx411c7mD\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 你好，你是做什么的"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 快手游戏热门"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"游戏\", \"platforms\": [\"kuaishou\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 找B站最近三天时尚区的爆款"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"时尚\", \"platforms\": [\"bilibili\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频里的人说了什么"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 分析快手游戏区的爆款视频"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"游戏\", \"platforms\": [\"kuaishou\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 搜索快手和抖音美妆区的热门"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"美妆\", \"platforms\": [\"kuaishou\", \"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 最近有什么好看的电影推荐"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频完播率趋势怎么样"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"kuaishou\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: B站的推荐机制和抖音有什么不同"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站抖音推荐机制对比\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 行业趋势的最佳实践是什么"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"行业趋势\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: B站的流量是怎么分配的"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站流量分配机制\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 视频数据有没有周期性波动"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"kuaishou\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 提取这个视频的文案 https://www.douyin.com/video/123456"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 之前有没有分析过美妆区的爆款"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"美妆区爆款分析\", \"top_k\": 3}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频标题有什么撰写技巧"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频标题撰写技巧\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 获取抖音热门排行榜前5名"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"douyin\"], \"limit\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 你都会什么"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 之前做过哪些行业的视频分析"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"行业视频分析历史\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 给我看看数据"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 搜索抖音和快手知识区的热门"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"知识\", \"platforms\": [\"douyin\", \"kuaishou\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 找B站搞笑区最近火的视频"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"搞笑\", \"platforms\": [\"bilibili\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 对比快手和抖音游戏区的爆款"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"游戏\", \"platforms\": [\"kuaishou\", \"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 搜索B站美妆区热门"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"美妆\", \"platforms\": [\"bilibili\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 看看B站和抖音的科技区有什么热门内容"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"科技\", \"platforms\": [\"bilibili\", \"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 怎么做短视频的竞品分析"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频竞品分析方法\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 对比一下这个视频上周和这周的数据"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"VIDEO_ID\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 看看抖音动画区有什么热门内容"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"动画\", \"platforms\": [\"douyin\"]}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 这个视频是突然爆的还是慢慢涨的"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1xx411c7mD\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 你是做什么的"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"none\", \"params\": {}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 获取B站热门排行榜前20名"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"bilibili\"], \"limit\": 20}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 怎么写一个吸引人的短视频开头"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频开头写法\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 我想看看这个视频的话术"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 获取这个视频的字幕内容"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1xx411c7mD\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 查一下这个视频的涨粉趋势"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_trend_data\", \"params\": {\"video_id\": \"BV1yy411c7mE\", \"platform\": \"bilibili\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 这个视频的文案帮我抄一下"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"VIDEO_URL\"}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频带货是什么原理"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频带货\", \"top_k\": 5}}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 帮我瞅瞅B站职场区最近有啥火的"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"职场\", \"platforms\": [\"bilibili\"]}}"
+      }
+    ]
+  }
+]

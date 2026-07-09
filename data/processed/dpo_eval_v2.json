@@ -1,0 +1,82 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 脚本结构方法论先找资料"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"脚本结构方法论\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频发布节奏有没有经验总结"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频发布节奏经验总结\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 帮我找一下完播率优化的分析框架"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"完播率优化分析框架\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 短视频指标体系有没有标准说明"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频指标体系\", \"top_k\": 5}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"none\", \"params\": {}}"
+    }
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是研究员。根据任务选择工具和参数。\n\n可用工具:\n- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量\n- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量\n- get_transcript(video_url): 获取视频转写。video_url=视频链接\n- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名\n- 无需工具: 如果任务不需要调用任何工具，输出 {\"tool\": \"none\", \"params\": {}}\n\n输出JSON: {\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}\n只输出JSON，不要其他内容。\n\n任务: 先抓B站全站热度最高的一批视频"
+      }
+    ],
+    "chosen": {
+      "from": "gpt",
+      "value": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"bilibili\"], \"limit\": 20}}"
+    },
+    "rejected": {
+      "from": "gpt",
+      "value": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站全站热度视频\", \"top_k\": 5}}"
+    }
+  }
+]

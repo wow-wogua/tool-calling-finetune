@@ -1,0 +1,22 @@
+[
+  {"input": "我要查短视频推荐机制资料，不是找热门视频", "expected_tool": "rag_search", "expected_params": {"query": "短视频推荐机制资料"}},
+  {"input": "平台流量池规则有没有资料能引用", "expected_tool": "rag_search", "expected_params": {"query": "平台流量池规则"}},
+  {"input": "内容审核规则和限流机制先查资料", "expected_tool": "rag_search", "expected_params": {"query": "审核规则 限流机制"}},
+  {"input": "开头三秒留人方法有没有系统框架", "expected_tool": "rag_search", "expected_params": {"query": "开头三秒留人方法框架"}},
+  {"input": "短视频钩子设计有哪些可复用方法", "expected_tool": "rag_search", "expected_params": {"query": "短视频钩子设计方法"}},
+  {"input": "账号人设定位有没有内部资料", "expected_tool": "rag_search", "expected_params": {"query": "账号人设定位内部资料"}},
+  {"input": "竞品账号拆解有哪些标准维度", "expected_tool": "rag_search", "expected_params": {"query": "竞品账号拆解标准维度"}},
+  {"input": "视频脚本结构方法论能不能查一下", "expected_tool": "rag_search", "expected_params": {"query": "视频脚本结构方法论"}},
+  {"input": "内容数据分析指标框架有没有资料", "expected_tool": "rag_search", "expected_params": {"query": "内容数据分析指标框架"}},
+  {"input": "封面点击率提升资料帮我找一下", "expected_tool": "rag_search", "expected_params": {"query": "封面点击率提升资料"}},
+  {"input": "快手科技内容最近火的样本先搜一下", "expected_tool": "search_videos", "expected_params": {"keyword": "科技", "platforms": ["kuaishou"]}},
+  {"input": "抖音知识内容现在什么样，拿热门视频看看", "expected_tool": "search_videos", "expected_params": {"keyword": "知识", "platforms": ["douyin"]}},
+  {"input": "B站财经区最近爆款视频先拉几条", "expected_tool": "search_videos", "expected_params": {"keyword": "财经", "platforms": ["bilibili"]}},
+  {"input": "快手生活赛道最近热视频找一些", "expected_tool": "search_videos", "expected_params": {"keyword": "生活", "platforms": ["kuaishou"]}},
+  {"input": "小红书美妆热门内容拿10条样本", "expected_tool": "search_videos", "expected_params": {"keyword": "美妆", "platforms": ["xiaohongshu"], "limit": 10}},
+  {"input": "不用查资料，直接给我三个开头钩子", "expected_tool": null, "expected_params": {}},
+  {"input": "别调用工具，解释一下账号定位是什么", "expected_tool": null, "expected_params": {}},
+  {"input": "根据我给的信息写一段竞品分析结论", "expected_tool": null, "expected_params": {}},
+  {"input": "不要搜模板，直接写一版脚本结构", "expected_tool": null, "expected_params": {}},
+  {"input": "直接解释一下完播率和互动率", "expected_tool": null, "expected_params": {}}
+]
