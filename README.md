@@ -1,17 +1,17 @@
 # Tool Calling Finetune — 工具调用小模型微调
 
-> 用 LoRA 微调 Qwen3，使其学会根据用户查询选择正确的工具和参数。微调后的模型可接入 [viral-video-agent](https://github.com/wow-wogua/viral-video-agent) 的 LLM 网关，替代 API 调用，降低成本 5-8 倍。
+> 用 LoRA 微调 Qwen3，使其学会根据用户查询选择正确的工具和参数。微调后的模型可接入 [viral-video-agent](https://github.com/wow-wogua/viral-video-agent) 的 LLM 网关，作为 Researcher 工具选择的本地 A/B 路径。
 
 ## 项目背景
 
 [viral-video-agent](https://github.com/wow-wogua/viral-video-agent) 是一个多智能体爆款视频分析系统，其中 Researcher Agent 通过 LLM 输出 JSON 来选择工具（search_videos / rag_search / get_transcript / get_trend_data）。
 
-当前系统使用 MiMo API（免费但速度慢），且 LLM 输出格式不稳定（需要三层兜底解析）。Researcher 的任务相对窄、工具集合固定、输出结构化，因此适合作为“小模型工具选择微调”的验证对象。通过 LoRA 微调一个小模型，可以：
-1. **降低成本**：本地推理 vs API 调用，成本降 5-8 倍
-2. **提高稳定性**：微调后输出格式更规范，减少兜底重试
-3. **加快速度**：本地小模型推理速度更快
+当前系统使用 MiMo API（免费但存在网络和排队延迟），且 LLM 输出需要防御性解析。Researcher 的任务相对窄、工具集合固定、输出结构化，因此适合作为“小模型工具选择微调”的验证对象。这个项目验证三件事：
+1. **分布内格式学习**：内置用例上工具名和参数格式有所改善
+2. **本地接入能力**：模型可导出为 OpenAI 兼容服务并接入 LLM 网关
+3. **泛化边界**：hard eval / holdout 没有提升，说明当前数据不足以证明生产替代价值
 
-需要注意：本项目当前证明的是内置 BFCL 风格评测上的分布内提升，以及模型可导出接入项目2；hard eval / holdout 没有证明自然表达边界的泛化提升，所以微调模型在项目2中应作为 Researcher 的可选 A/B 路径，而不是直接宣称生产替代。
+需要注意：本项目没有完成可信的成本或速度 A/B 基准。MiMo 当前免费，因此不能声称“成本降低 5-8 倍”；本地推理是否更快也取决于硬件、量化和并发。当前只把微调模型作为 Researcher 的可选 A/B 路径，而不是生产替代。
 
 ## 技术栈
 
@@ -21,8 +21,10 @@
 | 微调方法 | LoRA (Low-Rank Adaptation) |
 | 训练框架 | LLaMA Factory |
 | 数据生成 | 本地模板化生成 + 人工构造 |
-| 评测范式 | BFCL (Berkeley Function Calling Leaderboard) |
+| 评测范式 | BFCL 风格自建工具调用评测（非官方榜单） |
 | 部署 | FastAPI（OpenAI 兼容 API） |
+
+当前 `lora_target=all` 的 adapter 实际包含约 33.0M 参数，约占 4B 基座的 0.83%，文件约 126 MiB。它不是“0.1% / 30MB”，低秩适配也不代表不会过拟合。
 
 ## 快速开始
 
@@ -190,10 +192,10 @@ model_registry.switch_to_finetuned(
 
 | 模型 | 工具准确率 | 完全准确率 | 说明 |
 |------|-----------|-----------|------|
-| Qwen3-4B (基座) | 88.0% | 54.0% | 50 条 BFCL 用例，`results/eval_20260630_185909.json` |
+| Qwen3-4B (基座) | 88.0% | 54.0% | 50 条 BFCL 风格自建用例，`results/eval_20260630_185909.json` |
 | Qwen3-4B + SFT | 92.0% | 78.0% | `results/eval_20260630_184816.json` |
 | Qwen3-4B + SFT+DPO | **94.0%** | **80.0%** | `results/eval_20260630_185543.json` |
-| MiMo v2.5-pro (API) | 90.0% (27/30) | - | 项目2现有数据 |
+| MiMo v2.5-pro (API) | 90.0% (27/30) | - | 项目2历史 30 条 BFCL 风格用例；与本项目 50 条不可直接横比 |
 
 上表是内置 50 条 BFCL 风格用例的历史结果。
 
@@ -296,8 +298,8 @@ viral-video-agent (项目2)          tool-calling-finetune (项目3)
 │  - 成本追踪          │           │                      │
 ├─────────────────────┤           ├─────────────────────┤
 │  评测框架            │           │  评测                 │
-│  - BFCL (30条)       │ ←─────── │  - 扩展到 50 条       │
-│  - tau-bench (18条)  │           │  - 基座 vs 微调对比   │
+│  - BFCL风格 (30条)   │ ←─────── │  - 自建50条工具用例   │
+│  - tau-inspired (18) │           │  - 基座 vs 微调对比   │
 └─────────────────────┘           └─────────────────────┘
 ```
 
@@ -316,7 +318,7 @@ cd D:\internship\viral-video-agent
 set USE_FINETUNED_MODEL=true
 docker-compose up -d
 ```
-只有 Researcher 使用微调模型，其他 Agent 仍用 MiMo API。
+只有 Researcher 使用微调模型，其他 Agent 仍用 MiMo API。服务端会识别项目2已经生成的完整 Researcher Prompt，避免重复包 Prompt；项目2与项目3对齐的是工具 schema 和 JSON 输出格式，任务/平台上下文由项目2额外注入。
 
 ### 关闭
 - 微调模型 API: Ctrl+C

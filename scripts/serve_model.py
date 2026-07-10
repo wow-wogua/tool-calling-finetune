@@ -50,11 +50,11 @@ print()
 SYSTEM_PROMPT = """你是研究员。根据任务选择工具和参数。
 
 可用工具:
-- search_videos(keyword, platforms, limit): 搜索视频数据
-- rag_search(query, top_k): 从知识库检索参考文档
-- get_transcript(video_url): 获取视频转写
-- get_trend_data(video_id, platform): 获取视频历史趋势数据
-- 无需工具: 输出 {"tool": "none", "params": {}}
+- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量
+- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量
+- get_transcript(video_url): 获取视频转写。video_url=视频链接
+- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名
+- 无需工具: 如果任务不需要调用任何工具，输出 {"tool": "none", "params": {}}
 
 输出JSON: {"tool": "工具名", "params": {"参数名": "值"}}
 只输出JSON，不要其他内容。"""
@@ -72,6 +72,11 @@ class ChatRequest(BaseModel):
     temperature: float = 0.0
     max_tokens: int = 256
 
+
+def _is_full_researcher_prompt(text: str) -> bool:
+    """项目2已经发送完整 Researcher Prompt 时，不再重复包一层。"""
+    return "可用工具:" in text and "输出JSON" in text and "任务:" in text
+
 @app.post("/v1/chat/completions")
 async def chat_completions(request: ChatRequest):
     # 提取用户消息
@@ -80,8 +85,9 @@ async def chat_completions(request: ChatRequest):
         if msg.get("role") == "user":
             user_msg = msg.get("content", "")
 
-    # 构建 prompt
-    prompt = f"{SYSTEM_PROMPT}\n\n任务: {user_msg}"
+    # 项目2发送的是完整 Researcher Prompt；直接复用以保持训练/推理输入结构一致。
+    # 对普通 OpenAI 客户端只传裸任务的情况，再补统一工具 schema。
+    prompt = user_msg if _is_full_researcher_prompt(user_msg) else f"{SYSTEM_PROMPT}\n\n任务: {user_msg}"
     messages = [{"role": "user", "content": prompt}]
     text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
@@ -96,6 +102,8 @@ async def chat_completions(request: ChatRequest):
         )
 
     response = tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    prompt_tokens = int(inputs["input_ids"].shape[1])
+    completion_tokens = int(outputs[0].shape[0] - inputs["input_ids"].shape[1])
 
     return {
         "id": "chatcmpl-local",
@@ -108,7 +116,11 @@ async def chat_completions(request: ChatRequest):
                 "finish_reason": "stop",
             }
         ],
-        "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0},
+        "usage": {
+            "prompt_tokens": prompt_tokens,
+            "completion_tokens": completion_tokens,
+            "total_tokens": prompt_tokens + completion_tokens,
+        },
     }
 
 @app.get("/v1/models")

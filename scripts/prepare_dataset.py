@@ -26,7 +26,7 @@ if sys.platform == "win32":
 PROJECT_ROOT = Path(__file__).parent.parent
 
 
-# ── Researcher 的 System Prompt（与 prompts.yaml 一致）──
+# ── Researcher 工具 schema 与输出格式（和项目2对齐；项目2会额外注入任务与目标平台）──
 SYSTEM_PROMPT = """你是研究员。根据任务选择工具和参数。
 
 可用工具:
