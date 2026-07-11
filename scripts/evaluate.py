@@ -25,18 +25,18 @@ import json
 import sys
 import os
 import argparse
-import re
+import time
 from pathlib import Path
 from datetime import datetime
+
+from evaluation_core import parse_model_output, score_tool_call, summarize
+from researcher_prompt import PROMPT_VARIANTS, build_researcher_prompt
 
 # 离线模式
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 # Windows 编码
-if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -106,78 +106,6 @@ TEST_CASES = [
 ]
 
 
-SYSTEM_PROMPT = """你是研究员。根据任务选择工具和参数。
-
-可用工具:
-- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量
-- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量
-- get_transcript(video_url): 获取视频转写。video_url=视频链接
-- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名
-- 无需工具: 如果任务不需要调用任何工具，输出 {"tool": "none", "params": {}}
-
-输出JSON: {"tool": "工具名", "params": {"参数名": "值"}}
-只输出JSON，不要其他内容。"""
-
-
-def parse_model_output(text: str) -> dict:
-    """解析模型输出为 JSON，兼容多种格式。"""
-    clean = text.strip()
-
-    # 去掉 thinking tokens（Qwen3 的 <think>...</think>）
-    clean = re.sub(r'<think>.*?</think>', '', clean, flags=re.DOTALL).strip()
-
-    # 去掉 markdown 代码块
-    if clean.startswith("```"):
-        clean = clean.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
-
-    # 尝试直接解析
-    try:
-        return json.loads(clean)
-    except json.JSONDecodeError:
-        pass
-
-    # 尝试提取 JSON 部分
-    match = re.search(r'\{[^{}]*"tool"[^{}]*\}', clean, re.DOTALL)
-    if match:
-        try:
-            return json.loads(match.group())
-        except json.JSONDecodeError:
-            pass
-
-    return {"tool": "parse_error", "params": {}}
-
-
-def check_tool_match(actual: dict, expected_tool: str | None, expected_params: dict) -> dict:
-    """检查工具调用是否正确。"""
-    actual_tool = actual.get("tool")
-
-    # 工具名匹配
-    if expected_tool is None:
-        tool_correct = actual_tool in (None, "none")
-    else:
-        tool_correct = actual_tool == expected_tool
-
-    # 参数匹配（只检查 expected_params 中有的字段）
-    params_correct = True
-    if tool_correct and expected_params:
-        actual_params = actual.get("params", {})
-        for key, expected_val in expected_params.items():
-            actual_val = actual_params.get(key)
-            if isinstance(expected_val, list):
-                if not isinstance(actual_val, list) or set(expected_val) != set(actual_val):
-                    params_correct = False
-                    break
-            elif actual_val != expected_val:
-                params_correct = False
-                break
-
-    return {
-        "tool_correct": tool_correct,
-        "params_correct": params_correct,
-        "fully_correct": tool_correct and params_correct,
-    }
-
-
 def load_cases(path: str | None = None) -> list[dict]:
     """加载评测用例。不传路径时使用内置 50 条 BFCL 用例。"""
     if not path:
@@ -191,7 +119,7 @@ def load_cases(path: str | None = None) -> list[dict]:
     return cases
 
 
-def run_eval_local(model_path: str, adapter_path: str = None, test_cases: list[dict] = None) -> dict:
+def run_eval_local(model_path: str, adapter_path: str = None, test_cases: list[dict] = None, prompt_variant: str = "base") -> dict:
     """本地模型评测（需要 transformers + torch）。"""
     try:
         from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -234,19 +162,19 @@ def run_eval_local(model_path: str, adapter_path: str = None, test_cases: list[d
     model.eval()
 
     results = []
-    correct_tool = 0
-    correct_full = 0
-
     test_cases = test_cases or TEST_CASES
 
     for i, case in enumerate(test_cases):
-        prompt = f"{SYSTEM_PROMPT}\n\n任务: {case['input']}"
+        prompt = build_researcher_prompt(case["input"], prompt_variant)
 
         messages = [{"role": "user", "content": prompt}]
         # 关闭 thinking 模式：在 prompt 末尾加 /no_think
         text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
         inputs = tokenizer(text, return_tensors="pt").to(model.device)
 
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
+        started = time.perf_counter()
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
@@ -255,15 +183,13 @@ def run_eval_local(model_path: str, adapter_path: str = None, test_cases: list[d
                 do_sample=False,
                 pad_token_id=tokenizer.eos_token_id,
             )
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
+        latency_ms = (time.perf_counter() - started) * 1000
 
         response = tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
-        actual = parse_model_output(response)
-        match = check_tool_match(actual, case["expected_tool"], case.get("expected_params", {}))
-
-        if match["tool_correct"]:
-            correct_tool += 1
-        if match["fully_correct"]:
-            correct_full += 1
+        actual, json_valid = parse_model_output(response)
+        match = score_tool_call(actual, case["expected_tool"], case.get("expected_params", {}), case["input"])
 
         status = "✅" if match["fully_correct"] else ("⚠️" if match["tool_correct"] else "❌")
         print(f"  {status} [{i+1:02d}] {case['input'][:30]}... → 期望={case['expected_tool']}, 实际={actual.get('tool')}")
@@ -273,24 +199,23 @@ def run_eval_local(model_path: str, adapter_path: str = None, test_cases: list[d
             "input": case["input"],
             "expected_tool": case["expected_tool"],
             "actual_tool": actual.get("tool"),
-            "tool_correct": match["tool_correct"],
-            "fully_correct": match["fully_correct"],
+            "actual_params": actual.get("params", {}),
+            "json_valid": json_valid,
+            "latency_ms": round(latency_ms, 2),
+            **match,
         })
 
-    total = len(test_cases)
+    metrics = summarize(results)
     return {
         "model": model_path,
         "adapter": adapter_path,
-        "total": total,
-        "tool_accuracy": correct_tool / total * 100,
-        "full_accuracy": correct_full / total * 100,
-        "tool_correct": correct_tool,
-        "full_correct": correct_full,
+        "prompt_variant": prompt_variant,
+        **metrics,
         "details": results,
     }
 
 
-def run_eval_api(model_name: str, base_url: str = None, api_key: str = None, test_cases: list[dict] = None) -> dict:
+def run_eval_api(model_name: str, base_url: str = None, api_key: str = None, test_cases: list[dict] = None, prompt_variant: str = "base") -> dict:
     """API 模式评测（用于对比 MiMo 等 API 模型）。"""
     try:
         from openai import OpenAI
@@ -307,14 +232,12 @@ def run_eval_api(model_name: str, base_url: str = None, api_key: str = None, tes
     client = OpenAI(**client_kwargs)
 
     results = []
-    correct_tool = 0
-    correct_full = 0
-
     test_cases = test_cases or TEST_CASES
 
     for i, case in enumerate(test_cases):
-        prompt = f"{SYSTEM_PROMPT}\n\n任务: {case['input']}"
+        prompt = build_researcher_prompt(case["input"], prompt_variant)
 
+        started = time.perf_counter()
         try:
             response = client.chat.completions.create(
                 model=model_name,
@@ -326,14 +249,10 @@ def run_eval_api(model_name: str, base_url: str = None, api_key: str = None, tes
         except Exception as e:
             print(f"  ❌ [{i+1:02d}] API 错误: {e}")
             text = ""
+        latency_ms = (time.perf_counter() - started) * 1000
 
-        actual = parse_model_output(text)
-        match = check_tool_match(actual, case["expected_tool"], case.get("expected_params", {}))
-
-        if match["tool_correct"]:
-            correct_tool += 1
-        if match["fully_correct"]:
-            correct_full += 1
+        actual, json_valid = parse_model_output(text)
+        match = score_tool_call(actual, case["expected_tool"], case.get("expected_params", {}), case["input"])
 
         status = "✅" if match["fully_correct"] else ("⚠️" if match["tool_correct"] else "❌")
         print(f"  {status} [{i+1:02d}] {case['input'][:30]}... → 期望={case['expected_tool']}, 实际={actual.get('tool')}")
@@ -343,20 +262,38 @@ def run_eval_api(model_name: str, base_url: str = None, api_key: str = None, tes
             "input": case["input"],
             "expected_tool": case["expected_tool"],
             "actual_tool": actual.get("tool"),
-            "tool_correct": match["tool_correct"],
-            "fully_correct": match["fully_correct"],
+            "actual_params": actual.get("params", {}),
+            "json_valid": json_valid,
+            "latency_ms": round(latency_ms, 2),
+            **match,
         })
 
-    total = len(test_cases)
+    metrics = summarize(results)
     return {
         "model": model_name,
-        "total": total,
-        "tool_accuracy": correct_tool / total * 100,
-        "full_accuracy": correct_full / total * 100,
-        "tool_correct": correct_tool,
-        "full_correct": correct_full,
+        "prompt_variant": prompt_variant,
+        **metrics,
         "details": results,
     }
+
+
+def print_summary(result: dict, indent: str = "") -> None:
+    """打印与保存结果一致的核心指标，避免只展示工具名准确率。"""
+    latency = result["latency_ms"]
+    print(f"{indent}工具准确率: {result['tool_accuracy']:.1f}% ({result['tool_correct']}/{result['total']})")
+    print(f"{indent}参数准确率: {result['params_accuracy']:.1f}% ({result['params_correct']}/{result['param_total']})")
+    print(f"{indent}完全准确率: {result['full_accuracy']:.1f}% ({result['full_correct']}/{result['total']})")
+    print(f"{indent}Safe准确率: {result['safe_call_accuracy']:.1f}% ({result['safe_call_correct']}/{result['total']})")
+    print(f"{indent}JSON有效率: {result['json_rate']:.1f}% ({result['json_valid']}/{result['total']})")
+    print(
+        f"{indent}延迟: mean={latency['mean']:.0f} ms / "
+        f"p50={latency['p50']:.0f} ms / p95={latency['p95']:.0f} ms"
+    )
+    if result["identifier_hallucinations"]:
+        print(
+            f"{indent}臆造视频ID/URL: {result['identifier_hallucinations']} "
+            f"({result['identifier_hallucination_rate']:.1f}%)"
+        )
 
 
 def main():
@@ -368,6 +305,7 @@ def main():
     parser.add_argument("--api-key", type=str, help="API key")
     parser.add_argument("--cases", type=str, help="外部评测用例 JSON 路径；不填则使用内置 50 条 BFCL 用例")
     parser.add_argument("--compare", nargs=2, metavar=("MODEL_A", "MODEL_B"), help="对比两个模型")
+    parser.add_argument("--prompt-variant", choices=sorted(PROMPT_VARIANTS), default="base", help="Researcher Prompt 版本")
     parser.add_argument("--output", type=str, help="输出结果文件路径")
     args = parser.parse_args()
 
@@ -391,29 +329,33 @@ def main():
         # 对比模式
         for model in args.compare:
             print(f"\n评测模型: {model}")
-            result = run_eval_api(model, args.base_url, args.api_key, test_cases) if args.api else run_eval_local(model, test_cases=test_cases)
+            result = run_eval_api(model, args.base_url, args.api_key, test_cases, args.prompt_variant) if args.api else run_eval_local(model, test_cases=test_cases, prompt_variant=args.prompt_variant)
             all_results[model] = result
-            print(f"\n  工具准确率: {result['tool_accuracy']:.1f}% ({result['tool_correct']}/{result['total']})")
-            print(f"  完全准确率: {result['full_accuracy']:.1f}% ({result['full_correct']}/{result['total']})")
+            print()
+            print_summary(result, indent="  ")
 
         print(f"\n{'='*50}")
         print("对比结果:")
         for model, result in all_results.items():
-            print(f"  {model}: 工具 {result['tool_accuracy']:.1f}% / 完全 {result['full_accuracy']:.1f}%")
+            print(
+                f"  {model}: 工具 {result['tool_accuracy']:.1f}% / "
+                f"参数 {result['params_accuracy']:.1f}% / "
+                f"完全 {result['full_accuracy']:.1f}% / "
+                f"Safe {result['safe_call_accuracy']:.1f}%"
+            )
         print(f"{'='*50}")
 
     elif args.model:
         # 单模型评测
         print(f"\n评测模型: {args.model}")
         if args.api:
-            result = run_eval_api(args.model, args.base_url, args.api_key, test_cases)
+            result = run_eval_api(args.model, args.base_url, args.api_key, test_cases, args.prompt_variant)
         else:
-            result = run_eval_local(args.model, args.adapter, test_cases)
+            result = run_eval_local(args.model, args.adapter, test_cases, args.prompt_variant)
         all_results[args.model] = result
 
         print(f"\n{'='*50}")
-        print(f"工具准确率: {result['tool_accuracy']:.1f}% ({result['tool_correct']}/{result['total']})")
-        print(f"完全准确率: {result['full_accuracy']:.1f}% ({result['full_correct']}/{result['total']})")
+        print_summary(result)
         print(f"{'='*50}")
 
     else:

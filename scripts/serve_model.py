@@ -33,6 +33,7 @@ print("=" * 50)
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from researcher_prompt import build_researcher_prompt
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_PATH,
@@ -47,17 +48,7 @@ print("模型加载完成！")
 print(f"设备: {model.device}")
 print()
 
-SYSTEM_PROMPT = """你是研究员。根据任务选择工具和参数。
-
-可用工具:
-- search_videos(keyword, platforms, limit): 搜索视频数据。keyword=搜索关键词，platforms=平台列表，limit=返回数量
-- rag_search(query, top_k): 从知识库检索参考文档。query=检索内容，top_k=返回数量
-- get_transcript(video_url): 获取视频转写。video_url=视频链接
-- get_trend_data(video_id, platform): 获取视频历史趋势数据。video_id=视频ID，platform=平台名
-- 无需工具: 如果任务不需要调用任何工具，输出 {"tool": "none", "params": {}}
-
-输出JSON: {"tool": "工具名", "params": {"参数名": "值"}}
-只输出JSON，不要其他内容。"""
+PROMPT_VARIANT = os.getenv("RESEARCHER_PROMPT_VARIANT", "base")
 
 # ── FastAPI 服务 ──
 from fastapi import FastAPI
@@ -87,7 +78,7 @@ async def chat_completions(request: ChatRequest):
 
     # 项目2发送的是完整 Researcher Prompt；直接复用以保持训练/推理输入结构一致。
     # 对普通 OpenAI 客户端只传裸任务的情况，再补统一工具 schema。
-    prompt = user_msg if _is_full_researcher_prompt(user_msg) else f"{SYSTEM_PROMPT}\n\n任务: {user_msg}"
+    prompt = user_msg if _is_full_researcher_prompt(user_msg) else build_researcher_prompt(user_msg, PROMPT_VARIANT)
     messages = [{"role": "user", "content": prompt}]
     text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
