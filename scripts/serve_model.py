@@ -24,7 +24,19 @@ os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-MODEL_PATH = os.getenv("FINETUNED_MODEL_PATH", "outputs/qwen3_dpo_tool_calling_merged")
+PROJECT_ROOT = Path(__file__).parent.parent
+BASE_MODEL_CANDIDATES = (
+    PROJECT_ROOT / "outputs" / "Qwen3-4B-base",
+    Path.home() / ".cache" / "modelscope" / "Qwen" / "Qwen3-4B",
+    Path.home() / ".cache" / "modelscope" / "hub" / "models" / "Qwen" / "Qwen3-4B",
+)
+DEFAULT_BASE_MODEL = next(
+    (path for path in BASE_MODEL_CANDIDATES if (path / "config.json").exists()),
+    BASE_MODEL_CANDIDATES[0],
+)
+BASE_MODEL_PATH = os.getenv("BASE_MODEL_PATH", str(DEFAULT_BASE_MODEL))
+ADAPTER_PATH = os.getenv("FINETUNED_ADAPTER_PATH", "outputs/qwen3_dpo_tool_calling_v3")
+MERGED_MODEL_PATH = os.getenv("FINETUNED_MODEL_PATH")
 MODEL_PORT = int(os.getenv("FINETUNED_MODEL_PORT", "8002"))
 
 print("=" * 50)
@@ -32,19 +44,31 @@ print("加载模型...")
 print("=" * 50)
 
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from peft import PeftModel
 from researcher_prompt import build_researcher_prompt
 
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_PATH,
+load_path = MERGED_MODEL_PATH or BASE_MODEL_PATH
+quantization = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16)
+base_model = AutoModelForCausalLM.from_pretrained(
+    load_path,
     device_map="auto",
     trust_remote_code=True,
-    torch_dtype=torch.float16,
+    quantization_config=quantization,
 )
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
+model = (
+    base_model
+    if MERGED_MODEL_PATH
+    else PeftModel.from_pretrained(base_model, ADAPTER_PATH)
+)
+tokenizer = AutoTokenizer.from_pretrained(load_path, trust_remote_code=True)
 model.eval()
 
 print("模型加载完成！")
+print(f"加载方式: {'merged model' if MERGED_MODEL_PATH else 'base + direct adapter'}")
+print(f"模型路径: {load_path}")
+if not MERGED_MODEL_PATH:
+    print(f"Adapter: {ADAPTER_PATH}")
 print(f"设备: {model.device}")
 print()
 

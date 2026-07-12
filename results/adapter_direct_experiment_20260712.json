@@ -1,0 +1,3503 @@
+{
+  "timestamp": "2026-07-12T22:02:20.864230",
+  "generation": {
+    "temperature": 0.0,
+    "do_sample": false,
+    "max_new_tokens": 128,
+    "quantization": "4bit"
+  },
+  "datasets": {
+    "hard44": 44,
+    "holdout20": 20
+  },
+  "matrix": [
+    "sft_dpo_v3_adapter+base",
+    "sft_dpo_v3_adapter+rules"
+  ],
+  "results": {
+    "sft_dpo_v3_adapter+base+hard44": {
+      "model_label": "sft_dpo_v3_adapter",
+      "model_path": "C:\\Users\\0\\.cache\\modelscope\\Qwen\\Qwen3-4B",
+      "adapter_path": "D:\\internship\\tool-calling-finetune\\outputs\\qwen3_dpo_tool_calling_v3",
+      "dataset": "hard44",
+      "total": 44,
+      "tool_correct": 39,
+      "params_correct": 19,
+      "param_total": 24,
+      "full_correct": 34,
+      "safe_call_correct": 30,
+      "identifier_hallucinations": 4,
+      "json_valid": 40,
+      "tool_accuracy": 88.63636363636364,
+      "params_accuracy": 79.16666666666666,
+      "full_accuracy": 77.27272727272727,
+      "safe_call_accuracy": 68.18181818181817,
+      "identifier_hallucination_rate": 9.090909090909092,
+      "json_rate": 90.9090909090909,
+      "latency_ms": {
+        "mean": 2653.9275,
+        "p50": 2935.75,
+        "p95": 3655.04
+      },
+      "prompt_variant": "base",
+      "details": [
+        {
+          "case": 1,
+          "input": "先抓一批B站科技区最近火起来的视频样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "科技",
+            "platforms": "bilibili",
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3014.88,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 2,
+          "input": "抖音美食相关的热门内容帮我拉10条",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美食",
+            "platforms": "douyin",
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3248.14,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 10
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 3,
+          "input": "B站全站热门先拿20个做样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "热门",
+            "platforms": "bilibili",
+            "limit": 20
+          },
+          "json_valid": true,
+          "latency_ms": 3054.73,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 4,
+          "input": "快手生活类内容最近有没有爆的，先搜一下",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "生活",
+            "platforms": "bilibili",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3028.91,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "生活",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "生活",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": false
+          }
+        },
+        {
+          "case": 5,
+          "input": "对比B站和抖音科技区近期热门，先把数据找出来",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3567.78,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 6,
+          "input": "想分析B站音乐区，先找几个播放高的视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "音乐",
+            "platforms": "bilibili",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3046.28,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "音乐",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "音乐",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 7,
+          "input": "给我取一下抖音美妆赛道最近的热门视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美妆",
+            "platforms": "douyin",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3155.52,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 8,
+          "input": "B站知识区热门内容要做复盘，先搜前15个",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "知识",
+            "platforms": "bilibili",
+            "limit": 15
+          },
+          "json_valid": true,
+          "latency_ms": 2935.75,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 15
+          },
+          "normalized_expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 15
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 9,
+          "input": "有没有B站游戏区最近火的视频，拿几条看看",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "游戏",
+            "platforms": "bilibili",
+            "limit": 3
+          },
+          "json_valid": true,
+          "latency_ms": 3478.48,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "normalized_expected_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 10,
+          "input": "快手科技内容现在什么样，先检索热门样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "快手科技",
+            "platforms": "kuaishou",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3296.06,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "快手科技",
+            "platforms": [
+              "kuaishou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 11,
+          "input": "找一下B站影视解说方向近期热门视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "影视解说",
+            "platforms": "bilibili",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3246.25,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "影视解说",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "影视",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 12,
+          "input": "抖音和快手美食赛道都搜一下，后面做对比",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin",
+              "kuaike"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3647.38,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin",
+              "kuaike"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin",
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": false
+          }
+        },
+        {
+          "case": 13,
+          "input": "我需要平台算法资料，不是视频样本",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "平台算法资料",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2468.6,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "平台算法资料",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "平台算法资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 14,
+          "input": "B站推荐机制的资料库里有没有总结",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站推荐机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2579.69,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "b站推荐机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "b站推荐机制"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 15,
+          "input": "短视频开头钩子有什么系统方法",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频开头钩子 系统方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2985.68,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频开头钩子系统方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频开头钩子"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 16,
+          "input": "查一查完播率优化的框架，我要引用到报告里",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "完播率优化框架",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2780.35,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "完播率优化框架",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "完播率优化框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 17,
+          "input": "有没有关于账号定位的内部方法论",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "账号定位",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2559.39,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "账号定位",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "账号定位方法论"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 18,
+          "input": "抖音限流规则这类平台规则先找资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音限流规则",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3042.89,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "抖音限流规则",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "抖音限流规则"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 19,
+          "input": "竞品账号应该从哪些维度拆解，有没有参考框架",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "竞品账号分析维度",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2800.7,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "竞品账号分析维度",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "竞品账号拆解框架"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 20,
+          "input": "短视频脚本结构有没有成熟模板可以查",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频脚本结构 模板",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3001.74,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频脚本结构模板",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频脚本结构模板"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 21,
+          "input": "想找历史报告里关于美妆内容的规律",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "美妆内容",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2298.02,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "美妆内容",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "美妆内容历史报告规律"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 22,
+          "input": "B站和抖音的流量分发差异，先查方法论资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站 抖音 流量分发 方法论",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3258.88,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "b站抖音流量分发方法论",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "b站抖音流量分发差异"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 23,
+          "input": "封面点击率怎么提升，有没有资料可参考",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "提升封面点击率的方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2601.55,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "提升封面点击率的方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "封面点击率提升"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 24,
+          "input": "短视频数据分析一般看哪些指标",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频数据分析指标",
+            "top_k": 3
+          },
+          "json_valid": true,
+          "latency_ms": 2519.91,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频数据分析指标",
+            "top_k": 3
+          },
+          "normalized_expected_params": {
+            "query": "短视频数据分析指标"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 25,
+          "input": "这条视频的口播稿帮我扒出来",
+          "expected_tool": "get_transcript",
+          "actual_tool": "parse_error",
+          "actual_params": {},
+          "json_valid": false,
+          "latency_ms": 3702.51,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 26,
+          "input": "把链接里的声音内容转成文字",
+          "expected_tool": "get_transcript",
+          "actual_tool": "parse_error",
+          "actual_params": {},
+          "json_valid": false,
+          "latency_ms": 3467.64,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 27,
+          "input": "我需要这个视频的逐字稿",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av1234567890"
+          },
+          "json_valid": true,
+          "latency_ms": 3653.42,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav1234567890"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 28,
+          "input": "这个视频说了什么，先转写一下",
+          "expected_tool": "get_transcript",
+          "actual_tool": "parse_error",
+          "actual_params": {},
+          "json_valid": false,
+          "latency_ms": 3655.04,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 29,
+          "input": "提取一下视频里的核心话术",
+          "expected_tool": "get_transcript",
+          "actual_tool": "parse_error",
+          "actual_params": {},
+          "json_valid": false,
+          "latency_ms": 3746.36,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 30,
+          "input": "看下这个视频最近七天播放有没有继续涨",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "video_id",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 2813.01,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "video_id": "videoid",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 31,
+          "input": "这条内容是不是突然起量，查一下趋势",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 2687.11,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_id": "视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 32,
+          "input": "视频互动数据这几天有没有下滑",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "123456",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3072.16,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_id": "123456",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 33,
+          "input": "帮我看一下BV号对应视频的历史热度",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "BV号",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 2628.64,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "video_id": "bv号",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 34,
+          "input": "这个视频的评论和点赞走势查一下",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 2759.33,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_id": "视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 35,
+          "input": "给我写一个B站科技区选题方案",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1132.78,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 36,
+          "input": "不要搜数据，直接给我几个标题方向",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1182.29,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 37,
+          "input": "根据刚才的结果总结三条运营建议",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1144.8,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 38,
+          "input": "帮我把报告改得更像给老板看的版本",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1217.77,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 39,
+          "input": "短视频脚本帮我写个大纲，不需要查资料",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1104.99,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 40,
+          "input": "先别调用工具，解释一下什么叫完播率",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1126.19,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 41,
+          "input": "我只是想要创意，不用去搜热门视频",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1132.99,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 42,
+          "input": "帮我润色下面这段分析结论",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1176.07,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 43,
+          "input": "如果我是新账号，前三条视频怎么规划",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1169.85,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 44,
+          "input": "用一句话解释爆款视频的共同点",
+          "expected_tool": null,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "爆款视频的共同点",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2582.3,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "爆款视频的共同点",
+            "top_k": 5
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        }
+      ]
+    },
+    "sft_dpo_v3_adapter+base+holdout20": {
+      "model_label": "sft_dpo_v3_adapter",
+      "model_path": "C:\\Users\\0\\.cache\\modelscope\\Qwen\\Qwen3-4B",
+      "adapter_path": "D:\\internship\\tool-calling-finetune\\outputs\\qwen3_dpo_tool_calling_v3",
+      "dataset": "holdout20",
+      "total": 20,
+      "tool_correct": 19,
+      "params_correct": 14,
+      "param_total": 15,
+      "full_correct": 18,
+      "safe_call_correct": 18,
+      "identifier_hallucinations": 0,
+      "json_valid": 20,
+      "tool_accuracy": 95.0,
+      "params_accuracy": 93.33333333333333,
+      "full_accuracy": 90.0,
+      "safe_call_accuracy": 90.0,
+      "identifier_hallucination_rate": 0.0,
+      "json_rate": 100.0,
+      "latency_ms": {
+        "mean": 2554.3875,
+        "p50": 2709.75,
+        "p95": 3412.08
+      },
+      "prompt_variant": "base",
+      "details": [
+        {
+          "case": 1,
+          "input": "我要查短视频推荐机制资料，不是找热门视频",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频推荐机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2624.64,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频推荐机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频推荐机制资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 2,
+          "input": "平台流量池规则有没有资料能引用",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "平台流量池规则",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2460.51,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "平台流量池规则",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "平台流量池规则"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 3,
+          "input": "内容审核规则和限流机制先查资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "内容审核规则 限流机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2880.7,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "内容审核规则限流机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "审核规则限流机制"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 4,
+          "input": "开头三秒留人方法有没有系统框架",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "开头三秒留人方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2854.86,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "开头三秒留人方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "开头三秒留人方法框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 5,
+          "input": "短视频钩子设计有哪些可复用方法",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频钩子设计",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2669.21,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频钩子设计",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频钩子设计方法"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 6,
+          "input": "账号人设定位有没有内部资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "账号人设定位",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2709.75,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "账号人设定位",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "账号人设定位内部资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 7,
+          "input": "竞品账号拆解有哪些标准维度",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "竞品账号拆解标准维度",
+            "top_k": 3
+          },
+          "json_valid": true,
+          "latency_ms": 2708.35,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "竞品账号拆解标准维度",
+            "top_k": 3
+          },
+          "normalized_expected_params": {
+            "query": "竞品账号拆解标准维度"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 8,
+          "input": "视频脚本结构方法论能不能查一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "视频脚本结构方法论",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2954.86,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "视频脚本结构方法论",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "视频脚本结构方法论"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 9,
+          "input": "内容数据分析指标框架有没有资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "内容数据分析指标框架",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2615.78,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "内容数据分析指标框架",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "内容数据分析指标框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 10,
+          "input": "封面点击率提升资料帮我找一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "封面点击率提升",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2562.28,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "封面点击率提升",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "封面点击率提升资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 11,
+          "input": "快手科技内容最近火的样本先搜一下",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "快手",
+            "platforms": "kuaishou",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3525.04,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "快手",
+            "platforms": [
+              "kuaishou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": true
+          }
+        },
+        {
+          "case": 12,
+          "input": "抖音知识内容现在什么样，拿热门视频看看",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "知识",
+            "platforms": "douyin",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3195.36,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "知识",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 13,
+          "input": "B站财经区最近爆款视频先拉几条",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "财经",
+            "platforms": "bilibili",
+            "limit": 3
+          },
+          "json_valid": true,
+          "latency_ms": 2992.68,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "normalized_expected_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 14,
+          "input": "快手生活赛道最近热视频找一些",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "快手生活赛道",
+            "platforms": "kuaishou",
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3361.07,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "快手生活赛道",
+            "platforms": [
+              "kuaishou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "生活",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 15,
+          "input": "小红书美妆热门内容拿10条样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美妆",
+            "platforms": "xiaohongshu",
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3412.08,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "xiaohongshu"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "xiaohongshu"
+            ],
+            "limit": 10
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 16,
+          "input": "不用查资料，直接给我三个开头钩子",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1165.09,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 17,
+          "input": "别调用工具，解释一下账号定位是什么",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1214.36,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 18,
+          "input": "根据我给的信息写一段竞品分析结论",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1207.64,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 19,
+          "input": "不要搜模板，直接写一版脚本结构",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1186.28,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 20,
+          "input": "直接解释一下完播率和互动率",
+          "expected_tool": null,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "完播率 互动率",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2787.21,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "完播率互动率",
+            "top_k": 5
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        }
+      ]
+    },
+    "sft_dpo_v3_adapter+rules+hard44": {
+      "model_label": "sft_dpo_v3_adapter",
+      "model_path": "C:\\Users\\0\\.cache\\modelscope\\Qwen\\Qwen3-4B",
+      "adapter_path": "D:\\internship\\tool-calling-finetune\\outputs\\qwen3_dpo_tool_calling_v3",
+      "dataset": "hard44",
+      "total": 44,
+      "tool_correct": 43,
+      "params_correct": 21,
+      "param_total": 24,
+      "full_correct": 40,
+      "safe_call_correct": 33,
+      "identifier_hallucinations": 7,
+      "json_valid": 44,
+      "tool_accuracy": 97.72727272727273,
+      "params_accuracy": 87.5,
+      "full_accuracy": 90.9090909090909,
+      "safe_call_accuracy": 75.0,
+      "identifier_hallucination_rate": 15.909090909090908,
+      "json_rate": 100.0,
+      "latency_ms": {
+        "mean": 2818.7445454545455,
+        "p50": 3088.55,
+        "p95": 3779.75
+      },
+      "prompt_variant": "rules",
+      "details": [
+        {
+          "case": 1,
+          "input": "先抓一批B站科技区最近火起来的视频样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3393.56,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 2,
+          "input": "抖音美食相关的热门内容帮我拉10条",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3338.71,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 10
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 3,
+          "input": "B站全站热门先拿20个做样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "json_valid": true,
+          "latency_ms": 3279.94,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 4,
+          "input": "快手生活类内容最近有没有爆的，先搜一下",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "kuaisou"
+            ]
+          },
+          "json_valid": true,
+          "latency_ms": 2273.3,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "kuaisou"
+            ]
+          },
+          "normalized_expected_params": {
+            "keyword": "生活",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": false
+          }
+        },
+        {
+          "case": 5,
+          "input": "对比B站和抖音科技区近期热门，先把数据找出来",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ]
+          },
+          "json_valid": true,
+          "latency_ms": 2732.4,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ]
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "bilibili",
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": true
+          }
+        },
+        {
+          "case": 6,
+          "input": "想分析B站音乐区，先找几个播放高的视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "音乐",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3403.69,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "音乐",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "音乐",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 7,
+          "input": "给我取一下抖音美妆赛道最近的热门视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3420.75,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "douyin"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 8,
+          "input": "B站知识区热门内容要做复盘，先搜前15个",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "知识区",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 15
+          },
+          "json_valid": true,
+          "latency_ms": 3488.04,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "知识区",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 15
+          },
+          "normalized_expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 15
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 9,
+          "input": "有没有B站游戏区最近火的视频，拿几条看看",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "json_valid": true,
+          "latency_ms": 3199.91,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "normalized_expected_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 10,
+          "input": "快手科技内容现在什么样，先检索热门样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "快手科技",
+            "platforms": [
+              "kuaishou"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3646.18,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "快手科技",
+            "platforms": [
+              "kuaishou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 11,
+          "input": "找一下B站影视解说方向近期热门视频",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "影视解说",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3288.0,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "影视解说",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "影视",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 12,
+          "input": "抖音和快手美食赛道都搜一下，后面做对比",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "douyin",
+              "kuaishou"
+            ],
+            "keyword": "美食"
+          },
+          "json_valid": true,
+          "latency_ms": 3257.6,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "douyin",
+              "kuaishou"
+            ],
+            "keyword": "美食"
+          },
+          "normalized_expected_params": {
+            "keyword": "美食",
+            "platforms": [
+              "douyin",
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 13,
+          "input": "我需要平台算法资料，不是视频样本",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "平台算法资料",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2743.29,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "平台算法资料",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "平台算法资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 14,
+          "input": "B站推荐机制的资料库里有没有总结",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站推荐机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2854.53,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "b站推荐机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "b站推荐机制"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 15,
+          "input": "短视频开头钩子有什么系统方法",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频开头钩子 系统方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3100.19,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频开头钩子系统方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频开头钩子"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 16,
+          "input": "查一查完播率优化的框架，我要引用到报告里",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "完播率优化框架",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2872.32,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "完播率优化框架",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "完播率优化框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 17,
+          "input": "有没有关于账号定位的内部方法论",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "账号定位",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2669.63,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "账号定位",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "账号定位方法论"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 18,
+          "input": "抖音限流规则这类平台规则先找资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音限流规则",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2791.64,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "抖音限流规则",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "抖音限流规则"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 19,
+          "input": "竞品账号应该从哪些维度拆解，有没有参考框架",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "竞品账号拆解维度",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2914.67,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "竞品账号拆解维度",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "竞品账号拆解框架"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 20,
+          "input": "短视频脚本结构有没有成熟模板可以查",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频脚本结构 模板",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3006.22,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频脚本结构模板",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频脚本结构模板"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 21,
+          "input": "想找历史报告里关于美妆内容的规律",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "美妆内容",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2557.68,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "美妆内容",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "美妆内容历史报告规律"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 22,
+          "input": "B站和抖音的流量分发差异，先查方法论资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站和抖音的流量分发差异",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3239.75,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "b站和抖音的流量分发差异",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "b站抖音流量分发差异"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 23,
+          "input": "封面点击率怎么提升，有没有资料可参考",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "封面点击率提升方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2974.85,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "封面点击率提升方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "封面点击率提升"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 24,
+          "input": "短视频数据分析一般看哪些指标",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频数据分析指标",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2745.22,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频数据分析指标",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频数据分析指标"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 25,
+          "input": "这条视频的口播稿帮我扒出来",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av1234567890"
+          },
+          "json_valid": true,
+          "latency_ms": 3779.75,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav1234567890"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 26,
+          "input": "把链接里的声音内容转成文字",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av123456789"
+          },
+          "json_valid": true,
+          "latency_ms": 3663.24,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav123456789"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 27,
+          "input": "我需要这个视频的逐字稿",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av1234567890"
+          },
+          "json_valid": true,
+          "latency_ms": 3712.82,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav1234567890"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 28,
+          "input": "这个视频说了什么，先转写一下",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av1234567890"
+          },
+          "json_valid": true,
+          "latency_ms": 3834.33,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav1234567890"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 29,
+          "input": "提取一下视频里的核心话术",
+          "expected_tool": "get_transcript",
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/av123456789"
+          },
+          "json_valid": true,
+          "latency_ms": 3849.6,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_url": "httpswwwbilibilicomvideoav123456789"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 30,
+          "input": "看下这个视频最近七天播放有没有继续涨",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "指定视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3222.69,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_id": "指定视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 31,
+          "input": "这条内容是不是突然起量，查一下趋势",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "指定视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3308.41,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": false,
+          "identifier_hallucinated": true,
+          "normalized_actual_params": {
+            "video_id": "指定视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 32,
+          "input": "视频互动数据这几天有没有下滑",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "需要具体视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3295.0,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "video_id": "需要具体视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 33,
+          "input": "帮我看一下BV号对应视频的历史热度",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "BV号",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3026.91,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "video_id": "bv号",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 34,
+          "input": "这个视频的评论和点赞走势查一下",
+          "expected_tool": "get_trend_data",
+          "actual_tool": "get_trend_data",
+          "actual_params": {
+            "video_id": "需要具体视频ID",
+            "platform": "bilibili"
+          },
+          "json_valid": true,
+          "latency_ms": 3088.55,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "video_id": "需要具体视频id",
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 35,
+          "input": "给我写一个B站科技区选题方案",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1412.94,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 36,
+          "input": "不要搜数据，直接给我几个标题方向",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1422.09,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 37,
+          "input": "根据刚才的结果总结三条运营建议",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1397.54,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 38,
+          "input": "帮我把报告改得更像给老板看的版本",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1532.17,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 39,
+          "input": "短视频脚本帮我写个大纲，不需要查资料",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1390.09,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 40,
+          "input": "先别调用工具，解释一下什么叫完播率",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1402.24,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 41,
+          "input": "我只是想要创意，不用去搜热门视频",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1337.44,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 42,
+          "input": "帮我润色下面这段分析结论",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1457.21,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 43,
+          "input": "如果我是新账号，前三条视频怎么规划",
+          "expected_tool": null,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "新账号",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "json_valid": true,
+          "latency_ms": 3360.62,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "新账号",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 3
+          },
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 44,
+          "input": "用一句话解释爆款视频的共同点",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1339.05,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        }
+      ]
+    },
+    "sft_dpo_v3_adapter+rules+holdout20": {
+      "model_label": "sft_dpo_v3_adapter",
+      "model_path": "C:\\Users\\0\\.cache\\modelscope\\Qwen\\Qwen3-4B",
+      "adapter_path": "D:\\internship\\tool-calling-finetune\\outputs\\qwen3_dpo_tool_calling_v3",
+      "dataset": "holdout20",
+      "total": 20,
+      "tool_correct": 18,
+      "params_correct": 10,
+      "param_total": 15,
+      "full_correct": 15,
+      "safe_call_correct": 15,
+      "identifier_hallucinations": 0,
+      "json_valid": 20,
+      "tool_accuracy": 90.0,
+      "params_accuracy": 66.66666666666666,
+      "full_accuracy": 75.0,
+      "safe_call_accuracy": 75.0,
+      "identifier_hallucination_rate": 0.0,
+      "json_rate": 100.0,
+      "latency_ms": {
+        "mean": 2355.12,
+        "p50": 2718.76,
+        "p95": 3200.91
+      },
+      "prompt_variant": "rules",
+      "details": [
+        {
+          "case": 1,
+          "input": "我要查短视频推荐机制资料，不是找热门视频",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频推荐机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2675.93,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频推荐机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频推荐机制资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 2,
+          "input": "平台流量池规则有没有资料能引用",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "平台流量池规则",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2809.39,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "平台流量池规则",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "平台流量池规则"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 3,
+          "input": "内容审核规则和限流机制先查资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "内容审核规则和限流机制",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3026.24,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "内容审核规则和限流机制",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "审核规则限流机制"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 4,
+          "input": "开头三秒留人方法有没有系统框架",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "开头三秒留人方法",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2895.25,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "开头三秒留人方法",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "开头三秒留人方法框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 5,
+          "input": "短视频钩子设计有哪些可复用方法",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频钩子设计",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2827.65,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "短视频钩子设计",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "短视频钩子设计方法"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 6,
+          "input": "账号人设定位有没有内部资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1322.75,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {
+            "query": "账号人设定位内部资料"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 7,
+          "input": "竞品账号拆解有哪些标准维度",
+          "expected_tool": "rag_search",
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1364.26,
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {
+            "query": "竞品账号拆解标准维度"
+          },
+          "field_results": {
+            "query": false
+          }
+        },
+        {
+          "case": 8,
+          "input": "视频脚本结构方法论能不能查一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "视频脚本结构方法论",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2969.66,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "视频脚本结构方法论",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "视频脚本结构方法论"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 9,
+          "input": "内容数据分析指标框架有没有资料",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "内容数据分析指标框架",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2944.66,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "内容数据分析指标框架",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "内容数据分析指标框架"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 10,
+          "input": "封面点击率提升资料帮我找一下",
+          "expected_tool": "rag_search",
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "封面点击率提升",
+            "top_k": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2770.38,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "query": "封面点击率提升",
+            "top_k": 5
+          },
+          "normalized_expected_params": {
+            "query": "封面点击率提升资料"
+          },
+          "field_results": {
+            "query": true
+          }
+        },
+        {
+          "case": 11,
+          "input": "快手科技内容最近火的样本先搜一下",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "kuaisou"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2718.76,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "kuaisou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "科技",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": false
+          }
+        },
+        {
+          "case": 12,
+          "input": "抖音知识内容现在什么样，拿热门视频看看",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "json_valid": true,
+          "latency_ms": 2370.93,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "normalized_expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "douyin"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": true
+          }
+        },
+        {
+          "case": 13,
+          "input": "B站财经区最近爆款视频先拉几条",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 3200.91,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          }
+        },
+        {
+          "case": 14,
+          "input": "快手生活赛道最近热视频找一些",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "platforms": [
+              "kuaisou"
+            ],
+            "limit": 5
+          },
+          "json_valid": true,
+          "latency_ms": 2710.81,
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_call_correct": false,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "platforms": [
+              "kuaisou"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "生活",
+            "platforms": [
+              "kuaishou"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": false
+          }
+        },
+        {
+          "case": 15,
+          "input": "小红书美妆热门内容拿10条样本",
+          "expected_tool": "search_videos",
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "xiaohongshu"
+            ],
+            "limit": 10
+          },
+          "json_valid": true,
+          "latency_ms": 3567.92,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "xiaohongshu"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "美妆",
+            "platforms": [
+              "xiaohongshu"
+            ],
+            "limit": 10
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          }
+        },
+        {
+          "case": 16,
+          "input": "不用查资料，直接给我三个开头钩子",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1341.58,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 17,
+          "input": "别调用工具，解释一下账号定位是什么",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1407.73,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 18,
+          "input": "根据我给的信息写一段竞品分析结论",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1428.57,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 19,
+          "input": "不要搜模板，直接写一版脚本结构",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1390.21,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        },
+        {
+          "case": 20,
+          "input": "直接解释一下完播率和互动率",
+          "expected_tool": null,
+          "actual_tool": "none",
+          "actual_params": {},
+          "json_valid": true,
+          "latency_ms": 1358.81,
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_call_correct": true,
+          "identifier_hallucinated": false,
+          "normalized_actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {}
+        }
+      ]
+    }
+  }
+}

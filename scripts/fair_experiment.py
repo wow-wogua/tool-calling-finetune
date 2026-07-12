@@ -27,6 +27,7 @@ BASE_MODEL_CANDIDATES = (
 )
 DEFAULT_BASE_MODEL = next((path for path in BASE_MODEL_CANDIDATES if (path / "config.json").exists()), BASE_MODEL_CANDIDATES[0])
 DEFAULT_FINETUNED_MODEL = PROJECT_ROOT / "outputs" / "qwen3_dpo_tool_calling_merged_v3"
+DEFAULT_ADAPTER = PROJECT_ROOT / "outputs" / "qwen3_dpo_tool_calling_v3"
 
 
 def load_cases(path: Path) -> list[dict]:
@@ -37,7 +38,7 @@ def load_cases(path: Path) -> list[dict]:
     return cases
 
 
-def load_model(model_path: str):
+def load_model(model_path: str, adapter_path: str | None = None):
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
@@ -54,6 +55,11 @@ def load_model(model_path: str):
         trust_remote_code=True,
         quantization_config=quantization,
     )
+    if adapter_path:
+        from peft import PeftModel
+
+        print(f"加载 LoRA adapter: {adapter_path}")
+        model = PeftModel.from_pretrained(model, adapter_path)
     model.eval()
     return tokenizer, model
 
@@ -127,8 +133,14 @@ def release_model(model, tokenizer):
         torch.cuda.empty_cache()
 
 
-def run_model_matrix(model_label: str, model_path: str, variants: list[str], datasets: dict) -> dict:
-    tokenizer, model = load_model(model_path)
+def run_model_matrix(
+    model_label: str,
+    model_path: str,
+    variants: list[str],
+    datasets: dict,
+    adapter_path: str | None = None,
+) -> dict:
+    tokenizer, model = load_model(model_path, adapter_path)
     warm_up(tokenizer, model)
     output = {}
     for variant in variants:
@@ -138,6 +150,7 @@ def run_model_matrix(model_label: str, model_path: str, variants: list[str], dat
             output[key] = {
                 "model_label": model_label,
                 "model_path": model_path,
+                "adapter_path": adapter_path,
                 "dataset": dataset_name,
                 **evaluate_dataset(tokenizer, model, cases, variant),
             }
@@ -149,6 +162,10 @@ def main():
     parser = argparse.ArgumentParser(description="项目三 5 组公平实验")
     parser.add_argument("--base-model", default=str(DEFAULT_BASE_MODEL))
     parser.add_argument("--finetuned-model", default=str(DEFAULT_FINETUNED_MODEL))
+    parser.add_argument("--adapter", default=str(DEFAULT_ADAPTER))
+    parser.add_argument("--include-merged", action="store_true", help="在默认5组之外增加历史merged模型对照")
+    parser.add_argument("--adapter-only", action="store_true", help="只运行direct adapter对照")
+    parser.add_argument("--merged-only", action="store_true", help="只运行历史merged模型对照")
     parser.add_argument("--hard-cases", default=str(PROJECT_ROOT / "data" / "eval" / "hard_cases.json"))
     parser.add_argument("--holdout-cases", default=str(PROJECT_ROOT / "data" / "eval" / "hard_holdout_v3.json"))
     parser.add_argument("--output", default=str(PROJECT_ROOT / "results" / f"fair_experiment_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"))
@@ -162,17 +179,31 @@ def main():
         "timestamp": datetime.now().isoformat(),
         "generation": {"temperature": 0.0, "do_sample": False, "max_new_tokens": 128, "quantization": "4bit"},
         "datasets": {name: len(cases) for name, cases in datasets.items()},
-        "matrix": [
+        "matrix": [],
+        "results": {},
+    }
+    if args.adapter_only and args.merged_only:
+        parser.error("--adapter-only 与 --merged-only 不能同时使用")
+
+    if not args.adapter_only and not args.merged_only:
+        experiment["matrix"].extend([
             "base+base",
             "base+strengthened",
             "base+rules",
-            "sft_dpo_v3+base",
-            "sft_dpo_v3+rules",
-        ],
-        "results": {},
-    }
-    experiment["results"].update(run_model_matrix("base", args.base_model, ["base", "strengthened", "rules"], datasets))
-    experiment["results"].update(run_model_matrix("sft_dpo_v3", args.finetuned_model, ["base", "rules"], datasets))
+        ])
+        experiment["results"].update(run_model_matrix("base", args.base_model, ["base", "strengthened", "rules"], datasets))
+    if args.include_merged or args.merged_only:
+        experiment["matrix"].extend(["sft_dpo_v3_merged+base", "sft_dpo_v3_merged+rules"])
+        experiment["results"].update(run_model_matrix("sft_dpo_v3_merged", args.finetuned_model, ["base", "rules"], datasets))
+    if not args.merged_only:
+        experiment["matrix"].extend(["sft_dpo_v3_adapter+base", "sft_dpo_v3_adapter+rules"])
+        experiment["results"].update(run_model_matrix(
+            "sft_dpo_v3_adapter",
+            args.base_model,
+            ["base", "rules"],
+            datasets,
+            adapter_path=args.adapter,
+        ))
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)

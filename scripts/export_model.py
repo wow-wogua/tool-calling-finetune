@@ -34,13 +34,14 @@ def merge_lora(base_model: str, adapter_path: str, output_path: str):
         sys.exit(1)
 
     print(f"加载基座模型: {base_model}")
-    from transformers import BitsAndBytesConfig
-    bnb_config = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype="bfloat16")
+    # 不在4-bit量化权重上直接merge。先以BF16在CPU合并，再按部署需求单独量化。
+    # 这样导出的权重可验证，也避免量化merge让adapter效果被吞掉。
     base = AutoModelForCausalLM.from_pretrained(
         base_model,
-        device_map="auto",
+        device_map="cpu",
         trust_remote_code=True,
-        quantization_config=bnb_config,
+        torch_dtype=torch.bfloat16,
+        low_cpu_mem_usage=True,
     )
 
     print(f"加载 LoRA 适配器: {adapter_path}")
