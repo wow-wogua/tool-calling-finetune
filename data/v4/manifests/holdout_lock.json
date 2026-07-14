@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-07-14",
+  "seed": 20260714,
+  "creation_method": "handwritten evaluation catalog; no LLM generation",
+  "files": {
+    "v4_dev.json": {
+      "count": 24,
+      "sha256": "597314a5b5b452ab517aa5cc61a79a6e9962c71e0a735f6e358bd8602db5639d",
+      "case_ids": [
+        "dev-search-01",
+        "dev-search-02",
+        "dev-search-03",
+        "dev-search-04",
+        "dev-rag-01",
+        "dev-rag-02",
+        "dev-rag-03",
+        "dev-rag-04",
+        "dev-none-01",
+        "dev-none-02",
+        "dev-none-03",
+        "dev-none-04",
+        "dev-asr-01",
+        "dev-asr-02",
+        "dev-asr-missing-01",
+        "dev-asr-off-01",
+        "dev-platform-01",
+        "dev-platform-02",
+        "dev-trend-01",
+        "dev-trend-02",
+        "dev-rag-05",
+        "dev-search-05",
+        "dev-none-05",
+        "dev-search-06"
+      ],
+      "distribution": {
+        "tools": {
+          "get_transcript": 2,
+          "none": 11,
+          "rag_search": 5,
+          "search_videos": 6
+        },
+        "capability_profiles": {
+          "asr_off": 1,
+          "asr_on": 23
+        },
+        "intent_families": {
+          "direct_explanation": 1,
+          "explicit_no_tool": 1,
+          "knowledge_retrieval": 5,
+          "no_new_evidence": 2,
+          "real_sample_search": 6,
+          "rewrite_existing": 1,
+          "transcript_missing_url": 1,
+          "transcript_unavailable": 1,
+          "transcript_with_url": 2,
+          "trend_missing_id": 1,
+          "trend_unavailable": 1,
+          "unsupported_realtime_platform": 2
+        },
+        "sources": {
+          "handwritten_eval": 24
+        }
+      }
+    },
+    "v4_hard.json": {
+      "count": 40,
+      "sha256": "6fa61f39183a24ee8878bd8a9da8deddf34ce02f1ff66befda78185d4794d820",
+      "case_ids": [
+        "hard-01",
+        "hard-02",
+        "hard-03",
+        "hard-04",
+        "hard-05",
+        "hard-06",
+        "hard-07",
+        "hard-08",
+        "hard-09",
+        "hard-10",
+        "hard-11",
+        "hard-12",
+        "hard-13",
+        "hard-14",
+        "hard-15",
+        "hard-16",
+        "hard-17",
+        "hard-18",
+        "hard-19",
+        "hard-20",
+        "hard-21",
+        "hard-22",
+        "hard-23",
+        "hard-24",
+        "hard-25",
+        "hard-26",
+        "hard-27",
+        "hard-28",
+        "hard-29",
+        "hard-30",
+        "hard-31",
+        "hard-32",
+        "hard-33",
+        "hard-34",
+        "hard-35",
+        "hard-36",
+        "hard-37",
+        "hard-38",
+        "hard-39",
+        "hard-40"
+      ],
+      "distribution": {
+        "tools": {
+          "get_transcript": 4,
+          "none": 19,
+          "rag_search": 9,
+          "search_videos": 8
+        },
+        "capability_profiles": {
+          "asr_off": 2,
+          "asr_on": 38
+        },
+        "intent_families": {
+          "direct_creation": 1,
+          "direct_explanation": 1,
+          "explicit_no_tool": 2,
+          "knowledge_retrieval": 9,
+          "no_new_evidence": 2,
+          "real_sample_search": 8,
+          "rewrite_existing": 2,
+          "transcript_missing_url": 1,
+          "transcript_unavailable": 2,
+          "transcript_unsupported_platform": 1,
+          "transcript_with_url": 4,
+          "trend_missing_id": 1,
+          "trend_unavailable": 3,
+          "unsupported_realtime_platform": 3
+        },
+        "sources": {
+          "handwritten_eval": 40
+        }
+      }
+    },
+    "v4_holdout.json": {
+      "count": 30,
+      "sha256": "8d7aadec4be13652acef07f0c55e2a001e84163a05ad8044dd20ba9f0ab0e2bc",
+      "case_ids": [
+        "holdout-01",
+        "holdout-02",
+        "holdout-03",
+        "holdout-04",
+        "holdout-05",
+        "holdout-06",
+        "holdout-07",
+        "holdout-08",
+        "holdout-09",
+        "holdout-10",
+        "holdout-11",
+        "holdout-12",
+        "holdout-13",
+        "holdout-14",
+        "holdout-15",
+        "holdout-16",
+        "holdout-17",
+        "holdout-18",
+        "holdout-19",
+        "holdout-20",
+        "holdout-21",
+        "holdout-22",
+        "holdout-23",
+        "holdout-24",
+        "holdout-25",
+        "holdout-26",
+        "holdout-27",
+        "holdout-28",
+        "holdout-29",
+        "holdout-30"
+      ],
+      "distribution": {
+        "tools": {
+          "get_transcript": 3,
+          "none": 15,
+          "rag_search": 6,
+          "search_videos": 6
+        },
+        "capability_profiles": {
+          "asr_off": 2,
+          "asr_on": 28
+        },
+        "intent_families": {
+          "direct_creation": 1,
+          "direct_explanation": 1,
+          "explicit_no_tool": 2,
+          "knowledge_retrieval": 6,
+          "no_new_evidence": 1,
+          "real_sample_search": 6,
+          "rewrite_existing": 1,
+          "transcript_missing_url": 1,
+          "transcript_unavailable": 2,
+          "transcript_with_url": 3,
+          "trend_missing_id": 1,
+          "trend_unavailable": 1,
+          "unsupported_realtime_platform": 4
+        },
+        "sources": {
+          "handwritten_eval": 30
+        }
+      }
+    },
+    "v4_capability_holdout.json": {
+      "count": 16,
+      "sha256": "bdded6e37026d7a3fb7254fc3ee772e05883627cc2db38b19340acf5b377b017",
+      "case_ids": [
+        "cap-01-on",
+        "cap-01-off",
+        "cap-02-on",
+        "cap-02-off",
+        "cap-03",
+        "cap-04",
+        "cap-05",
+        "cap-06",
+        "cap-07",
+        "cap-08",
+        "cap-09",
+        "cap-10",
+        "cap-11",
+        "cap-12",
+        "cap-13",
+        "cap-14"
+      ],
+      "distribution": {
+        "tools": {
+          "get_transcript": 2,
+          "none": 9,
+          "rag_search": 3,
+          "search_videos": 2
+        },
+        "capability_profiles": {
+          "asr_off": 2,
+          "asr_on": 14
+        },
+        "intent_families": {
+          "capability_asr": 4,
+          "capability_missing_url": 1,
+          "capability_none": 2,
+          "capability_platform": 2,
+          "capability_rag": 3,
+          "capability_search": 2,
+          "capability_trend": 2
+        },
+        "sources": {
+          "handwritten_eval": 16
+        }
+      }
+    }
+  },
+  "combined_sha256": "6b77b03e0dde15c06e4f9b5a2a639e26db2bcc86ee9557b0c3616d01c55cbab0",
+  "rules": [
+    "holdout files are frozen before training data generation",
+    "holdout cases must not be copied or paraphrased into training data",
+    "training and holdout expression_family values must be disjoint"
+  ]
+}

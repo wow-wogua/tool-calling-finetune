@@ -1,0 +1,273 @@
+{
+  "timestamp": "2026-07-14T02:24:40.327070+00:00",
+  "mode": "v4",
+  "researcher_model": "qwen3-tool-calling-v4.1",
+  "other_agents": "deepseek-v4-pro",
+  "project2_path": "D:\\internship\\viral-video-agent",
+  "project2_commit": "2aa1e54",
+  "project2_read_only": true,
+  "case_ids": [
+    "mvp-01",
+    "mvp-04",
+    "mvp-11"
+  ],
+  "results": [
+    {
+      "case_id": "mvp-01",
+      "query": "分析B站AI编程赛道近期热门视频的标题结构和内容特征",
+      "analysis_mode": "standard",
+      "status": "partial",
+      "termination_reason": "insufficient_evidence",
+      "task_completed": false,
+      "elapsed_s": 24.92,
+      "researcher_duration_s": 2.58,
+      "llm_calls": 4,
+      "research_tasks": 3,
+      "tool_choices": [
+        "search_videos",
+        "rag_search",
+        "none"
+      ],
+      "tool_params": [
+        {
+          "keyword": "AI编程",
+          "platforms": [
+            "bilibili"
+          ],
+          "limit": 10
+        },
+        {
+          "query": "AI编程领域视频标题创作的方法论和最佳实践",
+          "top_k": 5,
+          "platform": "bilibili"
+        },
+        {}
+      ],
+      "tool_statuses": [
+        "empty",
+        "empty",
+        "skipped"
+      ],
+      "unavailable_tool_calls": 0,
+      "invalid_param_calls": 0,
+      "evidence_groups": 0,
+      "evidence_items": 0,
+      "raw_data_count": 0,
+      "report_length": 72,
+      "trace": {
+        "total_duration_s": 9.49,
+        "total_llm_calls": 4,
+        "agents": [
+          {
+            "agent": "entry",
+            "duration_s": 1.15,
+            "llm_calls": 0,
+            "pct_of_total": 12.1
+          },
+          {
+            "agent": "planner_v2",
+            "duration_s": 5.76,
+            "llm_calls": 1,
+            "pct_of_total": 60.7
+          },
+          {
+            "agent": "researcher_v2",
+            "duration_s": 2.58,
+            "llm_calls": 3,
+            "pct_of_total": 27.2
+          }
+        ]
+      },
+      "gpu_before": {
+        "utilization_pct": 31.0,
+        "memory_used_mib": 4634.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 52.0,
+        "power_w": 3.82
+      },
+      "gpu_after": {
+        "utilization_pct": 33.0,
+        "memory_used_mib": 4612.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 55.0,
+        "power_w": 21.95
+      }
+    },
+    {
+      "case_id": "mvp-04",
+      "query": "拆解B站知识科普竞品视频的标题与内容结构",
+      "analysis_mode": "standard",
+      "status": "completed",
+      "termination_reason": "completed",
+      "task_completed": true,
+      "elapsed_s": 72.6,
+      "researcher_duration_s": 6.2,
+      "llm_calls": 6,
+      "research_tasks": 3,
+      "tool_choices": [
+        "search_videos",
+        "none",
+        "search_videos"
+      ],
+      "tool_params": [
+        {
+          "keyword": "知识科普",
+          "platforms": [
+            "bilibili"
+          ],
+          "limit": 10
+        },
+        {},
+        {
+          "keyword": "知识科普视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "limit": 10
+        }
+      ],
+      "tool_statuses": [
+        "success",
+        "skipped",
+        "duplicate_only"
+      ],
+      "unavailable_tool_calls": 0,
+      "invalid_param_calls": 0,
+      "evidence_groups": 3,
+      "evidence_items": 0,
+      "raw_data_count": 3,
+      "report_length": 2982,
+      "trace": {
+        "total_duration_s": 28.6,
+        "total_llm_calls": 6,
+        "agents": [
+          {
+            "agent": "entry",
+            "duration_s": 1.05,
+            "llm_calls": 0,
+            "pct_of_total": 3.7
+          },
+          {
+            "agent": "planner_v2",
+            "duration_s": 3.03,
+            "llm_calls": 1,
+            "pct_of_total": 10.6
+          },
+          {
+            "agent": "researcher_v2",
+            "duration_s": 6.2,
+            "llm_calls": 3,
+            "pct_of_total": 21.7
+          },
+          {
+            "agent": "analyst",
+            "duration_s": 11.44,
+            "llm_calls": 1,
+            "pct_of_total": 40.0
+          },
+          {
+            "agent": "writer",
+            "duration_s": 6.88,
+            "llm_calls": 1,
+            "pct_of_total": 24.1
+          }
+        ]
+      },
+      "gpu_before": {
+        "utilization_pct": 2.0,
+        "memory_used_mib": 4612.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 52.0,
+        "power_w": 10.29
+      },
+      "gpu_after": {
+        "utilization_pct": 3.0,
+        "memory_used_mib": 4898.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 54.0,
+        "power_w": 12.64
+      }
+    },
+    {
+      "case_id": "mvp-11",
+      "query": "深度分析B站AI工具视频的口播、脚本和开头钩子",
+      "analysis_mode": "deep",
+      "status": "partial",
+      "termination_reason": "insufficient_evidence",
+      "task_completed": false,
+      "elapsed_s": 21.55,
+      "researcher_duration_s": 7.02,
+      "llm_calls": 4,
+      "research_tasks": 3,
+      "tool_choices": [
+        "search_videos",
+        "none",
+        "rag_search"
+      ],
+      "tool_params": [
+        {
+          "keyword": "AI工具",
+          "platforms": [
+            "bilibili"
+          ],
+          "limit": 10
+        },
+        {},
+        {
+          "query": "短视频开头钩子设计的方法论、经典案例及AI工具类内容的爆款开头模式",
+          "top_k": 5,
+          "platform": "bilibili"
+        }
+      ],
+      "tool_statuses": [
+        "empty",
+        "skipped",
+        "empty"
+      ],
+      "unavailable_tool_calls": 0,
+      "invalid_param_calls": 0,
+      "evidence_groups": 0,
+      "evidence_items": 0,
+      "raw_data_count": 0,
+      "report_length": 72,
+      "trace": {
+        "total_duration_s": 11.53,
+        "total_llm_calls": 4,
+        "agents": [
+          {
+            "agent": "entry",
+            "duration_s": 1.55,
+            "llm_calls": 0,
+            "pct_of_total": 13.4
+          },
+          {
+            "agent": "planner_v2",
+            "duration_s": 2.96,
+            "llm_calls": 1,
+            "pct_of_total": 25.7
+          },
+          {
+            "agent": "researcher_v2",
+            "duration_s": 7.02,
+            "llm_calls": 3,
+            "pct_of_total": 60.9
+          }
+        ]
+      },
+      "gpu_before": {
+        "utilization_pct": 7.0,
+        "memory_used_mib": 4890.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 53.0,
+        "power_w": 8.58
+      },
+      "gpu_after": {
+        "utilization_pct": 11.0,
+        "memory_used_mib": 5051.0,
+        "memory_total_mib": 8188.0,
+        "temperature_c": 53.0,
+        "power_w": 9.05
+      }
+    }
+  ]
+}

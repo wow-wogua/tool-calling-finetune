@@ -1,0 +1,145 @@
+{
+  "timestamp": "2026-07-14T02:27:54.374577+00:00",
+  "project2_commit": "2aa1e54",
+  "project2_read_only": true,
+  "arms": {
+    "deepseek": {
+      "researcher_model": "deepseek-v4-pro",
+      "cases": 3,
+      "statuses": {
+        "completed": 1,
+        "partial": 2,
+        "failed": 0
+      },
+      "mean_total_elapsed_s": 41.35,
+      "mean_researcher_duration_s": 5.003333333333333,
+      "mean_llm_calls": 4.666666666666667,
+      "invalid_param_calls": 1,
+      "unavailable_tool_calls": 0,
+      "evidence_groups": 3,
+      "raw_data_count": 3
+    },
+    "v4_1": {
+      "researcher_model": "qwen3-tool-calling-v4.1",
+      "cases": 3,
+      "statuses": {
+        "completed": 1,
+        "partial": 2,
+        "failed": 0
+      },
+      "mean_total_elapsed_s": 39.69,
+      "mean_researcher_duration_s": 5.266666666666667,
+      "mean_llm_calls": 4.666666666666667,
+      "invalid_param_calls": 0,
+      "unavailable_tool_calls": 0,
+      "evidence_groups": 3,
+      "raw_data_count": 3
+    }
+  },
+  "per_case": [
+    {
+      "case_id": "mvp-01",
+      "deepseek_status": "partial",
+      "v4_status": "partial",
+      "deepseek_tools": [
+        "search_videos",
+        "rag_search",
+        "rag_search"
+      ],
+      "v4_tools": [
+        "search_videos",
+        "rag_search",
+        "none"
+      ],
+      "deepseek_tool_statuses": [
+        "empty",
+        "invalid_params",
+        "empty"
+      ],
+      "v4_tool_statuses": [
+        "empty",
+        "empty",
+        "skipped"
+      ],
+      "deepseek_invalid_params": 1,
+      "v4_invalid_params": 0,
+      "deepseek_researcher_s": 5.0,
+      "v4_researcher_s": 2.58,
+      "deepseek_total_s": 25.74,
+      "v4_total_s": 24.92,
+      "deepseek_raw_data": 0,
+      "v4_raw_data": 0
+    },
+    {
+      "case_id": "mvp-04",
+      "deepseek_status": "completed",
+      "v4_status": "completed",
+      "deepseek_tools": [
+        "search_videos",
+        "none",
+        "rag_search"
+      ],
+      "v4_tools": [
+        "search_videos",
+        "none",
+        "search_videos"
+      ],
+      "deepseek_tool_statuses": [
+        "success",
+        "skipped",
+        "empty"
+      ],
+      "v4_tool_statuses": [
+        "success",
+        "skipped",
+        "duplicate_only"
+      ],
+      "deepseek_invalid_params": 0,
+      "v4_invalid_params": 0,
+      "deepseek_researcher_s": 4.92,
+      "v4_researcher_s": 6.2,
+      "deepseek_total_s": 78.22,
+      "v4_total_s": 72.6,
+      "deepseek_raw_data": 3,
+      "v4_raw_data": 3
+    },
+    {
+      "case_id": "mvp-11",
+      "deepseek_status": "partial",
+      "v4_status": "partial",
+      "deepseek_tools": [
+        "search_videos",
+        "rag_search",
+        "search_videos"
+      ],
+      "v4_tools": [
+        "search_videos",
+        "none",
+        "rag_search"
+      ],
+      "deepseek_tool_statuses": [
+        "empty",
+        "empty",
+        "empty"
+      ],
+      "v4_tool_statuses": [
+        "empty",
+        "skipped",
+        "empty"
+      ],
+      "deepseek_invalid_params": 0,
+      "v4_invalid_params": 0,
+      "deepseek_researcher_s": 5.09,
+      "v4_researcher_s": 7.02,
+      "deepseek_total_s": 20.09,
+      "v4_total_s": 21.55,
+      "deepseek_raw_data": 0,
+      "v4_raw_data": 0
+    }
+  ],
+  "conclusion": {
+    "candidate_integration_passed": true,
+    "product_superiority_proven": false,
+    "reason": "Both arms produced the same completed/partial distribution and evidence availability. The adapted v4.1 arm removed invalid parameter calls, but external Bilibili/RAG empty results dominated incomplete tasks and Researcher latency was not consistently lower."
+  }
+}

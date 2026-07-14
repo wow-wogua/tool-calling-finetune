@@ -1,0 +1,131 @@
+{
+  "timestamp": "2026-07-14T02:53:20Z",
+  "status": "candidate_replacement_value_passed",
+  "scope": "Qwen3-4B Direct Adapter for the frozen project-2 Researcher tool-routing contract",
+  "project2_commit": "2aa1e54",
+  "project2_read_only": true,
+  "frozen_evaluation": {
+    "combined_sha256": "6b77b03e0dde15c06e4f9b5a2a639e26db2bcc86ee9557b0c3616d01c55cbab0",
+    "counts": {
+      "dev": 24,
+      "hard": 40,
+      "holdout": 30,
+      "capability_holdout": 16
+    }
+  },
+  "training_data": {
+    "total": 835,
+    "train": 750,
+    "validation": 85,
+    "source_distribution": {
+      "programmatic_template": 720,
+      "handwritten_natural": 14,
+      "handwritten_boundary": 48,
+      "project2_frozen_product_input": 4,
+      "v4_1_error_category_augmentation": 49
+    },
+    "family_overlap_count": 0,
+    "exact_overlap_count": 0,
+    "near_overlap_count": 0
+  },
+  "strongest_base_full_accuracy": {
+    "hard": 82.5,
+    "holdout": 76.66666666666667,
+    "capability_holdout": 68.75
+  },
+  "v4_1_repeated_metrics": {
+    "hard": {
+      "tool_accuracy": 95.0,
+      "params_accuracy": 95.23809523809523,
+      "full_accuracy": 95.0,
+      "safe_accuracy": 95.0,
+      "json_valid_rate": 100.0,
+      "capability_state_accuracy": 90.9090909090909
+    },
+    "holdout": {
+      "tool_accuracy": 100.0,
+      "params_accuracy": 93.33333333333333,
+      "full_accuracy": 96.66666666666667,
+      "safe_accuracy": 96.66666666666667,
+      "json_valid_rate": 100.0,
+      "capability_state_accuracy": 100.0
+    },
+    "capability_holdout": {
+      "tool_accuracy": 87.5,
+      "params_accuracy": 71.42857142857143,
+      "full_accuracy": 87.5,
+      "safe_accuracy": 87.5,
+      "json_valid_rate": 100.0,
+      "capability_state_accuracy": 87.5
+    },
+    "unavailable_tool_violation_rate": 0.0,
+    "unsupported_platform_violation_rate": 0.0,
+    "hallucinated_id_or_url_rate": 0.0,
+    "deterministic_repeats_raw_output_identical": true,
+    "source": "results/v4/v4_1_final_repeated.json"
+  },
+  "gates": {
+    "hard_beats_strongest_base": true,
+    "holdout_beats_strongest_base": true,
+    "capability_holdout_beats_strongest_base": true,
+    "safe_accuracy_not_regressed": true,
+    "json_valid_near_100_percent": true,
+    "unavailable_tool_violations_near_zero": true,
+    "unsupported_platform_violations_near_zero": true,
+    "url_or_id_hallucination_not_increased": true,
+    "deterministic_repeat_stable": true
+  },
+  "dpo": {
+    "executed": false,
+    "reason": "v4.1 SFT passed the independent quality and safety gates; remaining errors did not provide enough evidence that DPO would add value without regression risk"
+  },
+  "openai_service": {
+    "passed": true,
+    "load_mode": "base+direct-adapter",
+    "adapter": "outputs/qwen3_lora_tool_calling_v4_1",
+    "cases_passed": 3,
+    "cases_total": 3,
+    "source": "results/v4/openai_service_smoke.json"
+  },
+  "project2_ab": {
+    "deepseek_statuses": {"completed": 1, "partial": 2, "failed": 0},
+    "v4_1_statuses": {"completed": 1, "partial": 2, "failed": 0},
+    "deepseek_invalid_param_calls": 1,
+    "v4_1_invalid_param_calls": 0,
+    "deepseek_mean_total_elapsed_s": 41.35,
+    "v4_1_mean_total_elapsed_s": 39.69,
+    "deepseek_mean_researcher_duration_s": 5.003333333333333,
+    "v4_1_mean_researcher_duration_s": 5.266666666666667,
+    "candidate_integration_passed": true,
+    "product_superiority_proven": false,
+    "source": "results/v4/project2_ab_comparison.json"
+  },
+  "cleanup": {
+    "second_cleanup_deleted_bytes": 4947007428,
+    "repository_before_bytes": 5096011052,
+    "repository_after_bytes": 149006315,
+    "final_output_bytes": 143705895,
+    "external_base_bytes": 8060926179,
+    "external_base_preserved": true,
+    "legacy_manifest": "results/legacy/v1-v3/legacy_manifest.json"
+  },
+  "verification": {
+    "dataset_validation": "passed",
+    "legacy_archive_hashes": "passed",
+    "python_compile": "passed",
+    "unit_tests": "not_available_no_tests_directory",
+    "adapter_reload_and_health": "passed",
+    "openai_compatibility_smoke": "passed"
+  },
+  "allowed_claims": [
+    "v4.1 improved independent hard and holdout full accuracy over the strongest Qwen3-4B base configuration",
+    "the final repeated evaluation had zero unavailable-tool, unsupported-platform, and URL-or-ID hallucination violations",
+    "the Direct Adapter can be served through the OpenAI-compatible Researcher integration path"
+  ],
+  "disallowed_claims": [
+    "project 2 now uses v4.1 as its default model",
+    "v4.1 is proven superior to DeepSeek for end-to-end product quality or latency",
+    "the result proves online production generalization",
+    "a 4-bit merged model has been validated"
+  ]
+}

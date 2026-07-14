@@ -1,0 +1,868 @@
+[
+  {
+    "id": "dev-search-01",
+    "input": "先给我找8条B站家居区最近火起来的视频",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "家居",
+      "platforms": [
+        "bilibili"
+      ],
+      "limit": 8
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_request",
+    "parameter_pattern": "keyword_limit",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-search-02",
+    "input": "分析之前先拉一批B站数码测评真实样本",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "数码测评",
+      "platforms": [
+        "bilibili"
+      ]
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_prerequisite",
+    "parameter_pattern": "keyword",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-search-03",
+    "input": "B站知识区这两天有哪些热门内容可当样本",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "知识",
+      "platforms": [
+        "bilibili"
+      ]
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_question",
+    "parameter_pattern": "keyword",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-search-04",
+    "input": "拉20个B站汽车频道近期热视频",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "汽车",
+      "platforms": [
+        "bilibili"
+      ],
+      "limit": 20
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_count",
+    "parameter_pattern": "keyword_limit",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-rag-01",
+    "input": "从知识库找一下完播率诊断方法",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "完播率诊断方法",
+      "platform": "bilibili"
+    },
+    "intent_family": "knowledge_retrieval",
+    "expression_family": "dev_rag_direct",
+    "parameter_pattern": "query_platform",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-rag-02",
+    "input": "我需要引用B站标题写作规则，不要去搜视频",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "B站标题写作规则",
+      "platform": "bilibili"
+    },
+    "intent_family": "knowledge_retrieval",
+    "expression_family": "dev_rag_no_video",
+    "parameter_pattern": "query_platform",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "no_video_search"
+    ]
+  },
+  {
+    "id": "dev-rag-03",
+    "input": "查内部资料里的竞品复盘模板",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "竞品复盘模板"
+    },
+    "intent_family": "knowledge_retrieval",
+    "expression_family": "dev_rag_internal",
+    "parameter_pattern": "query",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-rag-04",
+    "input": "抖音推荐机制有现成资料吗，只查知识库",
+    "platforms": [
+      "douyin"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "抖音推荐机制",
+      "platform": "douyin"
+    },
+    "intent_family": "knowledge_retrieval",
+    "expression_family": "dev_rag_other_platform",
+    "parameter_pattern": "query_platform",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-none-01",
+    "input": "沿用现有Evidence，把结论压缩成三点",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "no_new_evidence",
+    "expression_family": "dev_none_existing",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "existing_evidence"
+    ]
+  },
+  {
+    "id": "dev-none-02",
+    "input": "不要查任何东西，直接给五个标题方向",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "explicit_no_tool",
+    "expression_family": "dev_none_explicit",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "explicit_no_tool"
+    ]
+  },
+  {
+    "id": "dev-none-03",
+    "input": "解释一下互动率是什么意思",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "direct_explanation",
+    "expression_family": "dev_none_explain",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-none-04",
+    "input": "把上面的报告改成更口语的版本",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "rewrite_existing",
+    "expression_family": "dev_none_rewrite",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "existing_evidence"
+    ]
+  },
+  {
+    "id": "dev-asr-01",
+    "input": "转写这个B站视频 https://www.bilibili.com/video/BV1Ab411c7X1",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "get_transcript",
+    "expected_params": {
+      "video_url": "https://www.bilibili.com/video/BV1Ab411c7X1"
+    },
+    "intent_family": "transcript_with_url",
+    "expression_family": "dev_asr_url",
+    "parameter_pattern": "video_url",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-asr-02",
+    "input": "把 https://b23.tv/BV1Cd4y1Q7p2 的口播整理出来",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "get_transcript",
+    "expected_params": {
+      "video_url": "https://b23.tv/BV1Cd4y1Q7p2"
+    },
+    "intent_family": "transcript_with_url",
+    "expression_family": "dev_asr_short_url",
+    "parameter_pattern": "video_url",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-asr-missing-01",
+    "input": "帮我把那个视频转成文字",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "transcript_missing_url",
+    "expression_family": "dev_asr_missing",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "missing_url"
+    ]
+  },
+  {
+    "id": "dev-asr-off-01",
+    "input": "转写 https://www.bilibili.com/video/BV1Ef4y1R7m3",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_off",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": false,
+        "availability": "unconfigured"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "transcript_unavailable",
+    "expression_family": "dev_asr_disabled",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "dev-platform-01",
+    "input": "搜一下抖音近期母婴爆款样本",
+    "platforms": [
+      "douyin"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "unsupported_realtime_platform",
+    "expression_family": "dev_platform_douyin",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "unsupported_platform"
+    ]
+  },
+  {
+    "id": "dev-platform-02",
+    "input": "小红书最近流行哪些家装视频，给真实样本",
+    "platforms": [
+      "xiaohongshu"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "unsupported_realtime_platform",
+    "expression_family": "dev_platform_xhs",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "unsupported_platform"
+    ]
+  },
+  {
+    "id": "dev-trend-01",
+    "input": "看看BV1Gh411K7n4过去一周播放趋势",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "trend_unavailable",
+    "expression_family": "dev_trend_id",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "dev-trend-02",
+    "input": "这条视频热度怎么变化的",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "trend_missing_id",
+    "expression_family": "dev_trend_missing",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "missing_id",
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "dev-rag-05",
+    "input": "给我知识库里关于开头三秒钩子的参考资料",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "开头三秒钩子"
+    },
+    "intent_family": "knowledge_retrieval",
+    "expression_family": "dev_rag_reference",
+    "parameter_pattern": "query",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-search-05",
+    "input": "想研究B站宠物赛道，先找近期真实视频",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "宠物",
+      "platforms": [
+        "bilibili"
+      ]
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_research",
+    "parameter_pattern": "keyword",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  },
+  {
+    "id": "dev-none-05",
+    "input": "基于刚才已经拿到的样本做归纳，不要新增检索",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "no_new_evidence",
+    "expression_family": "dev_none_no_new",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "existing_evidence",
+      "explicit_no_tool"
+    ]
+  },
+  {
+    "id": "dev-search-06",
+    "input": "B站舞蹈区热门榜给我前12个",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "舞蹈",
+      "platforms": [
+        "bilibili"
+      ],
+      "limit": 12
+    },
+    "intent_family": "real_sample_search",
+    "expression_family": "dev_search_rank",
+    "parameter_pattern": "keyword_limit",
+    "source": "handwritten_eval",
+    "safety_tags": []
+  }
+]

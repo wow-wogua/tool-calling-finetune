@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-14",
+  "scope": "v1-v3 historical evidence retained before the second v4 cleanup",
+  "notes": [
+    "Historical result JSON, evaluation cases, and training configs are archived under this directory.",
+    "Raw and processed v1-v3 training intermediates are deleted after their counts and SHA-256 hashes are recorded here.",
+    "Deleted source files remain recoverable from Git history when they were tracked.",
+    "No model weights or checkpoints are included in this manifest archive."
+  ],
+  "archived_results": [
+    {"file": "results/adapter_direct_experiment_20260712.json", "bytes": 111570, "sha256": "e9502f73d7a61a6a12a41aab02b732e94a13c7a377f47fc95ce7d353258bc939"},
+    {"file": "results/eval_20260630_184816.json", "bytes": 13179, "sha256": "1b891f95d370cae1a265866a575b8c7e4c2d8b6e4dde0d0e9ae0eb6017a8ede4"},
+    {"file": "results/eval_20260630_185543.json", "bytes": 13179, "sha256": "eb59a13cf82bcdf3b1d8b97ff2ef554fc5abb36fa9294ca6061c615f779f2397"},
+    {"file": "results/eval_20260630_185909.json", "bytes": 13142, "sha256": "f863e8df8efd94c72cd7f6bd511e6486efea4f04ccb3b5b6636472062d069ee8"},
+    {"file": "results/fair_experiment_20260711_152552.json", "bytes": 254849, "sha256": "e404ad094ae3d4331e0caab71e208b703f426901d7169f8e53652b87830322cc"},
+    {"file": "results/fair_experiment_20260711_152552_rescored.json", "bytes": 282811, "sha256": "55df6220b5ede09b640d066adddcbeb8c2adf5dc9d522252a88d9ee1e8aa4a9b"},
+    {"file": "results/hard_base.json", "bytes": 12208, "sha256": "98d683e26e3e6cda3d364dcc238821d0db5abd5e52a13f21c388853d394635fd"},
+    {"file": "results/hard_dpo_merged.json", "bytes": 12188, "sha256": "a4121c5c4a72cd161dbf9986e8f05e43c4eb93807b2cf4e4dba74a726cd2cf3a"},
+    {"file": "results/hard_dpo_merged_v2.json", "bytes": 12194, "sha256": "645e4dd1572385e291c92b6a3580699934610de8098b4875846165d8c9561476"},
+    {"file": "results/hard_dpo_merged_v3.json", "bytes": 12194, "sha256": "7e022bb72287f27588cf27db98c2c90071fc898b384ecc9c74cb6ecca718d326"},
+    {"file": "results/hard_holdout_base.json", "bytes": 5674, "sha256": "f085cd6a2b26dee002914e10bbdbbe512fc8c164eeebd21278029ede626e1ae4"},
+    {"file": "results/hard_holdout_dpo_merged_v3.json", "bytes": 5660, "sha256": "ed232ff060159b5d3b7952d99eaba08c516bc85ff52b9eaff2c01693a8d6f320"}
+  ],
+  "archived_cases": [
+    {"file": "data/eval/hard_cases.json", "records": 44, "bytes": 6973, "sha256": "7e56cf946df1d4d5cae6cd797f4a9a58ec82981775e24982822c3c9344fe266c"},
+    {"file": "data/eval/hard_holdout_v3.json", "records": 20, "bytes": 2938, "sha256": "1c93b508b2db372e14b01a404e6d3a814fad3c1bc8544c666e33b625e00a10f6"}
+  ],
+  "archived_configs": [
+    {"file": "configs/qwen3_dpo.yaml", "bytes": 954, "sha256": "c4205cb805e9c87ace2c41a3db38daffbe6bec773907a099432ed263ced85917"},
+    {"file": "configs/qwen3_dpo_v2.yaml", "bytes": 928, "sha256": "7240f4bfd9d2af697cc37c14946f0ddcfa57f6fb50f7f965206c15dcba0f1d32"},
+    {"file": "configs/qwen3_dpo_v3.yaml", "bytes": 928, "sha256": "bc2dbd852c347825847386ac7d9d377dd7849d6572cc0737d58a72dfc2029dfa"},
+    {"file": "configs/qwen3_lora.yaml", "bytes": 928, "sha256": "612167939c3bf1ce8b9d5f3436807f4a41358eb0659394d6e55260076d8334e2"},
+    {"file": "configs/qwen3_lora_v2.yaml", "bytes": 937, "sha256": "5f7ae4254098161734834cb8b78b604555dad9ca930327b3b0cbaa0572283f1a"},
+    {"file": "configs/qwen3_lora_v3.yaml", "bytes": 937, "sha256": "46a6811a55329d7b1e320dff76c2ae3b6f535d109b22cefe3b1030c5ed69d53b"}
+  ],
+  "deleted_training_intermediates": [
+    {"file": "data/raw/boundary_v2.json", "records": 60, "bytes": 9353, "sha256": "77584859039ad28311794805c2781e5f972be04b20a450dcefbb431ebe6601ee"},
+    {"file": "data/raw/boundary_v3.json", "records": 40, "bytes": 6876, "sha256": "6c380cdcf3c8e0df24048755acf539aa45d69e514ebb65c57b6bcf9e30f3c1b2"},
+    {"file": "data/raw/dpo_boundary_v2.json", "records": 48, "bytes": 11067, "sha256": "b3b0fb8a096d55c89d7efddde25ef315d91548f72e16c29335588235a2b107ba"},
+    {"file": "data/raw/dpo_boundary_v3.json", "records": 24, "bytes": 5817, "sha256": "801138fc66b5c4fec5913a383836f15a8faa10691b9f6d3ede7ebd14179c84d6"},
+    {"file": "data/raw/generated.json", "records": 244, "bytes": 49815, "sha256": "20366de47ece7e18f9592e5b14b9944f24733d7b8747fe69f8e91821840600da"},
+    {"file": "data/raw/generated_v2.json", "records": 323, "bytes": 74027, "sha256": "5c830385fa4bd7132e41c09e14d41b46044540f2c347c7ab6a4b65e2627eaa0f"},
+    {"file": "data/raw/handcrafted.json", "records": 30, "bytes": 15390, "sha256": "e2f0a0282165fd6d5abc2bb4f8131fe87686969046a944074a029b7b2085d57f"},
+    {"file": "data/processed/dpo_eval.json", "records": 5, "bytes": 5773, "sha256": "2ef22d091e821eec11c825df1f08ffe4a980d75ba6c438d78c6c38f64cc61a13"},
+    {"file": "data/processed/dpo_eval_v2.json", "records": 5, "bytes": 5779, "sha256": "2b9c10bf7fca7f341ff4ddddbc3c762d3d1b18eb70fb50d091e5093706f867c5"},
+    {"file": "data/processed/dpo_eval_v3.json", "records": 3, "bytes": 3450, "sha256": "b78921e3d5087741a0c3ac316893a446e29d62689d15a008c23d4c07ecd00fd2"},
+    {"file": "data/processed/dpo_train.json", "records": 37, "bytes": 42418, "sha256": "f9ff82195d8e420db2c689e17e86577b9ca813f769466c12cac868d66ef96076"},
+    {"file": "data/processed/dpo_train_v2.json", "records": 43, "bytes": 49597, "sha256": "f495bc434378fbc3ace2f3bd5cc1af98c23ed68088c10483fb2180cfbed81fa3"},
+    {"file": "data/processed/dpo_train_v3.json", "records": 21, "bytes": 24522, "sha256": "b202b4e69abaf4c78b471ad580b66461552407561b7fcae0b26cffb4a809a473"},
+    {"file": "data/processed/eval.json", "records": 64, "bytes": 64881, "sha256": "7049da3084d5e4f692b73865ce758fa9466d37c42c58cdcd2b480fe7aa896c52"},
+    {"file": "data/processed/eval_v2.json", "records": 76, "bytes": 77175, "sha256": "1bfdf29ad26cda202f62cbb6d32d5b569529fbc691ea600e9568a94edec19c90"},
+    {"file": "data/processed/eval_v3.json", "records": 83, "bytes": 84519, "sha256": "a872dadb06ccfed06259b4b539c20ae7d499a38e5c5482f8881716075e203def"},
+    {"file": "data/processed/train.json", "records": 246, "bytes": 249365, "sha256": "fdb2572633534b0fd6a745d9464afa58858e7ea9ee3df26735efad8de702aa41"},
+    {"file": "data/processed/train_v2.json", "records": 294, "bytes": 298113, "sha256": "be4aedbb7fcdcd6f675191fe46d6fdd94ed93e70132cd32e7dad7cdd42b1fac2"},
+    {"file": "data/processed/train_v3.json", "records": 327, "bytes": 332134, "sha256": "3e6c3093239acebae6af31e74a2b3f0d836823d66ac0491b469f47b1bca0dd3b"}
+  ]
+}

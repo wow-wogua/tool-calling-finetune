@@ -3,9 +3,9 @@
 
 用法:
     python scripts/export_model.py \
-        --base-model Qwen/Qwen3-4B \
-        --adapter outputs/qwen3_dpo_tool_calling \
-        --output outputs/qwen3_dpo_tool_calling_merged
+        --base-model C:/Users/0/.cache/modelscope/Qwen/Qwen3-4B \
+        --adapter outputs/qwen3_lora_tool_calling_v4_1 \
+        --output outputs/qwen3_lora_tool_calling_v4_1_merged_bf16
 
 导出后接入项目2的 LLM 网关:
     1. 用 FastAPI 部署导出的模型（serve_model.py，端口 8002）
@@ -19,8 +19,12 @@
 """
 
 import argparse
+import os
 import sys
 from pathlib import Path
+
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 
 def merge_lora(base_model: str, adapter_path: str, output_path: str):
@@ -75,38 +79,16 @@ def merge_lora(base_model: str, adapter_path: str, output_path: str):
     print(f"{'='*50}")
 
 
-def create_modelfile(output_path: str):
-    """生成 Modelfile（可选，用于其他部署方式）。"""
-    modelfile = f"""FROM {output_path}
-
-PARAMETER temperature 0
-PARAMETER top_p 1.0
-PARAMETER num_ctx 2048
-
-SYSTEM \"\"\"你是研究员。根据任务选择工具和参数。
-
-可用工具:
-- search_videos(keyword, platforms, limit): 搜索视频数据
-- rag_search(query, top_k): 从知识库检索参考文档
-- get_transcript(video_url): 获取视频转写
-- get_trend_data(video_id, platform): 获取视频历史趋势数据
-- 无需工具: 输出 {{"tool": "none", "params": {{}}}}
-
-输出JSON: {{"tool": "工具名", "params": {{"参数名": "值"}}}}
-只输出JSON，不要其他内容。\"\"\"
-"""
-    modelfile_path = Path(output_path).parent / "Modelfile"
-    with open(modelfile_path, "w") as f:
-        f.write(modelfile)
-    print(f"  Modelfile 已生成: {modelfile_path}")
-
-
 def main():
     parser = argparse.ArgumentParser(description="导出微调后的模型")
-    parser.add_argument("--base-model", type=str, default="Qwen/Qwen3-4B", help="基座模型路径")
+    parser.add_argument(
+        "--base-model",
+        type=str,
+        default=str(Path.home() / ".cache" / "modelscope" / "Qwen" / "Qwen3-4B"),
+        help="本地基座模型路径",
+    )
     parser.add_argument("--adapter", type=str, required=True, help="LoRA 适配器路径")
     parser.add_argument("--output", type=str, default=None, help="输出路径")
-    parser.add_argument("--modelfile", action="store_true", help="同时生成 Modelfile（可选）")
     args = parser.parse_args()
 
     output_path = args.output or str(
@@ -114,9 +96,6 @@ def main():
     )
 
     merge_lora(args.base_model, args.adapter, output_path)
-
-    if args.modelfile:
-        create_modelfile(output_path)
 
 
 if __name__ == "__main__":

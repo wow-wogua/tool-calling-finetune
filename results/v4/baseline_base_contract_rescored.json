@@ -1,0 +1,4562 @@
+{
+  "timestamp": "2026-07-14T01:14:52.411999+00:00",
+  "label": "base_contract_rescored",
+  "base_model": "C:\\Users\\0\\.cache\\modelscope\\Qwen\\Qwen3-4B",
+  "adapter": null,
+  "prompt_variant": "contract",
+  "generation": {
+    "temperature": 0.0,
+    "do_sample": false,
+    "max_new_tokens": 96,
+    "quantization": "4bit nf4 double-quant",
+    "thinking": false,
+    "repeats": 1
+  },
+  "splits": {
+    "dev": {
+      "summary": {
+        "total": 24,
+        "tool_accuracy": 79.16666666666666,
+        "params_accuracy": 100.0,
+        "full_accuracy": 79.16666666666666,
+        "safe_accuracy": 79.16666666666666,
+        "json_valid_rate": 100.0,
+        "unavailable_tool_violation_rate": 0.0,
+        "unsupported_platform_violation_rate": 4.166666666666666,
+        "hallucinated_id_or_url_rate": 4.166666666666666,
+        "capability_state_accuracy": 16.666666666666664,
+        "latency_ms": {
+          "mean": 2017.5370833333334,
+          "p50": 2343.14,
+          "p95": 2850.46
+        },
+        "error_types": {
+          "hallucinated_id_or_url": 1,
+          "unsupported_platform_violation": 1,
+          "wrong_tool": 5
+        },
+        "per_tool": {
+          "get_transcript": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "none": {
+            "total": 11,
+            "tool_accuracy": 54.54545454545454,
+            "full_accuracy": 54.54545454545454,
+            "safe_accuracy": 54.54545454545454
+          },
+          "rag_search": {
+            "total": 5,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "search_videos": {
+            "total": 6,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          }
+        },
+        "per_capability_profile": {
+          "asr_off": {
+            "total": 1,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "asr_on": {
+            "total": 23,
+            "tool_accuracy": 78.26086956521739,
+            "full_accuracy": 78.26086956521739,
+            "safe_accuracy": 78.26086956521739
+          }
+        }
+      },
+      "details": [
+        {
+          "repeat": 1,
+          "case": 1,
+          "id": "dev-search-01",
+          "input": "先给我找8条B站家居区最近火起来的视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "家居",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 8
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"家居区\", \"platforms\": [\"bilibili\"], \"limit\": 8}}",
+          "latency_ms": 2164.73,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "家居区",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 8
+          },
+          "normalized_expected_params": {
+            "keyword": "家居",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 8
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 2,
+          "id": "dev-search-02",
+          "input": "分析之前先拉一批B站数码测评真实样本",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "数码测评",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站 数码测评\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2396.47,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站 数码测评",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "数码测评",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 3,
+          "id": "dev-search-03",
+          "input": "B站知识区这两天有哪些热门内容可当样本",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站知识区 热门\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2618.97,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站知识区 热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 4,
+          "id": "dev-search-04",
+          "input": "拉20个B站汽车频道近期热视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "汽车",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"汽车\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2200.9,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "汽车",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "汽车",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 5,
+          "id": "dev-rag-01",
+          "input": "从知识库找一下完播率诊断方法",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "完播率诊断方法",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"完播率诊断方法\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2327.71,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "完播率诊断方法",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "完播率诊断方法",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 6,
+          "id": "dev-rag-02",
+          "input": "我需要引用B站标题写作规则，不要去搜视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "B站标题写作规则",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站标题写作规则\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2343.14,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站标题写作规则",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "B站标题写作规则",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 7,
+          "id": "dev-rag-03",
+          "input": "查内部资料里的竞品复盘模板",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "竞品复盘模板"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"竞品复盘模板\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2374.43,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "竞品复盘模板",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "竞品复盘模板"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 8,
+          "id": "dev-rag-04",
+          "input": "抖音推荐机制有现成资料吗，只查知识库",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "抖音推荐机制",
+            "platform": "douyin"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音推荐机制\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2303.66,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音推荐机制",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {
+            "query": "抖音推荐机制",
+            "platform": "douyin"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 9,
+          "id": "dev-none-01",
+          "input": "沿用现有Evidence，把结论压缩成三点",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "no_new_evidence",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 835.47,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 10,
+          "id": "dev-none-02",
+          "input": "不要查任何东西，直接给五个标题方向",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "explicit_no_tool",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 861.87,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 11,
+          "id": "dev-none-03",
+          "input": "解释一下互动率是什么意思",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "direct_explanation",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 860.3,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 12,
+          "id": "dev-none-04",
+          "input": "把上面的报告改成更口语的版本",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "rewrite_existing",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 842.41,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 13,
+          "id": "dev-asr-01",
+          "input": "转写这个B站视频 https://www.bilibili.com/video/BV1Ab411c7X1",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Ab411c7X1"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Ab411c7X1\"}}",
+          "latency_ms": 2395.77,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Ab411c7X1"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Ab411c7X1"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 14,
+          "id": "dev-asr-02",
+          "input": "把 https://b23.tv/BV1Cd4y1Q7p2 的口播整理出来",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://b23.tv/BV1Cd4y1Q7p2"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://b23.tv/BV1Cd4y1Q7p2\"}}",
+          "latency_ms": 2282.07,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://b23.tv/BV1Cd4y1Q7p2"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://b23.tv/BV1Cd4y1Q7p2"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 15,
+          "id": "dev-asr-missing-01",
+          "input": "帮我把那个视频转成文字",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_missing_url",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"需要用户提供具体视频链接\"}}",
+          "latency_ms": 1559.76,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "需要用户提供具体视频链接"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": true,
+          "hallucinated_id_or_url": true,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool",
+            "unsupported_platform_violation",
+            "hallucinated_id_or_url"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 16,
+          "id": "dev-asr-off-01",
+          "input": "转写 https://www.bilibili.com/video/BV1Ef4y1R7m3",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "transcript_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 846.34,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 17,
+          "id": "dev-platform-01",
+          "input": "搜一下抖音近期母婴爆款样本",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音 母婴 爆款 样本\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2850.46,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音 母婴 爆款 样本",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 18,
+          "id": "dev-platform-02",
+          "input": "小红书最近流行哪些家装视频，给真实样本",
+          "platforms": [
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"小红书 家装视频 热门\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 2917.65,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "小红书 家装视频 热门",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 19,
+          "id": "dev-trend-01",
+          "input": "看看BV1Gh411K7n4过去一周播放趋势",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"BV1Gh411K7n4\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2793.12,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "BV1Gh411K7n4",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 20,
+          "id": "dev-trend-02",
+          "input": "这条视频热度怎么变化的",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_missing_id",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"视频热度变化\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2354.36,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "视频热度变化",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 21,
+          "id": "dev-rag-05",
+          "input": "给我知识库里关于开头三秒钩子的参考资料",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "开头三秒钩子"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"开头三秒钩子\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2351.32,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "开头三秒钩子",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "开头三秒钩子"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 22,
+          "id": "dev-search-05",
+          "input": "想研究B站宠物赛道，先找近期真实视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "宠物",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站 宠物 赛道\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2673.49,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站 宠物 赛道",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "宠物",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 23,
+          "id": "dev-none-05",
+          "input": "基于刚才已经拿到的样本做归纳，不要新增检索",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "no_new_evidence",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 878.73,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 24,
+          "id": "dev-search-06",
+          "input": "B站舞蹈区热门榜给我前12个",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "舞蹈",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 12
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"舞蹈区热门榜\", \"platforms\": [\"bilibili\"], \"limit\": 12}}",
+          "latency_ms": 2387.76,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "舞蹈区热门榜",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 12
+          },
+          "normalized_expected_params": {
+            "keyword": "舞蹈",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 12
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        }
+      ]
+    },
+    "hard": {
+      "summary": {
+        "total": 40,
+        "tool_accuracy": 80.0,
+        "params_accuracy": 95.23809523809523,
+        "full_accuracy": 80.0,
+        "safe_accuracy": 80.0,
+        "json_valid_rate": 100.0,
+        "unavailable_tool_violation_rate": 0.0,
+        "unsupported_platform_violation_rate": 2.5,
+        "hallucinated_id_or_url_rate": 0.0,
+        "capability_state_accuracy": 45.45454545454545,
+        "latency_ms": {
+          "mean": 1983.61025,
+          "p50": 2368.6,
+          "p95": 2979.46
+        },
+        "error_types": {
+          "unsupported_platform_violation": 1,
+          "wrong_tool": 8
+        },
+        "per_tool": {
+          "get_transcript": {
+            "total": 4,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "none": {
+            "total": 19,
+            "tool_accuracy": 63.1578947368421,
+            "full_accuracy": 63.1578947368421,
+            "safe_accuracy": 63.1578947368421
+          },
+          "rag_search": {
+            "total": 9,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "search_videos": {
+            "total": 8,
+            "tool_accuracy": 87.5,
+            "full_accuracy": 87.5,
+            "safe_accuracy": 87.5
+          }
+        },
+        "per_capability_profile": {
+          "asr_off": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "asr_on": {
+            "total": 38,
+            "tool_accuracy": 78.94736842105263,
+            "full_accuracy": 78.94736842105263,
+            "safe_accuracy": 78.94736842105263
+          }
+        }
+      },
+      "details": [
+        {
+          "repeat": 1,
+          "case": 1,
+          "id": "hard-01",
+          "input": "不是要运营方法论，我要能点开的B站露营热视频，先抓6条",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 6
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"露营\", \"platforms\": [\"bilibili\"], \"limit\": 6}}",
+          "latency_ms": 2173.09,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 6
+          },
+          "normalized_expected_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 6
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 2,
+          "id": "hard-02",
+          "input": "别给我现搜样本，只从资料库找B站封面设计的判断框架",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "B站封面设计判断框架",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站封面设计的判断框架\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2533.74,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站封面设计的判断框架",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "B站封面设计判断框架",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 3,
+          "id": "hard-03",
+          "input": "手头已有20条样本了，按现有证据说说共同点，不再补数据",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "no_new_evidence",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 835.44,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 4,
+          "id": "hard-04",
+          "input": "我只是想要十个选题脑暴，不需要你查库也不用搜视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "explicit_no_tool",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 838.4,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 5,
+          "id": "hard-05",
+          "input": "先搜B站最近火的AI办公教程，数量控制在7条",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "AI办公教程",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 7
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"AI办公教程\", \"platforms\": [\"bilibili\"], \"limit\": 7}}",
+          "latency_ms": 2321.74,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "AI办公教程",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 7
+          },
+          "normalized_expected_params": {
+            "keyword": "AI办公教程",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 7
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 6,
+          "id": "hard-06",
+          "input": "做B站历史区复盘，第一步要真实案例，不是查理论",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "历史",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站历史区真实案例\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2464.08,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站历史区真实案例",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "keyword": "历史",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": false,
+            "platforms": false
+          },
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 7,
+          "id": "hard-07",
+          "input": "查一下知识库是否有用户留存分析框架，返回最多9条参考",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "用户留存分析框架",
+            "top_k": 9
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"用户留存分析框架\", \"top_k\": 9, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2297.14,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "用户留存分析框架",
+            "top_k": 9,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "用户留存分析框架",
+            "top_k": 9
+          },
+          "field_results": {
+            "query": true,
+            "top_k": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 8,
+          "id": "hard-08",
+          "input": "想了解快手的推荐规则，资料库里有就行，不做实时搜索",
+          "platforms": [
+            "kuaishou"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "快手推荐规则",
+            "platform": "kuaishou"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"快手推荐规则\", \"top_k\": 5, \"platform\": \"kuaishou\"}}",
+          "latency_ms": 2368.6,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "快手推荐规则",
+            "top_k": 5,
+            "platform": "kuaishou"
+          },
+          "normalized_expected_params": {
+            "query": "快手推荐规则",
+            "platform": "kuaishou"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 9,
+          "id": "hard-09",
+          "input": "请把这个公开视频的字幕拿下来：https://www.bilibili.com/video/BV1Jk4y1L7s5?spm_id_from=333",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Jk4y1L7s5?spm_id_from=333"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Jk4y1L7s5?spm_id_from=333\"}}",
+          "latency_ms": 3032.82,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Jk4y1L7s5?spm_id_from=333"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Jk4y1L7s5?spm_id_from=333"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 10,
+          "id": "hard-10",
+          "input": "链接在这 https://b23.tv/BV1Lm4y1M7t6，提取口播即可",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://b23.tv/BV1Lm4y1M7t6"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://b23.tv/BV1Lm4y1M7t6\"}}",
+          "latency_ms": 2404.04,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://b23.tv/BV1Lm4y1M7t6"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://b23.tv/BV1Lm4y1M7t6"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 11,
+          "id": "hard-11",
+          "input": "我忘记贴链接了，但你先把视频转写出来",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_missing_url",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 861.34,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 12,
+          "id": "hard-12",
+          "input": "ASR现在没开，不过还是帮我转写 https://www.bilibili.com/video/BV1Np4y1N7u7",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "transcript_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 853.87,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 13,
+          "id": "hard-13",
+          "input": "给我这条视频最近30天的涨粉曲线，BV1Qr4y1P7v8",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 849.23,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 14,
+          "id": "hard-14",
+          "input": "趋势供应商还没接，直接查一下BV1St4y1Q7w9的热度变化",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"BV1St4y1Q7w9\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2814.82,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "BV1St4y1Q7w9",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 15,
+          "id": "hard-15",
+          "input": "抖音美食最近哪些视频爆了？要真实条目，不要方法论",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音美食最近爆火视频\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2600.31,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音美食最近爆火视频",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 16,
+          "id": "hard-16",
+          "input": "同时找B站和小红书的近期穿搭样本",
+          "platforms": [
+            "bilibili",
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"近期穿搭样本\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 2352.93,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "近期穿搭样本",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 17,
+          "id": "hard-17",
+          "input": "B站当前最火的科普视频有哪些？",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "科普",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站 最火 科普视频\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2620.79,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站 最火 科普视频",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "科普",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 18,
+          "id": "hard-18",
+          "input": "给我找B站全站热门前5，关键词可以留空",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"\", \"platforms\": [\"bilibili\"], \"limit\": 5}}",
+          "latency_ms": 2062.15,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 19,
+          "id": "hard-19",
+          "input": "需要引用一套短视频竞品分析流程，优先内部资料",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "短视频竞品分析流程"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"短视频竞品分析流程\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2380.11,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "短视频竞品分析流程",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "短视频竞品分析流程"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 20,
+          "id": "hard-20",
+          "input": "不用联网，看看知识库里有没有AIDA和AISAS的对比",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "AIDA AISAS 对比"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"AIDA AISAS 对比\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2407.47,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "AIDA AISAS 对比",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "AIDA AISAS 对比"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 21,
+          "id": "hard-21",
+          "input": "把已经生成的分析改成面试时两分钟能讲完的版本",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "rewrite_existing",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 873.15,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 22,
+          "id": "hard-22",
+          "input": "直接说明什么叫冷启动，别检索",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "direct_explanation",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 860.98,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 23,
+          "id": "hard-23",
+          "input": "先别分析，抓18条B站健身热视频给后面用",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "健身",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 18
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"健身\", \"platforms\": [\"bilibili\"], \"limit\": 18}}",
+          "latency_ms": 2182.57,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "健身",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 18
+          },
+          "normalized_expected_params": {
+            "keyword": "健身",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 18
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 24,
+          "id": "hard-24",
+          "input": "B站母婴赛道有没有最近的真实爆款可参考",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "母婴",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站 母婴 赛道 爆款\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 3044.16,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站 母婴 赛道 爆款",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "母婴",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 25,
+          "id": "hard-25",
+          "input": "找资料解释B站流量池机制，别拿当前热视频凑数",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "B站流量池机制",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站流量池机制\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2406.18,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站流量池机制",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "B站流量池机制",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 26,
+          "id": "hard-26",
+          "input": "查知识库中的口播节奏设计方法，最多给4条",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "口播节奏设计方法",
+            "top_k": 4
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"口播节奏设计方法\", \"top_k\": 4, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2408.86,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "口播节奏设计方法",
+            "top_k": 4,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "口播节奏设计方法",
+            "top_k": 4
+          },
+          "field_results": {
+            "query": true,
+            "top_k": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 27,
+          "id": "hard-27",
+          "input": "这里只要基于前文给建议，任何新工具都不要调用",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "explicit_no_tool",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 843.42,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 28,
+          "id": "hard-28",
+          "input": "写三个B站科技区标题，完全不需要外部依据",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "direct_creation",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 873.61,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 29,
+          "id": "hard-29",
+          "input": "提取 https://www.bilibili.com/video/BV1Uv4y1R7x1 里的台词",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Uv4y1R7x1"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Uv4y1R7x1\"}}",
+          "latency_ms": 2494.95,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Uv4y1R7x1"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Uv4y1R7x1"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 30,
+          "id": "hard-30",
+          "input": "这个链接是YouTube的 https://youtube.com/watch?v=abc123，帮我转写",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_unsupported_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://youtube.com/watch?v=abc123\"}}",
+          "latency_ms": 1976.97,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://youtube.com/watch?v=abc123"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": true,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool",
+            "unsupported_platform_violation"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 31,
+          "id": "hard-31",
+          "input": "没有视频ID，你先给我查趋势",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_missing_id",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"趋势\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2216.21,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "趋势",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 32,
+          "id": "hard-32",
+          "input": "趋势工具不可用时就不要硬调，我只想知道下一步怎么办",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 863.37,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 33,
+          "id": "hard-33",
+          "input": "去小红书搜一批真实护肤视频，再回来分析",
+          "platforms": [
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"小红书 护肤 视频 搜索 方法论\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 2979.46,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "小红书 护肤 视频 搜索 方法论",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 34,
+          "id": "hard-34",
+          "input": "查小红书种草方法论，资料库内容就够了",
+          "platforms": [
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "小红书种草方法论",
+            "platform": "xiaohongshu"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"小红书种草方法论\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 2661.06,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "小红书种草方法论",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {
+            "query": "小红书种草方法论",
+            "platform": "xiaohongshu"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 35,
+          "id": "hard-35",
+          "input": "B站游戏区今天有什么热门，来10条",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"b站游戏区热门\", \"platforms\": [\"bilibili\"], \"limit\": 10}}",
+          "latency_ms": 2411.31,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "b站游戏区热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "normalized_expected_params": {
+            "keyword": "游戏",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 10
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 36,
+          "id": "hard-36",
+          "input": "我需要过去的案例复盘，不是当前热门榜",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "历史案例复盘"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"过去的案例复盘\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2466.73,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "过去的案例复盘",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "历史案例复盘"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 37,
+          "id": "hard-37",
+          "input": "根据已有表格总结，不增加样本、不查规则",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "no_new_evidence",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 853.7,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 38,
+          "id": "hard-38",
+          "input": "给现有报告补一个更有冲击力的开头",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "rewrite_existing",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"报告开头 冲击力 bilibili\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2547.33,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "报告开头 冲击力 bilibili",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 39,
+          "id": "hard-39",
+          "input": "ASR可用，转写短链 https://b23.tv/BV1Wx4y1S7y2",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://b23.tv/BV1Wx4y1S7y2"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://b23.tv/BV1Wx4y1S7y2\"}}",
+          "latency_ms": 2446.73,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://b23.tv/BV1Wx4y1S7y2"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://b23.tv/BV1Wx4y1S7y2"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 40,
+          "id": "hard-40",
+          "input": "ASR没配置，链接是 https://b23.tv/BV1Yz4y1T7z3，也不要调用",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "transcript_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 861.55,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        }
+      ]
+    },
+    "holdout": {
+      "summary": {
+        "total": 30,
+        "tool_accuracy": 76.66666666666667,
+        "params_accuracy": 86.66666666666667,
+        "full_accuracy": 70.0,
+        "safe_accuracy": 70.0,
+        "json_valid_rate": 100.0,
+        "unavailable_tool_violation_rate": 0.0,
+        "unsupported_platform_violation_rate": 3.3333333333333335,
+        "hallucinated_id_or_url_rate": 0.0,
+        "capability_state_accuracy": 44.44444444444444,
+        "latency_ms": {
+          "mean": 2029.045,
+          "p50": 2264.77,
+          "p95": 2837.71
+        },
+        "error_types": {
+          "unsupported_platform_violation": 1,
+          "wrong_params": 2,
+          "wrong_tool": 7
+        },
+        "per_tool": {
+          "get_transcript": {
+            "total": 3,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "none": {
+            "total": 15,
+            "tool_accuracy": 53.333333333333336,
+            "full_accuracy": 53.333333333333336,
+            "safe_accuracy": 53.333333333333336
+          },
+          "rag_search": {
+            "total": 6,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 83.33333333333334,
+            "safe_accuracy": 83.33333333333334
+          },
+          "search_videos": {
+            "total": 6,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 83.33333333333334,
+            "safe_accuracy": 83.33333333333334
+          }
+        },
+        "per_capability_profile": {
+          "asr_off": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "asr_on": {
+            "total": 28,
+            "tool_accuracy": 75.0,
+            "full_accuracy": 67.85714285714286,
+            "safe_accuracy": 67.85714285714286
+          }
+        }
+      },
+      "details": [
+        {
+          "repeat": 1,
+          "case": 1,
+          "id": "holdout-01",
+          "input": "做露营账号竞品研究，素材得是真实的，先从B站取9条最近视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 9
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"露营\", \"platforms\": [\"bilibili\"], \"limit\": 9}}",
+          "latency_ms": 2165.89,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 9
+          },
+          "normalized_expected_params": {
+            "keyword": "露营",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 9
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 2,
+          "id": "holdout-02",
+          "input": "B站摄影分区眼下什么内容热，给样本就行",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "摄影",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"摄影\", \"platforms\": [\"bilibili\"], \"limit\": 5}}",
+          "latency_ms": 2203.49,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "摄影",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "摄影",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 3,
+          "id": "holdout-03",
+          "input": "我要验证一个标题套路，先抽14个B站财经热视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 14
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"财经\", \"platforms\": [\"bilibili\"], \"limit\": 14}}",
+          "latency_ms": 2234.59,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 14
+          },
+          "normalized_expected_params": {
+            "keyword": "财经",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 14
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 4,
+          "id": "holdout-04",
+          "input": "从B站搜点近期手工区案例，后面再谈方法",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "手工",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"手工区案例\", \"platforms\": [\"bilibili\"], \"limit\": 5}}",
+          "latency_ms": 2242.19,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "手工区案例",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "手工",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 5,
+          "id": "holdout-05",
+          "input": "我缺的是用户画像分析的参考框架，不是视频列表",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "用户画像分析框架"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"用户画像分析框架\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2387.51,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "用户画像分析框架",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "用户画像分析框架"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 6,
+          "id": "holdout-06",
+          "input": "翻一下资料库里的B站分区标签规则",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "B站分区标签规则",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"B站分区标签规则\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2397.05,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "B站分区标签规则",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "B站分区标签规则",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 7,
+          "id": "holdout-07",
+          "input": "只看内部沉淀，找一套视频数据异常排查清单",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "视频数据异常排查清单"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"视频数据异常排查清单\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2375.05,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "视频数据异常排查清单",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "视频数据异常排查清单"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 8,
+          "id": "holdout-08",
+          "input": "有没有适合小红书的内容矩阵方法论？不需要实时帖子",
+          "platforms": [
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "小红书内容矩阵方法论",
+            "platform": "xiaohongshu"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"小红书内容矩阵方法论\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 2635.64,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "小红书内容矩阵方法论",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {
+            "query": "小红书内容矩阵方法论",
+            "platform": "xiaohongshu"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 9,
+          "id": "holdout-09",
+          "input": "现成数据足够了，照着它写一个简短结论",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "no_new_evidence",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 849.8,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 10,
+          "id": "holdout-10",
+          "input": "这一步纯改文案，外部工具全部跳过",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "explicit_no_tool",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 832.0,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 11,
+          "id": "holdout-11",
+          "input": "直接给我一个账号定位的例子",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "direct_creation",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"账号定位\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2253.78,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "账号定位",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 12,
+          "id": "holdout-12",
+          "input": "把刚才那五点合成一段话",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "rewrite_existing",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 882.84,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 13,
+          "id": "holdout-13",
+          "input": "请识别这条B站视频的语音：https://www.bilibili.com/video/BV1Za4y1U7a4",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Za4y1U7a4"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Za4y1U7a4\"}}",
+          "latency_ms": 2587.1,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Za4y1U7a4"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Za4y1U7a4"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 14,
+          "id": "holdout-14",
+          "input": "https://b23.tv/BV1Bc4y1V7b5 这条的字幕给我",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://b23.tv/BV1Bc4y1V7b5"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://b23.tv/BV1Bc4y1V7b5\"}}",
+          "latency_ms": 2356.62,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://b23.tv/BV1Bc4y1V7b5"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://b23.tv/BV1Bc4y1V7b5"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 15,
+          "id": "holdout-15",
+          "input": "链接稍后再给，你先生成这条视频的逐字稿",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_missing_url",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 875.86,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 16,
+          "id": "holdout-16",
+          "input": "当前没有转写服务，但我把链接给你 https://www.bilibili.com/video/BV1De4y1W7c6",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "transcript_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 856.21,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 17,
+          "id": "holdout-17",
+          "input": "给我抖音最近的宠物爆款原始样本",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音最近宠物爆款原始样本\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2538.56,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音最近宠物爆款原始样本",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 18,
+          "id": "holdout-18",
+          "input": "快手汽车赛道这周热视频拉一批",
+          "platforms": [
+            "kuaishou"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"快手汽车赛道 热视频 拉一批\", \"top_k\": 5, \"platform\": \"kuaishou\"}}",
+          "latency_ms": 2837.71,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "快手汽车赛道 热视频 拉一批",
+            "top_k": 5,
+            "platform": "kuaishou"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 19,
+          "id": "holdout-19",
+          "input": "B站和抖音都搜一下最近的知识视频",
+          "platforms": [
+            "bilibili",
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"知识\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2264.77,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "知识",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": true,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool",
+            "unsupported_platform_violation"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 20,
+          "id": "holdout-20",
+          "input": "BV1Fg4y1X7d7这条的播放曲线拿一下",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 854.16,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 21,
+          "id": "holdout-21",
+          "input": "没给BV号也没接趋势服务，先查热度变化",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "trend_missing_id",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"热度变化\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2339.58,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "热度变化",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 22,
+          "id": "holdout-22",
+          "input": "B站校园区近期样本选五个",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "校园",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"B站校园区\", \"platforms\": [\"bilibili\"], \"limit\": 5}}",
+          "latency_ms": 2502.1,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "B站校园区",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "normalized_expected_params": {
+            "keyword": "校园",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 5
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 23,
+          "id": "holdout-23",
+          "input": "找B站影视区当下热门内容做对照",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "real_sample_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "影视",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"热门\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2213.08,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "热门",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "影视",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": "",
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_params"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 24,
+          "id": "holdout-24",
+          "input": "资料库里关于选题打分的办法，取3条最相关的",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "选题打分方法",
+            "top_k": 3
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"选题打分办法\", \"top_k\": 3, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2438.32,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "选题打分办法",
+            "top_k": 3,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "选题打分方法",
+            "top_k": 3
+          },
+          "field_results": {
+            "query": false,
+            "top_k": true
+          },
+          "tool_correct": true,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_params"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 25,
+          "id": "holdout-25",
+          "input": "要一份抖音内容审核规则参考，不抓实时内容",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "knowledge_retrieval",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "抖音内容审核规则",
+            "platform": "douyin"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音内容审核规则\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2511.53,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音内容审核规则",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {
+            "query": "抖音内容审核规则",
+            "platform": "douyin"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 26,
+          "id": "holdout-26",
+          "input": "已经有Evidence，不要为润色再调用任何东西",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "explicit_no_tool",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 894.04,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 27,
+          "id": "holdout-27",
+          "input": "用一句话解释什么是互动成本",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "direct_explanation",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"互动成本\", \"top_k\": 3, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2338.98,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "互动成本",
+            "top_k": 3,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 28,
+          "id": "holdout-28",
+          "input": "这条公开视频 https://www.bilibili.com/video/BV1Hi4y1Y7e8 的口播稿提取一下",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "transcript_with_url",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Hi4y1Y7e8"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Hi4y1Y7e8\"}}",
+          "latency_ms": 2789.73,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Hi4y1Y7e8"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Hi4y1Y7e8"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": false,
+          "capability_correct": null,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 29,
+          "id": "holdout-29",
+          "input": "服务没开时不要转写 https://b23.tv/BV1Jk4y1Z7f9",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "transcript_unavailable",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 898.91,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 30,
+          "id": "holdout-30",
+          "input": "小红书近期读书类真实帖子样本给我",
+          "platforms": [
+            "xiaohongshu"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "unsupported_realtime_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"小红书 近期 读书类 帖子 样本\", \"top_k\": 5, \"platform\": \"xiaohongshu\"}}",
+          "latency_ms": 3314.26,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "小红书 近期 读书类 帖子 样本",
+            "top_k": 5,
+            "platform": "xiaohongshu"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        }
+      ]
+    },
+    "capability_holdout": {
+      "summary": {
+        "total": 16,
+        "tool_accuracy": 68.75,
+        "params_accuracy": 85.71428571428571,
+        "full_accuracy": 68.75,
+        "safe_accuracy": 68.75,
+        "json_valid_rate": 100.0,
+        "unavailable_tool_violation_rate": 0.0,
+        "unsupported_platform_violation_rate": 0.0,
+        "hallucinated_id_or_url_rate": 0.0,
+        "capability_state_accuracy": 68.75,
+        "latency_ms": {
+          "mean": 2027.314375,
+          "p50": 2378.43,
+          "p95": 2846.73
+        },
+        "error_types": {
+          "wrong_tool": 5
+        },
+        "per_tool": {
+          "get_transcript": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "none": {
+            "total": 9,
+            "tool_accuracy": 55.55555555555556,
+            "full_accuracy": 55.55555555555556,
+            "safe_accuracy": 55.55555555555556
+          },
+          "rag_search": {
+            "total": 3,
+            "tool_accuracy": 66.66666666666666,
+            "full_accuracy": 66.66666666666666,
+            "safe_accuracy": 66.66666666666666
+          },
+          "search_videos": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          }
+        },
+        "per_capability_profile": {
+          "asr_off": {
+            "total": 2,
+            "tool_accuracy": 100.0,
+            "full_accuracy": 100.0,
+            "safe_accuracy": 100.0
+          },
+          "asr_on": {
+            "total": 14,
+            "tool_accuracy": 64.28571428571429,
+            "full_accuracy": 64.28571428571429,
+            "safe_accuracy": 64.28571428571429
+          }
+        }
+      },
+      "details": [
+        {
+          "repeat": 1,
+          "case": 1,
+          "id": "cap-01-on",
+          "input": "转写 https://www.bilibili.com/video/BV1Lm4y1A7g1",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_asr",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Lm4y1A7g1"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://www.bilibili.com/video/BV1Lm4y1A7g1\"}}",
+          "latency_ms": 2835.59,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Lm4y1A7g1"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://www.bilibili.com/video/BV1Lm4y1A7g1"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 2,
+          "id": "cap-01-off",
+          "input": "转写 https://www.bilibili.com/video/BV1Lm4y1A7g1",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "capability_asr",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 886.46,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 3,
+          "id": "cap-02-on",
+          "input": "提取 https://b23.tv/BV1No4y1B7h2 的字幕",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_asr",
+          "expected_tool": "get_transcript",
+          "expected_params": {
+            "video_url": "https://b23.tv/BV1No4y1B7h2"
+          },
+          "raw_output": "{\"tool\": \"get_transcript\", \"params\": {\"video_url\": \"https://b23.tv/BV1No4y1B7h2\"}}",
+          "latency_ms": 2378.43,
+          "actual_tool": "get_transcript",
+          "actual_params": {
+            "video_url": "https://b23.tv/BV1No4y1B7h2"
+          },
+          "normalized_expected_params": {
+            "video_url": "https://b23.tv/BV1No4y1B7h2"
+          },
+          "field_results": {
+            "video_url": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 4,
+          "id": "cap-02-off",
+          "input": "提取 https://b23.tv/BV1No4y1B7h2 的字幕",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_off",
+          "intent_family": "capability_asr",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 935.92,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 5,
+          "id": "cap-03",
+          "input": "想转写一个视频，但没有给链接",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_missing_url",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 914.48,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 6,
+          "id": "cap-04",
+          "input": "搜索B站近期新能源车视频",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "新能源车",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"新能源车\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2307.12,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "新能源车",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "keyword": "新能源车",
+            "platforms": [
+              "bilibili"
+            ]
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 7,
+          "id": "cap-05",
+          "input": "搜索抖音近期新能源车视频",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音 新能源车 近期视频\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2720.06,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音 新能源车 近期视频",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 8,
+          "id": "cap-06",
+          "input": "搜索快手近期新能源车视频",
+          "platforms": [
+            "kuaishou"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_platform",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"快手 新能源车 视频 搜索\", \"top_k\": 5, \"platform\": \"kuaishou\"}}",
+          "latency_ms": 2887.97,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "快手 新能源车 视频 搜索",
+            "top_k": 5,
+            "platform": "kuaishou"
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 9,
+          "id": "cap-07",
+          "input": "查抖音新能源车内容方法论",
+          "platforms": [
+            "douyin"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_rag",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "抖音新能源车内容方法论",
+            "platform": "douyin"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"抖音新能源车内容方法论\", \"top_k\": 5, \"platform\": \"douyin\"}}",
+          "latency_ms": 2558.09,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "抖音新能源车内容方法论",
+            "top_k": 5,
+            "platform": "douyin"
+          },
+          "normalized_expected_params": {
+            "query": "抖音新能源车内容方法论",
+            "platform": "douyin"
+          },
+          "field_results": {
+            "query": true,
+            "platform": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 10,
+          "id": "cap-08",
+          "input": "查B站新能源车内容方法论",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_rag",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "B站新能源车内容方法论",
+            "platform": "bilibili"
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"新能源车\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2425.83,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "新能源车",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {
+            "query": "B站新能源车内容方法论",
+            "platform": "bilibili"
+          },
+          "field_results": {
+            "query": false,
+            "platform": false
+          },
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 11,
+          "id": "cap-09",
+          "input": "查BV1Qr4y1C7i3的播放趋势",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_trend",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"BV1Qr4y1C7i3\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2846.73,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "BV1Qr4y1C7i3",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 12,
+          "id": "cap-10",
+          "input": "没有BV号，查一下播放趋势",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_trend",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"播放趋势\", \"platforms\": [\"bilibili\"], \"limit\": 20}}",
+          "latency_ms": 2315.38,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "播放趋势",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 20
+          },
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": false,
+          "params_correct": false,
+          "fully_correct": false,
+          "safe_correct": false,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": false,
+          "error_types": [
+            "wrong_tool"
+          ]
+        },
+        {
+          "repeat": 1,
+          "case": 13,
+          "id": "cap-11",
+          "input": "基于已有结果做摘要",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_none",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 855.28,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 14,
+          "id": "cap-12",
+          "input": "不要搜索，直接写标题",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_none",
+          "expected_tool": "none",
+          "expected_params": {},
+          "raw_output": "{\"tool\": \"none\", \"params\": {}}",
+          "latency_ms": 873.9,
+          "actual_tool": "none",
+          "actual_params": {},
+          "normalized_expected_params": {},
+          "field_results": {},
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 15,
+          "id": "cap-13",
+          "input": "B站近期旅行视频找11个",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_search",
+          "expected_tool": "search_videos",
+          "expected_params": {
+            "keyword": "旅行",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 11
+          },
+          "raw_output": "{\"tool\": \"search_videos\", \"params\": {\"keyword\": \"旅行\", \"platforms\": [\"bilibili\"], \"limit\": 11}}",
+          "latency_ms": 2194.48,
+          "actual_tool": "search_videos",
+          "actual_params": {
+            "keyword": "旅行",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 11
+          },
+          "normalized_expected_params": {
+            "keyword": "旅行",
+            "platforms": [
+              "bilibili"
+            ],
+            "limit": 11
+          },
+          "field_results": {
+            "keyword": true,
+            "platforms": true,
+            "limit": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        },
+        {
+          "repeat": 1,
+          "case": 16,
+          "id": "cap-14",
+          "input": "知识库找旅行视频复盘框架",
+          "platforms": [
+            "bilibili"
+          ],
+          "capability_profile": "asr_on",
+          "intent_family": "capability_rag",
+          "expected_tool": "rag_search",
+          "expected_params": {
+            "query": "旅行视频复盘框架"
+          },
+          "raw_output": "{\"tool\": \"rag_search\", \"params\": {\"query\": \"旅行视频复盘框架\", \"top_k\": 5, \"platform\": \"bilibili\"}}",
+          "latency_ms": 2501.31,
+          "actual_tool": "rag_search",
+          "actual_params": {
+            "query": "旅行视频复盘框架",
+            "top_k": 5,
+            "platform": "bilibili"
+          },
+          "normalized_expected_params": {
+            "query": "旅行视频复盘框架"
+          },
+          "field_results": {
+            "query": true
+          },
+          "tool_correct": true,
+          "params_correct": true,
+          "fully_correct": true,
+          "safe_correct": true,
+          "json_valid": true,
+          "unavailable_tool_violation": false,
+          "unsupported_platform_violation": false,
+          "hallucinated_id_or_url": false,
+          "capability_relevant": true,
+          "capability_correct": true,
+          "error_types": []
+        }
+      ]
+    }
+  },
+  "rescored_from": "results\\v4\\baseline_base_contract.json"
+}

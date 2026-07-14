@@ -1,0 +1,1022 @@
+[
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从快手拿一批知识真实样本\n用户目标平台: ['kuaishou']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 研究城市旅行之前，从B站拿13个真实视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"城市旅行\",\"limit\":13,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 识别这个站外视频的语音 https://www.xiaohongshu.com/explore/trainD04\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 获取BV1T054y1Z7q5的点赞变化曲线\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 给后续分析准备素材，先在B站找宠物日常近期热视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"宠物日常\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我需要一份完播率诊断的内部参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"完播率诊断\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 查BV1T104y1Z7q0最近的播放趋势\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 关于账号定位方法，最多返回3份参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"账号定位方法\",\"top_k\":3},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 识别这条B站视频的语音 https://www.bilibili.com/video/BV1Kk4y1P7l0\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://www.bilibili.com/video/BV1Kk4y1P7l0\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 抖音当前火的游戏内容有哪些\n用户目标平台: ['douyin']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 给后续分析准备素材，先在B站找美食教程近期热视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"美食教程\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 不要找实时视频，给我发布节奏策略相关资料\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"发布节奏策略\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我要复盘手工制作赛道，第一步拉B站当前案例\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"手工制作\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 需要这条视频的逐字稿 https://b23.tv/BV1Jj4y1O7k9\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://b23.tv/BV1Jj4y1O7k9\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 快手当前火的家居内容有哪些\n用户目标平台: ['kuaishou']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 看看BV1T044y1Z7q4过去一周热度\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 搜索抖音最近的游戏热门视频\n用户目标平台: ['douyin']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 这一步不需要工具，直接列出复盘步骤\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从知识库检索选题评估模型\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"选题评估模型\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 拉取小红书穿搭近期榜单\n用户目标平台: ['xiaohongshu']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 直接把报告改短\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 知识库搜索小红书种草方法，取9条\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"小红书种草方法\",\"top_k\":9},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 看看BV1T124y1Z7q2过去一周热度\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 关于AISAS模型，最多返回5份参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"AISAS模型\",\"top_k\":5},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 知识库搜索选题评估模型，取5条\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"选题评估模型\",\"top_k\":5},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 知识库搜索竞品分析流程，取4条\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"竞品分析流程\",\"top_k\":4},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 在B站搜索舞蹈翻跳热门视频，返回4条\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"舞蹈翻跳\",\"limit\":4,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 在B站搜索历史科普热门视频，返回7条\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"历史科普\",\"limit\":7,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 引用内部沉淀的开头钩子方法\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"开头钩子方法\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 关于完播率诊断，最多返回10份参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"完播率诊断\",\"top_k\":10},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 提取 https://www.bilibili.com/video/BV1Oo4y1T7p4 的字幕\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://www.bilibili.com/video/BV1Oo4y1T7p4\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: B站亲子教育现在什么内容热，先取视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"亲子教育\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我要复盘财经知识赛道，第一步拉B站当前案例\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"财经知识\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 没有BV号，暂时不要调用趋势工具\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 识别这个站外视频的语音 http://example.com/trainE05.mp4\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 查资料库里有没有历史爆款案例\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"历史爆款案例\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 研究B站非遗时先拿当前案例，方法论放到后面\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"非遗\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 看看BV1T004y1Z7q0过去一周热度\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 这一步不需要工具，说明互动率含义\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 把链接里的口播整理出来：https://b23.tv/BV1Gg4y1L7h6\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://b23.tv/BV1Gg4y1L7h6\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我要真实视频作对照，不是知识库理论；先找B站航拍近期样本\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"航拍\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从抖音拿一批旅行真实样本\n用户目标平台: ['douyin']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 提取 https://www.bilibili.com/video/BV1Ee4y1J7f4 的字幕\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://www.bilibili.com/video/BV1Ee4y1J7f4\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 把链接里的口播整理出来：https://b23.tv/BV1Dd4y1I7e3\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://b23.tv/BV1Dd4y1I7e3\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 先查标题写作框架的方法论，不要拉样本\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"标题写作框架\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 沿用现成报告写一个简短摘要\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 抖音当前火的汽车内容有哪些\n用户目标平台: ['douyin']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 引用内部沉淀的完播率诊断\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"完播率诊断\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 需要这条视频的逐字稿 https://b23.tv/BV1Gg4y1L7h6\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://b23.tv/BV1Gg4y1L7h6\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 关于用户画像模板，最多返回4份参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"用户画像模板\",\"top_k\":4},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我要复盘亲子教育赛道，第一步拉B站当前案例\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"亲子教育\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: B站科技新品现在什么内容热，先取视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"科技新品\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 当前转写能力未配置，仍然有人要求转写 https://www.bilibili.com/video/BV1Oo4y1T7p4\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 不要找实时视频，给我用户画像模板相关资料\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"用户画像模板\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 不用搜索，把这段话改口语\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 获取BV1T044y1Z7q4的点赞变化曲线\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: B站城市旅行样本取前11个\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"城市旅行\",\"limit\":11,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 基于现成报告总结三条结论\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 给后续分析准备素材，先在B站找科技新品近期热视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"科技新品\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 这一步不需要工具，把这段话改口语\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 先查竞品分析流程的方法论，不要拉样本\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"竞品分析流程\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 给我视频字幕\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 给后续分析准备素材，先在B站找摄影技巧近期热视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"摄影技巧\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 搜索小红书最近的知识热门视频\n用户目标平台: ['xiaohongshu']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 只使用刚才的表格给建议，不新增检索\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 查BV1T184y1Z7q8最近的播放趋势\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从知识库检索小红书种草方法\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"小红书种草方法\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 我需要一份内容复盘清单的内部参考\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"内容复盘清单\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 直接给一段创作建议\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 不要找实时视频，给我AIDA框架相关资料\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"AIDA框架\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从知识库检索内容矩阵方法\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"query\":\"内容矩阵方法\"},\"tool\":\"rag_search\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从B站抓一批最近的游戏攻略真实样本\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"游戏攻略\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 当前转写能力未配置，仍然有人要求转写 https://www.bilibili.com/video/BV1Qq4y1V7r6\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 研究B站航拍时先拿当前案例，方法论放到后面\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"航拍\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 需要这条视频的逐字稿 https://www.bilibili.com/video/BV1Bb4y1G7c1\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://www.bilibili.com/video/BV1Bb4y1G7c1\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 这一步需要能打开的B站园艺视频，不要只给框架\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"园艺\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 看看BV1T024y1Z7q2过去一周热度\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 转写这个公开视频 https://b23.tv/BV1Aa4y1F7b0\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"video_url\":\"https://b23.tv/BV1Aa4y1F7b0\"},\"tool\":\"get_transcript\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: B站校园生活现在什么内容热，先取视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"校园生活\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 拉取快手游戏近期榜单\n用户目标平台: ['kuaishou']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 从B站抓一批最近的宠物日常真实样本\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"宠物日常\",\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 把现成报告压缩成一段话\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 拉取抖音汽车近期榜单\n用户目标平台: ['douyin']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{},\"tool\":\"none\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: 研究汽车测评之前，从B站拿10个真实视频\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"汽车测评\",\"limit\":10,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  },
+  {
+    "conversations": [
+      {
+        "from": "human",
+        "value": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: B站纪录片样本取前17个\n用户目标平台: ['bilibili']\n\n当前可用工具:\n- search_videos(keyword, platforms, limit): 搜索B站当前/近期热门视频样本，单次最多20条；支持平台: bilibili\n- rag_search(query, top_k, platform): 检索本地知识库中的平台规则、方法论和历史案例；支持平台: bilibili, douyin, kuaishou, xiaohongshu, generic\n- get_transcript(video_url): 转写公开B站视频；支持平台: bilibili\n- none: 当前步骤不需要新增外部数据或资料\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+      },
+      {
+        "from": "gpt",
+        "value": "{\"params\":{\"keyword\":\"纪录片\",\"limit\":17,\"platforms\":[\"bilibili\"]},\"tool\":\"search_videos\"}"
+      }
+    ]
+  }
+]

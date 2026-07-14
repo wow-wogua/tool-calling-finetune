@@ -1,0 +1,122 @@
+{
+  "snapshot_version": "2026-07-14",
+  "source_project": {
+    "path": "D:\\internship\\viral-video-agent",
+    "commit": "2aa1e54",
+    "branch_state": "main...origin/main",
+    "read_only": true
+  },
+  "runtime": {
+    "graph_version": "v2",
+    "prompt_version": "v1",
+    "default_agent_provider": "deepseek",
+    "default_agent_model": "deepseek-v4-pro",
+    "finetuned_switch": {
+      "environment_flag": "USE_FINETUNED_MODEL=true",
+      "agent": "researcher",
+      "provider": "openai",
+      "model": "qwen3-tool-calling",
+      "base_url_environment": "FINETUNED_MODEL_URL",
+      "default_base_url": "http://localhost:8002/v1"
+    }
+  },
+  "researcher_prompt": {
+    "template_name": "researcher_dynamic",
+    "summary": "The v2 graph sends one complete dynamic Researcher prompt as a single HumanMessage. The local OpenAI-compatible service must not wrap that prompt again.",
+    "template": "你是证据采集执行器。根据当前任务选择一个当前可用工具并生成参数。\n\n当前任务: {task}\n用户目标平台: {platforms}\n\n当前可用工具:\n{available_tools}\n\n约束:\n- 只能选择上面列出的工具或 none\n- 不得输出未支持的平台\n- 不得臆造视频 ID 或链接\n- 只输出一个合法 JSON 对象\n\n输出格式：{\"tool\": \"工具名\", \"params\": {\"参数名\": \"值\"}}"
+  },
+  "tool_schema": [
+    {
+      "name": "search_videos",
+      "enabled": true,
+      "availability": "real",
+      "supported_platforms": ["bilibili"],
+      "params": {
+        "keyword": {"type": "string", "default": ""},
+        "platforms": {"type": "array[string]", "default": ["bilibili"], "allowed": ["bilibili"]},
+        "limit": {"type": "integer", "default": 10, "minimum": 1, "maximum": 20}
+      }
+    },
+    {
+      "name": "rag_search",
+      "enabled": true,
+      "availability": "local",
+      "supported_platforms": ["bilibili", "douyin", "kuaishou", "xiaohongshu", "generic"],
+      "params": {
+        "query": {"type": "string", "required": true, "min_length": 1},
+        "top_k": {"type": "integer", "default": 5, "minimum": 1, "maximum": 10},
+        "platform": {"type": "string|null", "allowed": ["bilibili", "douyin", "kuaishou", "xiaohongshu", "generic", null]}
+      }
+    },
+    {
+      "name": "get_transcript",
+      "enabled": true,
+      "availability": "mimo",
+      "supported_platforms": ["bilibili"],
+      "params": {
+        "video_url": {"type": "string", "required": true, "constraint": "public https bilibili.com or b23.tv URL"}
+      }
+    },
+    {
+      "name": "get_trend_data",
+      "enabled": false,
+      "availability": "unavailable",
+      "supported_platforms": ["bilibili"],
+      "params": {
+        "video_id": {"type": "string", "required": true},
+        "platform": {"type": "string", "default": "bilibili", "allowed": ["bilibili"]}
+      }
+    },
+    {
+      "name": "none",
+      "enabled": true,
+      "availability": "control",
+      "supported_platforms": [],
+      "params": {}
+    }
+  ],
+  "current_capability_probe": {
+    "captured_without_secrets": true,
+    "asr_enabled": true,
+    "asr_provider": "mimo",
+    "trend_enabled": false,
+    "mock_tools_enabled": false
+  },
+  "platform_contract": {
+    "real_time_video_search": ["bilibili"],
+    "knowledge_retrieval": ["bilibili", "douyin", "kuaishou", "xiaohongshu", "generic"],
+    "unsupported_real_time_platform_behavior": "The v2 entry gate terminates with unsupported_platform before Researcher runs.",
+    "default_platforms": ["bilibili"]
+  },
+  "output_contract": {
+    "schema": {"tool": "string|null", "params": "object"},
+    "none_representation": {"tool": "none", "params": {}},
+    "json_only": true,
+    "thinking": "disabled for the local Qwen service",
+    "temperature": 0.0,
+    "do_sample": false
+  },
+  "parser_and_fallback": {
+    "parser": "Strip an optional Markdown code fence, parse a JSON object, then try the outermost braces.",
+    "invalid_json": "Produces an empty decision; v2 defaults to none and skips tool execution.",
+    "unknown_or_disabled_tool": "normalize_tool_params raises ToolUnavailableError; execution is skipped and the outcome is marked unavailable.",
+    "invalid_params": "Execution is skipped and the outcome is marked invalid_params.",
+    "rag_platform_default": "When exactly one target platform exists and params.platform is absent, v2 injects that platform before validation."
+  },
+  "openai_compatibility": {
+    "endpoint": "/v1/chat/completions",
+    "request_shape": "OpenAI chat messages; project 2 sends the full Researcher prompt in one user message.",
+    "response_content": "choices[0].message.content contains one JSON object.",
+    "prompt_wrapping_rule": "Do not add another Researcher schema prompt when the incoming message is already the complete project-2 prompt."
+  },
+  "source_sha256": {
+    "src/agents/researcher.py": "FAEF06E2888945AC20338B87F9CBD3D3A032D47737133EF24C844345B3874B3A",
+    "src/tools/capabilities.py": "C4A99BB62841AF3376F9B67032EB052FECF492381FF1832F5B99C8AD2305FADB",
+    "src/prompts/prompts.yaml": "CD4FD848AD831FE4DBE9C671F8790CFFA125107E9BC830E6920774C2F9A7898E",
+    "src/gateway/model_registry.py": "1E1983BFF94557FDB144822357103FCBC9AFCBA61D59E165E11BD7A34A04DB1E",
+    "src/main.py": "FCC173E0FFD1FC1C11E2657E0EE8E85E51DECFBF20F7DF6ED3FB38CF8B329576",
+    "src/graph/v2.py": "8BF5846FA728204113C6C96B95A910D88C06AB87268DE2BCD055546F8A56AAEC",
+    ".env.example": "DB3C60F8185B2EBBC99E6D09BB96AE250775AEA46B7C4313A00B6FCA688F3BB6",
+    "src/eval/capability_routing_eval.py": "65CFF39CFCDF7AE722C9EE1351A215676C2926BA816FF8D9E97313AD543AB3CA"
+  }
+}

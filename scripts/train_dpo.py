@@ -1,8 +1,10 @@
 """
 DPO 训练脚本。在 SFT 后的 LoRA 适配器基础上做偏好优化。
 
+v4/v4.1 没有执行 DPO；本入口仅保留给显式提供的新配置或历史复核。
+
 用法:
-    python scripts/train_dpo.py
+    python scripts/train_dpo.py <config.yaml>
 """
 
 import sys
@@ -12,7 +14,11 @@ os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-config_path = sys.argv[1] if len(sys.argv) > 1 else "configs/qwen3_dpo.yaml"
+if len(sys.argv) <= 1:
+    print("用法: python scripts/train_dpo.py <config.yaml>")
+    print("v4/v4.1 未执行 DPO；v1-v3 配置已归档到 results/legacy/v1-v3/configs/。")
+    sys.exit(2)
+config_path = sys.argv[1]
 
 print("=" * 50)
 print("开始 DPO 偏好优化训练")

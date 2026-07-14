@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-07-14T02:53:20.740811+00:00",
+  "base_url": "http://127.0.0.1:8002",
+  "health": {
+    "status": "ok",
+    "load_mode": "base+direct-adapter",
+    "adapter": "outputs\\qwen3_lora_tool_calling_v4_1",
+    "prompt_variant": "contract"
+  },
+  "models": {
+    "data": [
+      {
+        "id": "qwen3-tool-calling",
+        "object": "model",
+        "owned_by": "local"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "full_project2_prompt",
+      "expected_tool": "search_videos",
+      "actual": {
+        "tool": "search_videos",
+        "params": {
+          "keyword": "机器人",
+          "platforms": [
+            "bilibili"
+          ],
+          "limit": 10
+        }
+      },
+      "passed": true,
+      "usage": {
+        "prompt_tokens": 238,
+        "completion_tokens": 21,
+        "total_tokens": 259
+      }
+    },
+    {
+      "id": "bare_task_wrapped_once",
+      "expected_tool": "none",
+      "actual": {
+        "tool": "none",
+        "params": {}
+      },
+      "passed": true,
+      "usage": {
+        "prompt_tokens": 239,
+        "completion_tokens": 10,
+        "total_tokens": 249
+      }
+    },
+    {
+      "id": "rag_top_k_schema_clamp",
+      "expected_tool": "rag_search",
+      "actual": {
+        "tool": "rag_search",
+        "params": {
+          "query": "AI编程标题方法论",
+          "top_k": 10
+        }
+      },
+      "passed": true,
+      "usage": {
+        "prompt_tokens": 245,
+        "completion_tokens": 23,
+        "total_tokens": 268
+      }
+    }
+  ],
+  "passed": true
+}

@@ -17,6 +17,7 @@
 import os
 import sys
 import json
+import re
 from pathlib import Path
 
 os.environ["HF_HUB_OFFLINE"] = "1"
@@ -35,7 +36,7 @@ DEFAULT_BASE_MODEL = next(
     BASE_MODEL_CANDIDATES[0],
 )
 BASE_MODEL_PATH = os.getenv("BASE_MODEL_PATH", str(DEFAULT_BASE_MODEL))
-ADAPTER_PATH = os.getenv("FINETUNED_ADAPTER_PATH", "outputs/qwen3_dpo_tool_calling_v3")
+ADAPTER_PATH = os.getenv("FINETUNED_ADAPTER_PATH", "outputs/qwen3_lora_tool_calling_v4_1")
 MERGED_MODEL_PATH = os.getenv("FINETUNED_MODEL_PATH")
 MODEL_PORT = int(os.getenv("FINETUNED_MODEL_PORT", "8002"))
 
@@ -46,7 +47,7 @@ print("=" * 50)
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 from peft import PeftModel
-from researcher_prompt import build_researcher_prompt
+from researcher_prompt_v4 import build_researcher_prompt, is_complete_project2_prompt
 
 load_path = MERGED_MODEL_PATH or BASE_MODEL_PATH
 quantization = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_compute_dtype=torch.bfloat16)
@@ -72,7 +73,79 @@ if not MERGED_MODEL_PATH:
 print(f"设备: {model.device}")
 print()
 
-PROMPT_VARIANT = os.getenv("RESEARCHER_PROMPT_VARIANT", "base")
+PROMPT_VARIANT = os.getenv("RESEARCHER_PROMPT_VARIANT", "contract")
+
+
+def _available_tools(prompt: str) -> set[str]:
+    tools = set(re.findall(r"(?m)^- ([a-z_]+)(?:\(|:)", prompt or ""))
+    return tools or {"search_videos", "rag_search", "get_transcript", "none"}
+
+
+def _safe_int(value, default: int, minimum: int, maximum: int) -> int:
+    try:
+        return min(maximum, max(minimum, int(value)))
+    except (TypeError, ValueError):
+        return default
+
+
+def _sanitize_response(response: str, prompt: str) -> str:
+    """Apply project-2's frozen Schema before returning the model decision."""
+    try:
+        decision = json.loads((response or "").strip())
+    except (json.JSONDecodeError, TypeError):
+        return json.dumps({"tool": "none", "params": {}}, ensure_ascii=False, separators=(",", ":"))
+    if not isinstance(decision, dict):
+        return json.dumps({"tool": "none", "params": {}}, ensure_ascii=False, separators=(",", ":"))
+    tool = decision.get("tool")
+    params = decision.get("params") if isinstance(decision.get("params"), dict) else {}
+    available = _available_tools(prompt)
+    if tool in (None, "none") or tool not in available:
+        normalized = {"tool": "none", "params": {}}
+    elif tool == "search_videos":
+        platforms = params.get("platforms", ["bilibili"])
+        if not isinstance(platforms, list):
+            platforms = [platforms]
+        normalized_platforms = [
+            "bilibili" if str(item).lower() in {"bilibili", "b站", "哔哩哔哩"} else str(item).lower()
+            for item in platforms
+        ]
+        if set(normalized_platforms) - {"bilibili"}:
+            normalized = {"tool": "none", "params": {}}
+        else:
+            normalized = {
+                "tool": tool,
+                "params": {
+                    "keyword": str(params.get("keyword", "")),
+                    "platforms": ["bilibili"],
+                    "limit": _safe_int(params.get("limit"), 10, 1, 20),
+                },
+            }
+    elif tool == "rag_search":
+        query = str(params.get("query", "")).strip()
+        if not query:
+            normalized = {"tool": "none", "params": {}}
+        else:
+            rag_params = {"query": query, "top_k": _safe_int(params.get("top_k"), 5, 1, 10)}
+            platform = params.get("platform")
+            if platform in {"bilibili", "douyin", "kuaishou", "xiaohongshu", "generic"}:
+                rag_params["platform"] = platform
+            normalized = {"tool": tool, "params": rag_params}
+    elif tool == "get_transcript":
+        url = str(params.get("video_url", "")).strip()
+        valid_url = url in prompt and (
+            url.startswith("https://www.bilibili.com/") or url.startswith("https://b23.tv/")
+        )
+        normalized = {"tool": tool, "params": {"video_url": url}} if valid_url else {"tool": "none", "params": {}}
+    elif tool == "get_trend_data":
+        video_id = str(params.get("video_id", "")).strip()
+        normalized = (
+            {"tool": tool, "params": {"video_id": video_id, "platform": "bilibili"}}
+            if video_id and video_id in prompt
+            else {"tool": "none", "params": {}}
+        )
+    else:
+        normalized = {"tool": "none", "params": {}}
+    return json.dumps(normalized, ensure_ascii=False, separators=(",", ":"))
 
 # ── FastAPI 服务 ──
 from fastapi import FastAPI
@@ -88,10 +161,6 @@ class ChatRequest(BaseModel):
     max_tokens: int = 256
 
 
-def _is_full_researcher_prompt(text: str) -> bool:
-    """项目2已经发送完整 Researcher Prompt 时，不再重复包一层。"""
-    return "可用工具:" in text and "输出JSON" in text and "任务:" in text
-
 @app.post("/v1/chat/completions")
 async def chat_completions(request: ChatRequest):
     # 提取用户消息
@@ -102,7 +171,11 @@ async def chat_completions(request: ChatRequest):
 
     # 项目2发送的是完整 Researcher Prompt；直接复用以保持训练/推理输入结构一致。
     # 对普通 OpenAI 客户端只传裸任务的情况，再补统一工具 schema。
-    prompt = user_msg if _is_full_researcher_prompt(user_msg) else build_researcher_prompt(user_msg, PROMPT_VARIANT)
+    prompt = (
+        user_msg
+        if is_complete_project2_prompt(user_msg)
+        else build_researcher_prompt(user_msg, variant=PROMPT_VARIANT)
+    )
     messages = [{"role": "user", "content": prompt}]
     text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, enable_thinking=False)
     inputs = tokenizer(text, return_tensors="pt").to(model.device)
@@ -116,7 +189,8 @@ async def chat_completions(request: ChatRequest):
             pad_token_id=tokenizer.eos_token_id,
         )
 
-    response = tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    raw_response = tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    response = _sanitize_response(raw_response, prompt)
     prompt_tokens = int(inputs["input_ids"].shape[1])
     completion_tokens = int(outputs[0].shape[0] - inputs["input_ids"].shape[1])
 
@@ -144,6 +218,16 @@ async def list_models():
         "data": [
             {"id": "qwen3-tool-calling", "object": "model", "owned_by": "local"}
         ]
+    }
+
+
+@app.get("/health")
+async def health():
+    return {
+        "status": "ok",
+        "load_mode": "merged" if MERGED_MODEL_PATH else "base+direct-adapter",
+        "adapter": None if MERGED_MODEL_PATH else ADAPTER_PATH,
+        "prompt_variant": PROMPT_VARIANT,
     }
 
 if __name__ == "__main__":

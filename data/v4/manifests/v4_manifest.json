@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "created_date": "2026-07-14",
+  "seed": 20260714,
+  "base_model": "C:/Users/0/.cache/modelscope/Qwen/Qwen3-4B",
+  "contract_snapshot": "schemas/project2_researcher_contract_20260714.json",
+  "holdout_lock_combined_sha256": "6b77b03e0dde15c06e4f9b5a2a639e26db2bcc86ee9557b0c3616d01c55cbab0",
+  "truthful_sources": [
+    "programmatic_template",
+    "handwritten_natural",
+    "handwritten_boundary",
+    "project2_frozen_product_input",
+    "v4_1_error_category_augmentation"
+  ],
+  "not_used": [
+    "MiMo-generated training data",
+    "DeepSeek-generated training data",
+    "other LLM batch generation",
+    "online user data"
+  ],
+  "files": {
+    "raw": {
+      "file_name": "v4/raw/cases.json",
+      "sample_count": 835,
+      "sha256": "46c8e366d0a93d95e8b920698e6a98c74c17e86ac06de5bccacf0ad564cefb4e",
+      "participation": "source catalog",
+      "distribution": {
+        "tools": {
+          "get_transcript": 90,
+          "none": 327,
+          "rag_search": 201,
+          "search_videos": 217
+        },
+        "capability_profiles": {
+          "asr_off": 18,
+          "asr_on": 817
+        },
+        "intent_families": {
+          "direct_creation_or_explanation": 60,
+          "knowledge_retrieval": 200,
+          "no_new_evidence": 36,
+          "project2_frozen_input": 4,
+          "real_sample_search": 216,
+          "transcript_missing_url": 7,
+          "transcript_unavailable": 18,
+          "transcript_unsupported_platform": 15,
+          "transcript_with_url": 90,
+          "trend_missing_id": 13,
+          "trend_unavailable": 80,
+          "unsupported_realtime_platform": 96
+        },
+        "sources": {
+          "handwritten_boundary": 48,
+          "handwritten_natural": 14,
+          "programmatic_template": 720,
+          "project2_frozen_product_input": 4,
+          "v4_1_error_category_augmentation": 49
+        }
+      },
+      "creation_method": "deterministic Python templates plus handwritten boundary cases; no LLM"
+    },
+    "train_cases": {
+      "file_name": "v4/processed/train_cases.json",
+      "sample_count": 750,
+      "sha256": "9845751852be61283a918909aceafb6670e544ca50be25eda74f848ec3e5fe1b",
+      "participation": "sft train metadata",
+      "distribution": {
+        "tools": {
+          "get_transcript": 81,
+          "none": 293,
+          "rag_search": 181,
+          "search_videos": 195
+        },
+        "capability_profiles": {
+          "asr_off": 16,
+          "asr_on": 734
+        },
+        "intent_families": {
+          "direct_creation_or_explanation": 54,
+          "knowledge_retrieval": 180,
+          "no_new_evidence": 32,
+          "project2_frozen_input": 4,
+          "real_sample_search": 194,
+          "transcript_missing_url": 6,
+          "transcript_unavailable": 16,
+          "transcript_unsupported_platform": 13,
+          "transcript_with_url": 81,
+          "trend_missing_id": 12,
+          "trend_unavailable": 72,
+          "unsupported_realtime_platform": 86
+        },
+        "sources": {
+          "handwritten_boundary": 43,
+          "handwritten_natural": 13,
+          "programmatic_template": 648,
+          "project2_frozen_product_input": 4,
+          "v4_1_error_category_augmentation": 42
+        }
+      },
+      "creation_method": "deterministic Python templates plus handwritten boundary cases; no LLM"
+    },
+    "validation_cases": {
+      "file_name": "v4/processed/validation_cases.json",
+      "sample_count": 85,
+      "sha256": "0f742ad17c0daed958c0959c60a2564ec9d1c594d20b93cf69f68eaeb556e7a0",
+      "participation": "in-distribution validation metadata",
+      "distribution": {
+        "tools": {
+          "get_transcript": 9,
+          "none": 34,
+          "rag_search": 20,
+          "search_videos": 22
+        },
+        "capability_profiles": {
+          "asr_off": 2,
+          "asr_on": 83
+        },
+        "intent_families": {
+          "direct_creation_or_explanation": 6,
+          "knowledge_retrieval": 20,
+          "no_new_evidence": 4,
+          "real_sample_search": 22,
+          "transcript_missing_url": 1,
+          "transcript_unavailable": 2,
+          "transcript_unsupported_platform": 2,
+          "transcript_with_url": 9,
+          "trend_missing_id": 1,
+          "trend_unavailable": 8,
+          "unsupported_realtime_platform": 10
+        },
+        "sources": {
+          "handwritten_boundary": 5,
+          "handwritten_natural": 1,
+          "programmatic_template": 72,
+          "v4_1_error_category_augmentation": 7
+        }
+      },
+      "creation_method": "deterministic Python templates plus handwritten boundary cases; no LLM"
+    },
+    "train": {
+      "file_name": "v4/processed/train.json",
+      "sample_count": 750,
+      "sha256": "927e3bf2863749e91902c9f2483633b947ad1444b73ce20465d849fbd84682d0",
+      "participation": "sft train",
+      "distribution": {
+        "tools": {
+          "get_transcript": 81,
+          "none": 293,
+          "rag_search": 181,
+          "search_videos": 195
+        },
+        "capability_profiles": {
+          "asr_off": 16,
+          "asr_on": 734
+        },
+        "intent_families": {
+          "direct_creation_or_explanation": 54,
+          "knowledge_retrieval": 180,
+          "no_new_evidence": 32,
+          "project2_frozen_input": 4,
+          "real_sample_search": 194,
+          "transcript_missing_url": 6,
+          "transcript_unavailable": 16,
+          "transcript_unsupported_platform": 13,
+          "transcript_with_url": 81,
+          "trend_missing_id": 12,
+          "trend_unavailable": 72,
+          "unsupported_realtime_platform": 86
+        },
+        "sources": {
+          "handwritten_boundary": 43,
+          "handwritten_natural": 13,
+          "programmatic_template": 648,
+          "project2_frozen_product_input": 4,
+          "v4_1_error_category_augmentation": 42
+        }
+      },
+      "creation_method": "deterministic Python templates plus handwritten boundary cases; no LLM"
+    },
+    "validation": {
+      "file_name": "v4/processed/validation.json",
+      "sample_count": 85,
+      "sha256": "824e1c7364bbcae040689b7a482424801a4c6a202c7bfb72b20dd0c9d95b66f6",
+      "participation": "in-distribution validation",
+      "distribution": {
+        "tools": {
+          "get_transcript": 9,
+          "none": 34,
+          "rag_search": 20,
+          "search_videos": 22
+        },
+        "capability_profiles": {
+          "asr_off": 2,
+          "asr_on": 83
+        },
+        "intent_families": {
+          "direct_creation_or_explanation": 6,
+          "knowledge_retrieval": 20,
+          "no_new_evidence": 4,
+          "real_sample_search": 22,
+          "transcript_missing_url": 1,
+          "transcript_unavailable": 2,
+          "transcript_unsupported_platform": 2,
+          "transcript_with_url": 9,
+          "trend_missing_id": 1,
+          "trend_unavailable": 8,
+          "unsupported_realtime_platform": 10
+        },
+        "sources": {
+          "handwritten_boundary": 5,
+          "handwritten_natural": 1,
+          "programmatic_template": 72,
+          "v4_1_error_category_augmentation": 7
+        }
+      },
+      "creation_method": "deterministic Python templates plus handwritten boundary cases; no LLM"
+    }
+  },
+  "split_rules": [
+    "v4 hard/holdout files were frozen and hashed before this training catalog was built",
+    "training expression_family names use the train_ prefix and are disjoint from frozen eval families",
+    "exact and normalized overlap is checked by scripts/validate_dataset.py",
+    "v4 holdout results must not be used to add paraphrases to training"
+  ]
+}

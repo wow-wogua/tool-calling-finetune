@@ -1,6 +1,6 @@
 {
-  "tool_calling_train": {
-    "file_name": "processed/train.json",
+  "tool_calling_train_v4": {
+    "file_name": "v4/processed/train.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations"
@@ -12,8 +12,8 @@
       "assistant_tag": "gpt"
     }
   },
-  "tool_calling_eval": {
-    "file_name": "processed/eval.json",
+  "tool_calling_validation_v4": {
+    "file_name": "v4/processed/validation.json",
     "formatting": "sharegpt",
     "columns": {
       "messages": "conversations"
@@ -24,153 +24,5 @@
       "user_tag": "human",
       "assistant_tag": "gpt"
     }
-  },
-  "tool_calling_train_v2": {
-    "file_name": "processed/train_v2.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_eval_v2": {
-    "file_name": "processed/eval_v2.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_dpo_train_v2": {
-    "file_name": "processed/dpo_train_v2.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    },
-    "ranking": true
-  },
-  "tool_calling_dpo_eval_v2": {
-    "file_name": "processed/dpo_eval_v2.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    },
-    "ranking": true
-  },
-  "tool_calling_dpo_train": {
-    "file_name": "processed/dpo_train.json",
-    "formatting": "sharegpt",
-    "ranking": true,
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_dpo_eval": {
-    "file_name": "processed/dpo_eval.json",
-    "formatting": "sharegpt",
-    "ranking": true,
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_train_v3": {
-    "file_name": "processed/train_v3.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_eval_v3": {
-    "file_name": "processed/eval_v3.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    }
-  },
-  "tool_calling_dpo_train_v3": {
-    "file_name": "processed/dpo_train_v3.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    },
-    "ranking": true
-  },
-  "tool_calling_dpo_eval_v3": {
-    "file_name": "processed/dpo_eval_v3.json",
-    "formatting": "sharegpt",
-    "columns": {
-      "messages": "conversations",
-      "chosen": "chosen",
-      "rejected": "rejected"
-    },
-    "tags": {
-      "role_tag": "from",
-      "content_tag": "value",
-      "user_tag": "human",
-      "assistant_tag": "gpt"
-    },
-    "ranking": true
   }
 }

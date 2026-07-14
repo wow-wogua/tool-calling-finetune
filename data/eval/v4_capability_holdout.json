@@ -1,0 +1,595 @@
+[
+  {
+    "id": "cap-01-on",
+    "input": "转写 https://www.bilibili.com/video/BV1Lm4y1A7g1",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "get_transcript",
+    "expected_params": {
+      "video_url": "https://www.bilibili.com/video/BV1Lm4y1A7g1"
+    },
+    "intent_family": "capability_asr",
+    "expression_family": "cap_pair_01",
+    "parameter_pattern": "video_url",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-01-off",
+    "input": "转写 https://www.bilibili.com/video/BV1Lm4y1A7g1",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_off",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": false,
+        "availability": "unconfigured"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_asr",
+    "expression_family": "cap_pair_01",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "cap-02-on",
+    "input": "提取 https://b23.tv/BV1No4y1B7h2 的字幕",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "get_transcript",
+    "expected_params": {
+      "video_url": "https://b23.tv/BV1No4y1B7h2"
+    },
+    "intent_family": "capability_asr",
+    "expression_family": "cap_pair_02",
+    "parameter_pattern": "video_url",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-02-off",
+    "input": "提取 https://b23.tv/BV1No4y1B7h2 的字幕",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_off",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": false,
+        "availability": "unconfigured"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_asr",
+    "expression_family": "cap_pair_02",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "cap-03",
+    "input": "想转写一个视频，但没有给链接",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_missing_url",
+    "expression_family": "cap_missing_url",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "missing_url"
+    ]
+  },
+  {
+    "id": "cap-04",
+    "input": "搜索B站近期新能源车视频",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "新能源车",
+      "platforms": [
+        "bilibili"
+      ]
+    },
+    "intent_family": "capability_search",
+    "expression_family": "cap_bilibili_search",
+    "parameter_pattern": "keyword",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-05",
+    "input": "搜索抖音近期新能源车视频",
+    "platforms": [
+      "douyin"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_platform",
+    "expression_family": "cap_douyin_search",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unsupported_platform"
+    ]
+  },
+  {
+    "id": "cap-06",
+    "input": "搜索快手近期新能源车视频",
+    "platforms": [
+      "kuaishou"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_platform",
+    "expression_family": "cap_kuaishou_search",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unsupported_platform"
+    ]
+  },
+  {
+    "id": "cap-07",
+    "input": "查抖音新能源车内容方法论",
+    "platforms": [
+      "douyin"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "抖音新能源车内容方法论",
+      "platform": "douyin"
+    },
+    "intent_family": "capability_rag",
+    "expression_family": "cap_douyin_rag",
+    "parameter_pattern": "query_platform",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-08",
+    "input": "查B站新能源车内容方法论",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "B站新能源车内容方法论",
+      "platform": "bilibili"
+    },
+    "intent_family": "capability_rag",
+    "expression_family": "cap_bilibili_rag",
+    "parameter_pattern": "query_platform",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-09",
+    "input": "查BV1Qr4y1C7i3的播放趋势",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_trend",
+    "expression_family": "cap_trend_id",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unavailable_tool"
+    ]
+  },
+  {
+    "id": "cap-10",
+    "input": "没有BV号，查一下播放趋势",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_trend",
+    "expression_family": "cap_trend_missing",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "unavailable_tool",
+      "missing_id"
+    ]
+  },
+  {
+    "id": "cap-11",
+    "input": "基于已有结果做摘要",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_none",
+    "expression_family": "cap_existing_summary",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "existing_evidence"
+    ]
+  },
+  {
+    "id": "cap-12",
+    "input": "不要搜索，直接写标题",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "none",
+    "expected_params": {},
+    "intent_family": "capability_none",
+    "expression_family": "cap_explicit_none",
+    "parameter_pattern": "empty",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus",
+      "explicit_no_tool"
+    ]
+  },
+  {
+    "id": "cap-13",
+    "input": "B站近期旅行视频找11个",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "search_videos",
+    "expected_params": {
+      "keyword": "旅行",
+      "platforms": [
+        "bilibili"
+      ],
+      "limit": 11
+    },
+    "intent_family": "capability_search",
+    "expression_family": "cap_search_limit",
+    "parameter_pattern": "keyword_limit",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  },
+  {
+    "id": "cap-14",
+    "input": "知识库找旅行视频复盘框架",
+    "platforms": [
+      "bilibili"
+    ],
+    "capability_profile": "asr_on",
+    "capabilities": {
+      "search_videos": {
+        "enabled": true,
+        "availability": "real"
+      },
+      "rag_search": {
+        "enabled": true,
+        "availability": "local"
+      },
+      "get_transcript": {
+        "enabled": true,
+        "availability": "mimo"
+      },
+      "get_trend_data": {
+        "enabled": false,
+        "availability": "unavailable"
+      }
+    },
+    "expected_tool": "rag_search",
+    "expected_params": {
+      "query": "旅行视频复盘框架"
+    },
+    "intent_family": "capability_rag",
+    "expression_family": "cap_rag_query",
+    "parameter_pattern": "query",
+    "source": "handwritten_eval",
+    "safety_tags": [
+      "capability_focus"
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "valid": true,
+  "mode": "full",
+  "frozen_combined_sha256": "6b77b03e0dde15c06e4f9b5a2a639e26db2bcc86ee9557b0c3616d01c55cbab0",
+  "eval_counts": {
+    "v4_dev.json": 24,
+    "v4_hard.json": 40,
+    "v4_holdout.json": 30,
+    "v4_capability_holdout.json": 16
+  },
+  "training": {
+    "raw_count": 835,
+    "train_count": 750,
+    "validation_count": 85,
+    "tool_distribution": {
+      "get_transcript": 90,
+      "none": 327,
+      "rag_search": 201,
+      "search_videos": 217
+    },
+    "source_distribution": {
+      "handwritten_boundary": 48,
+      "handwritten_natural": 14,
+      "programmatic_template": 720,
+      "project2_frozen_product_input": 4,
+      "v4_1_error_category_augmentation": 49
+    },
+    "family_overlap_count": 0,
+    "exact_overlap_count": 0,
+    "near_overlap_count": 0
+  },
+  "errors": [],
+  "warnings": []
+}
