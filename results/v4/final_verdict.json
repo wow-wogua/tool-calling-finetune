@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-07-14T02:53:20Z",
-  "status": "candidate_replacement_value_passed",
+  "timestamp": "2026-07-14T03:41:02Z",
+  "status": "exceeds_deepseek_on_frozen_narrow_researcher_eval",
   "scope": "Qwen3-4B Direct Adapter for the frozen project-2 Researcher tool-routing contract",
   "project2_commit": "2aa1e54",
   "project2_read_only": true,
@@ -100,6 +100,64 @@
     "product_superiority_proven": false,
     "source": "results/v4/project2_ab_comparison.json"
   },
+  "deepseek_same_set_baseline": {
+    "model": "deepseek-v4-pro",
+    "requests": 86,
+    "failed_requests": 0,
+    "retries": 0,
+    "input_tokens": 20000,
+    "output_tokens": 2360,
+    "estimated_cost_usd": 0.010753,
+    "hard": {
+      "tool_accuracy": 90.0,
+      "params_accuracy": 100.0,
+      "full_accuracy": 90.0,
+      "safe_accuracy": 90.0,
+      "json_valid_rate": 100.0,
+      "unsupported_platform_violation_rate": 2.5,
+      "hallucinated_id_or_url_rate": 0.0
+    },
+    "holdout": {
+      "tool_accuracy": 73.33333333333333,
+      "params_accuracy": 93.33333333333333,
+      "full_accuracy": 70.0,
+      "safe_accuracy": 70.0,
+      "json_valid_rate": 100.0,
+      "unsupported_platform_violation_rate": 3.3333333333333335,
+      "hallucinated_id_or_url_rate": 3.3333333333333335
+    },
+    "capability_holdout": {
+      "tool_accuracy": 87.5,
+      "params_accuracy": 100.0,
+      "full_accuracy": 87.5,
+      "safe_accuracy": 87.5,
+      "json_valid_rate": 100.0,
+      "unsupported_platform_violation_rate": 0.0,
+      "hallucinated_id_or_url_rate": 0.0
+    },
+    "overall_full_accuracy": 82.55813953488372,
+    "v4_1_overall_full_accuracy": 94.18604651162791,
+    "relationship": "v4.1 is no worse on every frozen split and better on hard and holdout",
+    "allowed_statement": "在冻结的自建窄域Researcher评测上超过DeepSeek V4 Pro。",
+    "source": "results/v4/deepseek_v4_pro_frozen_eval.json",
+    "comparison": "results/v4/final_three_model_comparison.json"
+  },
+  "engineering_decision": {
+    "model_layer": "v4.1 is the preferred Researcher candidate for further validation",
+    "project2_default": "keep deepseek-v4-pro; do not switch automatically",
+    "unverified": [
+      "broader end-to-end task quality",
+      "long-running service stability",
+      "online production generalization",
+      "strict infrastructure-normalized latency and cost"
+    ],
+    "evidence_that_would_change_default": [
+      "a broader frozen project-2 end-to-end task set that preserves the advantage",
+      "long-duration service reliability without regression",
+      "production-like monitoring with acceptable quality and failure rates"
+    ],
+    "project_scope_closed": true
+  },
   "cleanup": {
     "second_cleanup_deleted_bytes": 4947007428,
     "repository_before_bytes": 5096011052,
@@ -113,19 +171,25 @@
     "dataset_validation": "passed",
     "legacy_archive_hashes": "passed",
     "python_compile": "passed",
-    "unit_tests": "not_available_no_tests_directory",
+    "unit_tests": "6 focused tests passed",
     "adapter_reload_and_health": "passed",
-    "openai_compatibility_smoke": "passed"
+    "openai_compatibility_smoke": "passed",
+    "deepseek_checkpoint_resume": "passed",
+    "three_model_scoring_consistency": "passed",
+    "frozen_holdout_hash_recheck": "passed"
   },
   "allowed_claims": [
     "v4.1 improved independent hard and holdout full accuracy over the strongest Qwen3-4B base configuration",
     "the final repeated evaluation had zero unavailable-tool, unsupported-platform, and URL-or-ID hallucination violations",
-    "the Direct Adapter can be served through the OpenAI-compatible Researcher integration path"
+    "the Direct Adapter can be served through the OpenAI-compatible Researcher integration path",
+    "在冻结的自建窄域Researcher评测上超过DeepSeek V4 Pro"
   ],
   "disallowed_claims": [
     "project 2 now uses v4.1 as its default model",
     "v4.1 is proven superior to DeepSeek for end-to-end product quality or latency",
+    "v4.1 comprehensively outperforms DeepSeek",
     "the result proves online production generalization",
+    "local inference is already proven cheaper or faster in production",
     "a 4-bit merged model has been validated"
   ]
 }

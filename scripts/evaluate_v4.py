@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -292,6 +293,276 @@ def summarize(details: list[dict]) -> dict:
     }
 
 
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def write_json_atomic(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(path)
+
+
+def api_usage_summary(
+    details: list[dict], input_cost_per_million: float, output_cost_per_million: float
+) -> dict:
+    input_tokens = sum(item.get("usage", {}).get("input_tokens", 0) for item in details)
+    output_tokens = sum(item.get("usage", {}).get("output_tokens", 0) for item in details)
+    retries = sum(item.get("retries", 0) for item in details)
+    attempts = sum(item.get("attempts", 1) for item in details)
+    estimated_cost = (
+        input_tokens * input_cost_per_million / 1_000_000
+        + output_tokens * output_cost_per_million / 1_000_000
+    )
+    return {
+        "successful_requests": len(details),
+        "attempts": attempts,
+        "retries": retries,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": input_tokens + output_tokens,
+        "estimated_cost_usd": round(estimated_cost, 6),
+        "pricing_usd_per_million_tokens": {
+            "input": input_cost_per_million,
+            "output": output_cost_per_million,
+        },
+    }
+
+
+def load_api_checkpoint(
+    path: Path,
+    model: str,
+    prompt_variant: str,
+    max_tokens: int,
+    split_hashes: dict[str, str],
+) -> dict:
+    expected = {
+        "schema_version": 1,
+        "model": model,
+        "prompt_variant": prompt_variant,
+        "max_tokens": max_tokens,
+        "split_hashes": split_hashes,
+    }
+    if not path.exists():
+        return {
+            **expected,
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "completed": {},
+            "failed_attempts": [],
+        }
+    checkpoint = json.loads(path.read_text(encoding="utf-8"))
+    for key, value in expected.items():
+        if checkpoint.get(key) != value:
+            raise ValueError(
+                f"checkpoint mismatch for {key}: expected {value!r}, got {checkpoint.get(key)!r}"
+            )
+    checkpoint.setdefault("completed", {})
+    checkpoint.setdefault("failed_attempts", [])
+    return checkpoint
+
+
+def api_generate(
+    client,
+    model: str,
+    prompt: str,
+    max_tokens: int,
+    case_key: str,
+    checkpoint: dict,
+    checkpoint_path: Path,
+    max_retries: int,
+    retry_backoff_seconds: float,
+) -> tuple[str, float, dict, int]:
+    from openai import (
+        APIConnectionError,
+        APIStatusError,
+        APITimeoutError,
+        AuthenticationError,
+        RateLimitError,
+    )
+
+    for attempt in range(1, max_retries + 2):
+        started = time.perf_counter()
+        try:
+            response = client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.0,
+                top_p=1.0,
+                max_tokens=max_tokens,
+                extra_body={"thinking": {"type": "disabled"}},
+            )
+            latency_ms = (time.perf_counter() - started) * 1000
+            content = response.choices[0].message.content or ""
+            usage = response.usage
+            usage_payload = {
+                "input_tokens": int(getattr(usage, "prompt_tokens", 0) or 0),
+                "output_tokens": int(getattr(usage, "completion_tokens", 0) or 0),
+                "total_tokens": int(getattr(usage, "total_tokens", 0) or 0),
+            }
+            return str(content), latency_ms, usage_payload, attempt
+        except AuthenticationError:
+            event = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "case_key": case_key,
+                "attempt": attempt,
+                "error_type": "authentication_error",
+                "retryable": False,
+            }
+            checkpoint["failed_attempts"].append(event)
+            checkpoint["updated_at"] = datetime.now(timezone.utc).isoformat()
+            write_json_atomic(checkpoint_path, checkpoint)
+            raise RuntimeError("DeepSeek authentication failed; check the configured API key")
+        except (RateLimitError, APITimeoutError, APIConnectionError) as error:
+            retryable = attempt <= max_retries
+            event = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "case_key": case_key,
+                "attempt": attempt,
+                "error_type": type(error).__name__,
+                "retryable": retryable,
+            }
+            checkpoint["failed_attempts"].append(event)
+            checkpoint["updated_at"] = datetime.now(timezone.utc).isoformat()
+            write_json_atomic(checkpoint_path, checkpoint)
+            if not retryable:
+                raise RuntimeError(f"DeepSeek request failed after {attempt} attempts: {type(error).__name__}")
+        except APIStatusError as error:
+            status_code = int(getattr(error, "status_code", 0) or 0)
+            retryable = status_code >= 500 and attempt <= max_retries
+            event = {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "case_key": case_key,
+                "attempt": attempt,
+                "error_type": "api_status_error",
+                "status_code": status_code,
+                "retryable": retryable,
+            }
+            checkpoint["failed_attempts"].append(event)
+            checkpoint["updated_at"] = datetime.now(timezone.utc).isoformat()
+            write_json_atomic(checkpoint_path, checkpoint)
+            if not retryable:
+                raise RuntimeError(f"DeepSeek API returned non-retryable status {status_code}")
+        delay = retry_backoff_seconds * (2 ** (attempt - 1))
+        print(
+            f"[{case_key}] retrying after attempt {attempt}; wait={delay:.1f}s",
+            flush=True,
+        )
+        time.sleep(delay)
+    raise AssertionError("unreachable retry loop")
+
+
+def evaluate_api_splits(client, args, selected: list[str]) -> dict:
+    checkpoint_path = Path(args.checkpoint)
+    split_hashes = {split: sha256_file(SPLIT_FILES[split]) for split in selected}
+    checkpoint = load_api_checkpoint(
+        checkpoint_path,
+        args.api_model,
+        args.prompt_variant,
+        args.max_new_tokens,
+        split_hashes,
+    )
+    split_payloads = {}
+    all_details = []
+    for split in selected:
+        cases = json.loads(SPLIT_FILES[split].read_text(encoding="utf-8"))
+        if args.limit:
+            cases = cases[:args.limit]
+        details = []
+        for index, item in enumerate(cases, start=1):
+            case_key = f"{split}:{item['id']}"
+            if case_key in checkpoint["completed"]:
+                detail = checkpoint["completed"][case_key]
+                print(
+                    f"[{split} {index:02d}/{len(cases)}] RESUME "
+                    f"expected={item['expected_tool']} actual={detail['actual_tool']}",
+                    flush=True,
+                )
+            else:
+                prompt = build_researcher_prompt(
+                    item["input"], item["platforms"], item["capabilities"], args.prompt_variant
+                )
+                response, latency_ms, usage, attempts = api_generate(
+                    client,
+                    args.api_model,
+                    prompt,
+                    args.max_new_tokens,
+                    case_key,
+                    checkpoint,
+                    checkpoint_path,
+                    args.max_retries,
+                    args.retry_backoff_seconds,
+                )
+                actual, json_valid = strict_json(response)
+                scored = score_case(item, actual, json_valid)
+                detail = {
+                    "repeat": 1,
+                    "case": index,
+                    "id": item["id"],
+                    "input": item["input"],
+                    "platforms": item["platforms"],
+                    "capability_profile": item["capability_profile"],
+                    "intent_family": item["intent_family"],
+                    "expected_tool": item["expected_tool"],
+                    "expected_params": item["expected_params"],
+                    "raw_output": response,
+                    "latency_ms": round(latency_ms, 2),
+                    "usage": usage,
+                    "attempts": attempts,
+                    "retries": attempts - 1,
+                    **scored,
+                }
+                checkpoint["completed"][case_key] = detail
+                checkpoint["updated_at"] = datetime.now(timezone.utc).isoformat()
+                write_json_atomic(checkpoint_path, checkpoint)
+                status = "PASS" if detail["fully_correct"] else "FAIL"
+                print(
+                    f"[{split} {index:02d}/{len(cases)}] {status} "
+                    f"expected={item['expected_tool']} actual={detail['actual_tool']} "
+                    f"{latency_ms:.0f}ms tokens={usage['input_tokens']}+{usage['output_tokens']}",
+                    flush=True,
+                )
+            details.append(detail)
+        split_payloads[split] = {
+            "summary": summarize(details),
+            "usage": api_usage_summary(
+                details, args.input_cost_per_million, args.output_cost_per_million
+            ),
+            "details": details,
+        }
+        all_details.extend(details)
+    total_usage = api_usage_summary(
+        all_details, args.input_cost_per_million, args.output_cost_per_million
+    )
+    total_usage["failed_attempts"] = len(checkpoint["failed_attempts"])
+    return {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "label": args.label,
+        "provider": "deepseek_openai_compatible_api",
+        "model": args.api_model,
+        "prompt_variant": args.prompt_variant,
+        "generation": {
+            "temperature": 0.0,
+            "do_sample": False,
+            "max_tokens": args.max_new_tokens,
+            "thinking": {"type": "disabled"},
+            "repeats": 1,
+        },
+        "checkpoint": str(checkpoint_path),
+        "split_hashes": split_hashes,
+        "usage": total_usage,
+        "splits": split_payloads,
+    }
+
+
 def generate(tokenizer, model, prompt: str, max_new_tokens: int) -> tuple[str, float]:
     import torch
 
@@ -365,6 +636,16 @@ def main() -> None:
     parser.add_argument("--max-new-tokens", type=int, default=96)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--rescore-input")
+    parser.add_argument("--api", action="store_true")
+    parser.add_argument("--api-model", default="deepseek-v4-pro")
+    parser.add_argument("--api-key-env", default="DEEPSEEK_API_KEY")
+    parser.add_argument("--api-base-url-env", default="DEEPSEEK_BASE_URL")
+    parser.add_argument("--checkpoint", default="results/v4/deepseek_v4_pro_checkpoint.json")
+    parser.add_argument("--max-retries", type=int, default=2)
+    parser.add_argument("--retry-backoff-seconds", type=float, default=2.0)
+    parser.add_argument("--api-timeout-seconds", type=float, default=90.0)
+    parser.add_argument("--input-cost-per-million", type=float, default=0.435)
+    parser.add_argument("--output-cost-per-million", type=float, default=0.87)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
     if args.rescore_input:
@@ -414,6 +695,30 @@ def main() -> None:
     unknown = sorted(set(selected) - set(SPLIT_FILES))
     if unknown:
         parser.error(f"unknown splits: {unknown}")
+    if args.api:
+        if args.repeats != 1:
+            parser.error("API evaluation supports exactly one repeat")
+        if args.adapter:
+            parser.error("--adapter cannot be combined with --api")
+        api_key = os.getenv(args.api_key_env, "").strip()
+        base_url = os.getenv(args.api_base_url_env, "").strip()
+        if not api_key:
+            parser.error(f"missing API key in environment variable {args.api_key_env}")
+        if not base_url:
+            parser.error(f"missing API base URL in environment variable {args.api_base_url_env}")
+        from openai import OpenAI
+
+        client = OpenAI(api_key=api_key, base_url=base_url, timeout=args.api_timeout_seconds)
+        payload = evaluate_api_splits(client, args, selected)
+        output = Path(args.output)
+        write_json_atomic(output, payload)
+        print(json.dumps({
+            "label": payload["label"],
+            "output": str(output),
+            "usage": payload["usage"],
+            "summaries": {name: value["summary"] for name, value in payload["splits"].items()},
+        }, ensure_ascii=False, indent=2))
+        return
     if not Path(args.base_model).joinpath("config.json").exists():
         parser.error(f"base model is incomplete: {args.base_model}")
     if args.adapter and not Path(args.adapter).joinpath("adapter_config.json").exists():

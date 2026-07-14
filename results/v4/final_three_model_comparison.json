@@ -1,0 +1,405 @@
+{
+  "timestamp": "2026-07-14T03:42:26.012212+00:00",
+  "scope": "frozen project-2 Researcher tool-routing contract",
+  "frozen_eval": {
+    "counts": {
+      "hard": 40,
+      "holdout": 30,
+      "capability_holdout": 16
+    },
+    "hashes": {
+      "hard": "6fa61f39183a24ee8878bd8a9da8deddf34ce02f1ff66befda78185d4794d820",
+      "holdout": "8d7aadec4be13652acef07f0c55e2a001e84163a05ad8044dd20ba9f0ab0e2bc",
+      "capability_holdout": "bdded6e37026d7a3fb7254fc3ee772e05883627cc2db38b19340acf5b377b017"
+    },
+    "total": 86
+  },
+  "source_files": {
+    "qwen_base_contract": "results/v4/baseline_base_contract_rescored.json",
+    "qwen_v4_1_direct_adapter": "results/v4/v4_1_final_repeated.json",
+    "deepseek_v4_pro": "results/v4/deepseek_v4_pro_frozen_eval.json"
+  },
+  "fairness": {
+    "same_prompt_variant": "contract",
+    "same_case_ids": true,
+    "same_capability_state": true,
+    "same_tool_schema": true,
+    "same_scoring_core": true,
+    "qwen_base_vs_v4_1_meaning": "isolates the effect of the Direct Adapter on the same Qwen3-4B base",
+    "v4_1_vs_deepseek_meaning": "estimates narrow-domain Researcher candidate value, not general model superiority",
+    "project2_three_case_ab_meaning": "validates real Agent-path integration only"
+  },
+  "scoring_consistency": {
+    "passed": true,
+    "mismatches": []
+  },
+  "per_split": {
+    "hard": {
+      "case_count": 40,
+      "metrics": {
+        "tool_accuracy": {
+          "qwen_base_contract": 80.0,
+          "qwen_v4_1_direct_adapter": 95.0,
+          "deepseek_v4_pro": 90.0
+        },
+        "params_accuracy": {
+          "qwen_base_contract": 95.23809523809523,
+          "qwen_v4_1_direct_adapter": 95.23809523809523,
+          "deepseek_v4_pro": 100.0
+        },
+        "full_accuracy": {
+          "qwen_base_contract": 80.0,
+          "qwen_v4_1_direct_adapter": 95.0,
+          "deepseek_v4_pro": 90.0
+        },
+        "safe_accuracy": {
+          "qwen_base_contract": 80.0,
+          "qwen_v4_1_direct_adapter": 95.0,
+          "deepseek_v4_pro": 90.0
+        },
+        "json_valid_rate": {
+          "qwen_base_contract": 100.0,
+          "qwen_v4_1_direct_adapter": 100.0,
+          "deepseek_v4_pro": 100.0
+        },
+        "unavailable_tool_violation_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "unsupported_platform_violation_rate": {
+          "qwen_base_contract": 2.5,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 2.5
+        },
+        "hallucinated_id_or_url_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "capability_state_accuracy": {
+          "qwen_base_contract": 45.45454545454545,
+          "qwen_v4_1_direct_adapter": 90.9090909090909,
+          "deepseek_v4_pro": 72.72727272727273
+        }
+      },
+      "latency_ms": {
+        "qwen_base_contract": {
+          "mean": 1983.61025,
+          "p50": 2368.6,
+          "p95": 2979.46
+        },
+        "qwen_v4_1_direct_adapter": {
+          "mean": 2158.03775,
+          "p50": 2068.16,
+          "p95": 3778.49
+        },
+        "deepseek_v4_pro": {
+          "mean": 1118.0825,
+          "p50": 1100.96,
+          "p95": 1404.32
+        }
+      },
+      "error_types": {
+        "qwen_base_contract": {
+          "unsupported_platform_violation": 1,
+          "wrong_tool": 8
+        },
+        "qwen_v4_1_direct_adapter": {
+          "wrong_tool": 2
+        },
+        "deepseek_v4_pro": {
+          "unsupported_platform_violation": 1,
+          "wrong_tool": 4
+        }
+      }
+    },
+    "holdout": {
+      "case_count": 30,
+      "metrics": {
+        "tool_accuracy": {
+          "qwen_base_contract": 76.66666666666667,
+          "qwen_v4_1_direct_adapter": 100.0,
+          "deepseek_v4_pro": 73.33333333333333
+        },
+        "params_accuracy": {
+          "qwen_base_contract": 86.66666666666667,
+          "qwen_v4_1_direct_adapter": 93.33333333333333,
+          "deepseek_v4_pro": 93.33333333333333
+        },
+        "full_accuracy": {
+          "qwen_base_contract": 70.0,
+          "qwen_v4_1_direct_adapter": 96.66666666666667,
+          "deepseek_v4_pro": 70.0
+        },
+        "safe_accuracy": {
+          "qwen_base_contract": 70.0,
+          "qwen_v4_1_direct_adapter": 96.66666666666667,
+          "deepseek_v4_pro": 70.0
+        },
+        "json_valid_rate": {
+          "qwen_base_contract": 100.0,
+          "qwen_v4_1_direct_adapter": 100.0,
+          "deepseek_v4_pro": 100.0
+        },
+        "unavailable_tool_violation_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "unsupported_platform_violation_rate": {
+          "qwen_base_contract": 3.3333333333333335,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 3.3333333333333335
+        },
+        "hallucinated_id_or_url_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 3.3333333333333335
+        },
+        "capability_state_accuracy": {
+          "qwen_base_contract": 44.44444444444444,
+          "qwen_v4_1_direct_adapter": 100.0,
+          "deepseek_v4_pro": 33.33333333333333
+        }
+      },
+      "latency_ms": {
+        "qwen_base_contract": {
+          "mean": 2029.045,
+          "p50": 2264.77,
+          "p95": 2837.71
+        },
+        "qwen_v4_1_direct_adapter": {
+          "mean": 2018.6843333333334,
+          "p50": 1330.38,
+          "p95": 3875.63
+        },
+        "deepseek_v4_pro": {
+          "mean": 1192.1836666666666,
+          "p50": 1160.43,
+          "p95": 1450.84
+        }
+      },
+      "error_types": {
+        "qwen_base_contract": {
+          "unsupported_platform_violation": 1,
+          "wrong_params": 2,
+          "wrong_tool": 7
+        },
+        "qwen_v4_1_direct_adapter": {
+          "wrong_params": 1
+        },
+        "deepseek_v4_pro": {
+          "hallucinated_id_or_url": 1,
+          "unsupported_platform_violation": 1,
+          "wrong_params": 1,
+          "wrong_tool": 8
+        }
+      }
+    },
+    "capability_holdout": {
+      "case_count": 16,
+      "metrics": {
+        "tool_accuracy": {
+          "qwen_base_contract": 68.75,
+          "qwen_v4_1_direct_adapter": 87.5,
+          "deepseek_v4_pro": 87.5
+        },
+        "params_accuracy": {
+          "qwen_base_contract": 85.71428571428571,
+          "qwen_v4_1_direct_adapter": 71.42857142857143,
+          "deepseek_v4_pro": 100.0
+        },
+        "full_accuracy": {
+          "qwen_base_contract": 68.75,
+          "qwen_v4_1_direct_adapter": 87.5,
+          "deepseek_v4_pro": 87.5
+        },
+        "safe_accuracy": {
+          "qwen_base_contract": 68.75,
+          "qwen_v4_1_direct_adapter": 87.5,
+          "deepseek_v4_pro": 87.5
+        },
+        "json_valid_rate": {
+          "qwen_base_contract": 100.0,
+          "qwen_v4_1_direct_adapter": 100.0,
+          "deepseek_v4_pro": 100.0
+        },
+        "unavailable_tool_violation_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "unsupported_platform_violation_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "hallucinated_id_or_url_rate": {
+          "qwen_base_contract": 0.0,
+          "qwen_v4_1_direct_adapter": 0.0,
+          "deepseek_v4_pro": 0.0
+        },
+        "capability_state_accuracy": {
+          "qwen_base_contract": 68.75,
+          "qwen_v4_1_direct_adapter": 87.5,
+          "deepseek_v4_pro": 87.5
+        }
+      },
+      "latency_ms": {
+        "qwen_base_contract": {
+          "mean": 2027.314375,
+          "p50": 2378.43,
+          "p95": 2846.73
+        },
+        "qwen_v4_1_direct_adapter": {
+          "mean": 1859.00875,
+          "p50": 1252.97,
+          "p95": 3664.44
+        },
+        "deepseek_v4_pro": {
+          "mean": 1094.964375,
+          "p50": 989.61,
+          "p95": 1510.83
+        }
+      },
+      "error_types": {
+        "qwen_base_contract": {
+          "wrong_tool": 5
+        },
+        "qwen_v4_1_direct_adapter": {
+          "wrong_tool": 2
+        },
+        "deepseek_v4_pro": {
+          "wrong_tool": 2
+        }
+      }
+    }
+  },
+  "overall": {
+    "qwen_base_contract": {
+      "tool_accuracy": 76.74418604651163,
+      "params_accuracy": 90.69767441860465,
+      "full_accuracy": 74.4186046511628,
+      "safe_accuracy": 74.4186046511628,
+      "json_valid_rate": 100.0,
+      "unavailable_tool_violation_rate": 0.0,
+      "unsupported_platform_violation_rate": 2.3255813953488373,
+      "hallucinated_id_or_url_rate": 0.0,
+      "capability_state_accuracy": 55.55555555555556
+    },
+    "qwen_v4_1_direct_adapter": {
+      "tool_accuracy": 95.34883720930233,
+      "params_accuracy": 90.69767441860465,
+      "full_accuracy": 94.18604651162791,
+      "safe_accuracy": 94.18604651162791,
+      "json_valid_rate": 100.0,
+      "unavailable_tool_violation_rate": 0.0,
+      "unsupported_platform_violation_rate": 0.0,
+      "hallucinated_id_or_url_rate": 0.0,
+      "capability_state_accuracy": 91.66666666666666
+    },
+    "deepseek_v4_pro": {
+      "tool_accuracy": 83.72093023255815,
+      "params_accuracy": 97.67441860465115,
+      "full_accuracy": 82.55813953488372,
+      "safe_accuracy": 82.55813953488372,
+      "json_valid_rate": 100.0,
+      "unavailable_tool_violation_rate": 0.0,
+      "unsupported_platform_violation_rate": 2.3255813953488373,
+      "hallucinated_id_or_url_rate": 1.1627906976744187,
+      "capability_state_accuracy": 69.44444444444444
+    }
+  },
+  "overall_latency_ms": {
+    "qwen_base_contract": {
+      "mean": 2007.5905813953489,
+      "p50": 2338.98,
+      "p95": 2887.97
+    },
+    "qwen_v4_1_direct_adapter": {
+      "mean": 2053.7927906976743,
+      "p50": 1373.44,
+      "p95": 3875.63
+    },
+    "deepseek_v4_pro": {
+      "mean": 1139.6306976744186,
+      "p50": 1100.96,
+      "p95": 1500.43
+    }
+  },
+  "deepseek_api_usage": {
+    "successful_requests": 86,
+    "attempts": 86,
+    "retries": 0,
+    "input_tokens": 20000,
+    "output_tokens": 2360,
+    "total_tokens": 22360,
+    "estimated_cost_usd": 0.010753,
+    "pricing_usd_per_million_tokens": {
+      "input": 0.435,
+      "output": 0.87
+    },
+    "failed_attempts": 0
+  },
+  "cost_and_latency_notes": [
+    "DeepSeek cost uses the project-2 configured estimate of USD 0.435/M input tokens and USD 0.87/M output tokens.",
+    "Qwen latency is local RTX 4060 Laptop GPU inference; DeepSeek latency is remote API latency, so latency is descriptive rather than infrastructure-normalized.",
+    "The experiment does not establish a full local serving cost or production total cost of ownership."
+  ],
+  "relationship": {
+    "classification_rule": "exceeds only when v4.1 is no worse on every frozen split and better on at least one; close requires every split within 5 percentage points; otherwise below",
+    "full_accuracy_difference_pp_v4_1_minus_deepseek": {
+      "hard": 5.0,
+      "holdout": 26.66666666666667,
+      "capability_holdout": 0.0
+    },
+    "classification": "exceeds_on_frozen_narrow_eval",
+    "allowed_statement": "在冻结的自建窄域Researcher评测上超过DeepSeek V4 Pro。",
+    "engineering_decision": {
+      "model_layer": "v4.1 becomes the preferred Researcher candidate for further validation",
+      "project2_integration": "keep DeepSeek as the project-2 default; do not switch automatically",
+      "unverified": [
+        "broader end-to-end task quality",
+        "long-running service stability",
+        "online production generalization",
+        "strict infrastructure-normalized latency and cost"
+      ],
+      "evidence_that_would_change_decision": [
+        "a broader frozen project-2 end-to-end task set",
+        "long-duration service reliability results",
+        "production-like monitoring showing stable quality and failure rates"
+      ]
+    }
+  },
+  "error_analysis": {
+    "deepseek": {
+      "error_types": {
+        "hallucinated_id_or_url": 1,
+        "unsupported_platform_violation": 2,
+        "wrong_params": 1,
+        "wrong_tool": 14
+      },
+      "notable": "DeepSeek was strongest on parameter accuracy but had more wrong-tool errors on holdout plus one unsupported-platform call and one hallucinated URL/ID event."
+    },
+    "qwen_v4_1": {
+      "error_types": {
+        "wrong_params": 1,
+        "wrong_tool": 4
+      },
+      "notable": "v4.1 retained zero unavailable-tool, unsupported-platform, and URL/ID hallucination violations, but capability-holdout parameter accuracy remained weaker than DeepSeek."
+    }
+  },
+  "claim_boundaries": {
+    "allowed": [
+      "在冻结的自建窄域Researcher评测上超过DeepSeek V4 Pro。",
+      "Qwen Base vs v4.1 demonstrates that the LoRA Direct Adapter materially improved the frozen routing task."
+    ],
+    "not_allowed": [
+      "v4.1 comprehensively outperforms DeepSeek",
+      "project 2 has switched its default Researcher model",
+      "the offline result proves online product superiority",
+      "local inference is already proven cheaper or faster in production"
+    ]
+  }
+}

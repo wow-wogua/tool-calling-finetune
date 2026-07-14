@@ -110,6 +110,27 @@ v1–v3 已证明“有 chosen/rejected”不等于会改善独立边界。v4.1 
 
 两组 partial 的共同原因是 B 站榜单关键词无匹配或 RAG 空结果。因此 A/B 证明接入兼容和候选价值，不证明产品效果全面优于 DeepSeek。
 
+## DeepSeek V4 Pro 同集基线
+
+为了回答 v4.1 与项目二默认 Researcher 模型处于什么水平，在不改训练、不改评测集的前提下，对 hard40、holdout30、capability16 全部 86 条调用 `deepseek-v4-pro`。
+
+公平条件：同一个 `contract` Prompt、能力状态、工具 Schema、用户输入和评分核心；`temperature=0`、`max_tokens=96`、thinking disabled。逐条 checkpoint 保存，最终 86 次成功、0 失败、0 重试，输入 20,000 token、输出 2,360 token，估算成本 `$0.010753`。
+
+| 数据集 | Qwen Base contract full | v4.1 full | DeepSeek full |
+|---|---:|---:|---:|
+| hard40 | 80.00% | **95.00%** | 90.00% |
+| holdout30 | 70.00% | **96.67%** | 70.00% |
+| capability16 | 68.75% | **87.50%** | **87.50%** |
+| 加权总体 | 74.42% | **94.19%** | 82.56% |
+
+DeepSeek 的参数准确率总体更高（97.67% vs v4.1 90.70%），但工具准确率更低（83.72% vs 95.35%）。它更容易在能力、平台或关键参数不满足时仍调用 RAG/搜索/转写：总体不支持平台违规 2.33%，URL/ID 幻觉 1.16%；v4.1 三类安全违规均为 0。
+
+结论规则要求 v4.1 在所有冻结 split 都不低于 DeepSeek，且至少一个 split 更高，才归类为“超过”。本次 hard 高 5.00 个百分点、holdout 高 26.67 个百分点、capability 持平，因此允许说：
+
+> 在冻结的自建窄域 Researcher 评测上超过 DeepSeek V4 Pro。
+
+这不推翻项目二 3 条 A/B 的边界，也不等于全面超过 DeepSeek。工程上把 v4.1 提升为优先候选，但项目二默认不自动切换；需要更大的端到端冻结任务集、长期稳定性和生产式监控才能改变默认决策。
+
 ## 失败实验如何影响设计
 
 - 内置高分但 hard 不提升：评测必须先冻结并分层。
@@ -118,3 +139,6 @@ v1–v3 已证明“有 chosen/rejected”不等于会改善独立边界。v4.1 
 - 量化 merge 输出不可信：主路径改为 Direct Adapter。
 - 参数越界：OpenAI 服务层按项目二 Schema 做确定性校验。
 - A/B partial：区分模型路由错误与外部工具空结果。
+- 强基线缺失：加入 DeepSeek 同集评测，把“LoRA 是否有效”和“是否值得替换 API 模型”拆成两个问题。
+
+至此项目三闭环结束：问题来源、契约、数据、训练、独立评测、服务化、Agent 接入、强基线和工程决策均已形成证据链，不再通过新增模型或修改 holdout 追分。
