@@ -75,7 +75,7 @@ combined SHA-256：`6b77b03e0dde15c06e4f9b5a2a639e26db2bcc86ee9557b0c3616d01c55c
 
 硬件：RTX 4060 Laptop 8GB。
 
-基座：`C:\Users\0\.cache\modelscope\Qwen\Qwen3-4B`。
+基座：本机已有的 Qwen3-4B 缓存，通过 `BASE_MODEL_PATH` 指定。
 
 v4：
 

@@ -2,10 +2,10 @@
 
 ## 边界与基线
 
-- 仓库：`D:\internship\tool-calling-finetune`
+- 仓库：`tool-calling-finetune` 仓库根目录
 - 清理前仓库总占用：11,528,335,466 bytes（10.737 GiB）
 - 清理前 `outputs/`：11,525,651,829 bytes（10.734 GiB）
-- 外部基座：`C:\Users\0\.cache\modelscope\Qwen\Qwen3-4B`，8,060,926,179 bytes（7.507 GiB）
+- 外部基座：本机已有的 Qwen3-4B 缓存（通过 `BASE_MODEL_PATH` 指定），8,060,926,179 bytes（7.507 GiB）
 - 外部基座不属于清理范围，不得删除或重复下载。
 - v4 完成前保留所有旧 Adapter；先用 v3 Direct Adapter 完成同条件基线。
 

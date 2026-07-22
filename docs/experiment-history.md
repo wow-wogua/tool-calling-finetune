@@ -110,6 +110,19 @@ v1–v3 已证明“有 chosen/rejected”不等于会改善独立边界。v4.1 
 
 两组 partial 的共同原因是 B 站榜单关键词无匹配或 RAG 空结果。因此 A/B 证明接入兼容和候选价值，不证明产品效果全面优于 DeepSeek。
 
+## 2026-07-20：真实 Arq Worker 可选接入
+
+前述 3 条只读 A/B 保留为历史兼容性证据。后续在不修改项目三训练代码、推理代码、数据、Prompt、Schema、模型、Adapter、checkpoint 和评测结果的前提下，将现有 Qwen3-4B + v4.1 Direct Adapter 服务接入项目二真实 Arq Worker：
+
+- `USE_FINETUNED_MODEL=false` 仍是默认值；显式启用时只覆盖 Researcher。
+- App 与 Worker 共用路由初始化，Planner、Analyst、Writer 仍走 DeepSeek V4 Pro，MiMo ASR 不变。
+- `qwen3-tool-calling` 只是 OpenAI 兼容服务模型 ID，不是另一个模型版本。
+- 有效 canary 中 Planner 调用 DeepSeek 1 次，Researcher 本地请求 2 次且 HTTP `200/200`，JSON 解析 2 次，`invalid_params=0`。
+- 最终 `partial / EVIDENCE_INSUFFICIENT` 是外部工具返回 `empty` 导致，不是 Worker 或模型路由失败。
+- true→false 回退后 Researcher 覆盖清除，本地请求数不再增长。
+
+该证据只覆盖一次有限 canary，没有证明生产稳定性、并发、成本、延迟或产品质量更优；没有替换项目二默认 DeepSeek，也没有重新训练、继续微调、合并 Adapter 或重新量化。
+
 ## DeepSeek V4 Pro 同集基线
 
 为了回答 v4.1 与项目二默认 Researcher 模型处于什么水平，在不改训练、不改评测集的前提下，对 hard40、holdout30、capability16 全部 86 条调用 `deepseek-v4-pro`。
